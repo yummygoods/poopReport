@@ -1,1 +1,2 @@
-*project starter template*
+*poop💩report*
+an app to prevent poopcidents
