@@ -1,9 +1,12 @@
 package com.yummygoods.poopReport;
 
+import java.time.LocalDateTime;
+
 public class DogEventDto {
     public Integer id;
     public Integer dog_id;
     public String event_type;
+    public LocalDateTime entry_time;
 
 
     public DogEventDto(Integer id, Integer dog_id, String event_type) {
