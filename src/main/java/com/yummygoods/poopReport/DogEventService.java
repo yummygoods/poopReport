@@ -3,6 +3,8 @@ package com.yummygoods.poopReport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class DogEventService {
     private final DogEventRepository dogEventRepository;
@@ -25,5 +27,15 @@ public class DogEventService {
     }
 
     public void saveDogEvent(DogEvent event) {
+    }
+
+    public DogEvent findById(Integer id) {
+        Optional<DogEvent> dogEvent = dogEventRepository.findById(id);
+        boolean isPresent = dogEvent.isPresent();
+        if (isPresent) {
+            return dogEvent.get();
+        } else {
+            return null;
+        }
     }
 }
