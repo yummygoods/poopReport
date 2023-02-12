@@ -23,4 +23,7 @@ public class DogEventService {
     public Iterable<DogEvent> getAll() {
         return dogEventRepository.findAll();
     }
+
+    public void saveDogEvent(DogEvent event) {
+    }
 }

@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/events")
 public class DogEventController {
     final DogEventRepository dogEventRepository;
     final DogEventService dogEventService;
@@ -16,7 +16,7 @@ public class DogEventController {
         this.dogEventRepository = dogEventRepository;
     }
 
-    @GetMapping(value = "/events/all")
+    @GetMapping(value = "/all")
     public Iterable<DogEvent> getAllDogEvents() {
 
         return dogEventService.getAll();
@@ -24,7 +24,8 @@ public class DogEventController {
     }
 
     @PostMapping(value = "/events")
-    public DogEvent save(DogEventDto dogEventDto) {
+    @ResponseBody
+    public DogEvent save(@RequestBody DogEventDto dogEventDto) {
         return dogEventService.save(DogEvent.createDogEvent(dogEventDto)
         );
     }
