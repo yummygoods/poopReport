@@ -32,9 +32,13 @@
 
     <form class="container" enctype="multipart/form-data" id="poopForm">
 
-        <label for="name">dog name</label>
-        <input name="name" autocomplete="off" type="text" id="name"/>
-
+        <label for="dog_id">dog name</label>
+        <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
+        <select name="dog_id" id="dog_id">
+            <option value="5">Zero</option>
+            <option value="6">Scooter</option>
+            <option value="7">Gizmo</option>
+        </select>
         <section class="checkboxes">
             <label for="poop">did they poop?</label>
             <input type="checkbox" name="event-type" id="poop"/>
