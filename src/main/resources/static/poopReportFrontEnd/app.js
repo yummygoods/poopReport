@@ -7,11 +7,11 @@ function reset() {
   //.................................tells the dom to remove the user's text input
   document.getElementById('dog_id').value = '';
   document.getElementById('poop').checked = '';
-   document.getElementById('pee').checked = '';
+  document.getElementById('pee').checked = '';
   document.getElementById('notes').value = '';
   //.................................resets the values stored in the variables
   dog_id = '';
-  poop ='';
+  poop = '';
   pee = '';
   notes = '';
 };
@@ -27,11 +27,11 @@ poopForm.addEventListener('submit', function (event) {
   event.preventDefault();
   addFromForm();
   reset();
-/*debugger;*/
-console.log(event.target.elements.dog_id.value);
-console.log(event.target.elements.poop.checked);
-console.log(event.target.elements.pee.checked);
-console.log(event.target.elements.notes.value);
+  /*debugger;*/
+  console.log(event.target.elements.dog_id.value);
+  console.log(event.target.elements.poop.checked);
+  console.log(event.target.elements.pee.checked);
+  console.log(event.target.elements.notes.value);
 });
 
 console.log("now listening for submit button");
@@ -61,9 +61,9 @@ function addFromForm() {
   // .................................takes input values and saves as variables name + notes
   let dog_id = document.getElementById('dog_id').value;
   console.log("this should print the value from user input in dog name (dog_id)  field:", dog_id);
-/*debugger;*/
+  /*debugger;*/
 
- let poop = document.getElementById('poop').checked;
+  let poop = document.getElementById('poop').checked;
   console.log("this should print the the boolean value from user input in poop field: ", poop);
 
   let pee = document.getElementById('pee').checked;
@@ -97,8 +97,8 @@ function sendDogEventToServer(dogEventFromForm) {
 
     'http://localhost:8080/events',
     {
-     /* method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(DogEvent)*/
-        method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dogEventFromForm)
+      /* method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(DogEvent)*/
+      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dogEventFromForm)
     }
   ).then(response => {
 
@@ -109,7 +109,36 @@ function sendDogEventToServer(dogEventFromForm) {
     }
     throw new Error('Request failed!');
   })
-}; 
+};
 
- //.................................turns the new dogEvent object into json and sends as request body
+//.................................turns the new dogEvent object into json and sends as request body
 ///////////////////// end of function /////////////////////
+
+
+//pasted from final project
+//function to populate html with json of item retrieved from database
+
+function displayPoopReport(dogEvent) {
+/*  const poopReportHTML = document.getElementById("poopReport");
+  poopReportHTML.appendChild
+  const itemsContainer = document.getElementById("list-items");
+  itemsContainer.innerHTML += itemHTML;*/
+}
+
+
+// call to  get all dogEvents, turn them into json, and use that info to populate card html
+fetch('/events/all', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+
+}).then(response => response.json()).then(dogEventsArray => {
+console.log(dogEventsArray);
+  //for (let event of dogEventsArray) {
+    // displayPoopReport(dogEvents);
+  }
+).catch((error) => {
+  console.error('Error:', error);
+}
+);
