@@ -34,7 +34,7 @@ console.log("now listening for submit button");
 /*++++++++++++++++++++++++++++++++++++++++++++++++
 class to capture form input in an object
 ++++++++++++++++++++++++++++++++++++++++++++++++*/
-class Track {
+class DogEvent {
   constructor(name, notes) {
     this.name = name;
     this.notes = notes;
@@ -53,6 +53,12 @@ function addFromForm() {
   // .................................takes input values and saves as variables name + notes
   let name = document.getElementById('name').value;
   console.log("this should print the value from user input in Name field:", name);
+
+ let poop = document.getElementById('poop').checked;
+  console.log("this should print the the boolean value from user input in poop field: ", poop);
+
+ let poop = document.getElementById('pee').checked;
+  console.log("this should print the the boolean value from user input in pee field: ", pee);
 
   let notes = document.getElementById('notes').value;
   console.log("this should print the value from user input in Notes field: ", notes);
