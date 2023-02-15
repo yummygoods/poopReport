@@ -22,7 +22,7 @@ public class DogEventController {
         return dogEventService.getAll();
     }
 
-    // @RequestMapping("/events")
+
     @PostMapping(value = "/events")
     @ResponseBody
     public DogEvent save(@RequestBody DogEventDto dogEventDto) {
