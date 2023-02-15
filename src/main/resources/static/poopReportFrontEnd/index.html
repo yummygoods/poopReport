@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>poop💩report</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
-    <script src="app.js" defer></script>
+
 </head>
 <body>
 <a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
@@ -30,7 +30,7 @@
     <span>💩</span>
 
 
-    <form class="container" enctype="multipart/form-data">
+    <form class="container" enctype="multipart/form-data" id="poopForm">
 
         <label for="name">dog name</label>
         <input name="name" autocomplete="off" type="text" id="name"/>
@@ -48,7 +48,7 @@
 
         <label for=imageUpload>select image file:</label>
         <input name="image" type="file" id="imageUpload" accept=".jpg, .jpeg, .png"/>
-        <button id="button" type="submit">SUBMIT</button>
+        <button id="submit" type="submit">SUBMIT</button>
 
         <span class="smol">thanks, you're a doll.</span>
 
@@ -73,5 +73,7 @@
         </ul>
     </nav>
 </footer>
+<script src="app.js" defer></script>
 </body>
+
 </html>
