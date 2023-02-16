@@ -204,3 +204,22 @@ border-color: rgb(200, 237, 250);
 
 
 }
+
+th, td, caption{
+padding: .5rem;
+border: solid;
+border-width: 4px;
+border-color: rgb(200, 237, 250);
+
+}
+
+table{
+margin-bottom: 1rem;
+border-collapse: collapse;
+}
+.dogCol{
+background-color: ;
+}
+
+th{
+background-color: green}
