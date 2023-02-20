@@ -120,13 +120,13 @@ function sendDogEventToServer(dogEventFromForm) {
 
 function displayPoopReport(dogEvent) {
 /*  const poopReportHTML = document.getElementById("poopReport");
-  poopReportHTML.appendChild
+  poopReportHTML.appendChild(table); 
   const itemsContainer = document.getElementById("list-items");
   itemsContainer.innerHTML += itemHTML;*/
 }
 
 
-// call to  get all dogEvents, turn them into json, and use that info to populate card html
+// call to  get dogEvent just submitted + turn it into json
 fetch('/events/all', {
   method: 'GET',
   headers: {
@@ -138,6 +138,8 @@ console.log(dogEventsArray);
   //for (let event of dogEventsArray) {
     // displayPoopReport(dogEvents);
   }
+
+  //how do i 
 ).catch((error) => {
   console.error('Error:', error);
 }
