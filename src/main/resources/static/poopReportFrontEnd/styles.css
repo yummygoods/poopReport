@@ -2,6 +2,8 @@
   Josh's Custom CSS Reset
   https://www.joshwcomeau.com/css/custom-css-reset/
 */
+
+
 *,
 *::before,
 *::after {
@@ -46,8 +48,9 @@ body {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
 
-	font-size: 17px;
-	padding: 8px;
+	font-size: 1rem;
+	padding: 4rem;
+
 }
 
 * {
@@ -128,3 +131,95 @@ img{
 #header-text {
   text-decoration: none;
 }
+
+.container {
+    align-items: center;
+    padding: 1rem;
+    border-radius: 3px;
+    text-align: center;
+
+      display: flex;
+
+      flex-flow: column ;
+      align-content: center;
+
+    }
+  }
+
+  ::placeholder {
+    color: rgba(245, 166, 97, .75);
+    text-align: center;
+    font-size: .75rem;
+  }
+
+
+
+
+  form {
+    width: 20rem;
+    margin: auto;
+    display: flex;
+ border: solid;
+ border-color: rgb(200, 237, 250);
+  }
+  input, textarea {
+
+  min-width: 6rem;
+  display: block;
+  border-style: solid;
+    border-color: gray;
+    border-width: 2px;
+    margin-top: .5rem;
+  }
+
+   label{
+  margin-top: 1rem;
+
+
+
+   }
+
+  button {
+    color: white;
+    background-color: purple;
+    border: none;
+    border-radius: 1px;
+    margin-top: 1rem;
+
+
+  }
+
+
+.smol{
+
+  font-size: .75rem ;
+  padding: .5rem;
+  color: black;
+}
+
+.checkboxes{
+display: grid;
+border: solid;
+border-color: rgb(200, 237, 250);
+
+
+}
+
+th, td, caption{
+padding: .5rem;
+border: solid;
+border-width: 4px;
+border-color: rgb(200, 237, 250);
+
+}
+
+table{
+margin-bottom: 1rem;
+border-collapse: collapse;
+}
+.dogCol{
+background-color: ;
+}
+
+th{
+background-color: lightcyan}
