@@ -1,45 +1,61 @@
-console.log("oh hi this should show up");
-/*++++++++++++++++++++++++++++++++++++++++++++++++
- function to reset after submit
-++++++++++++++++++++++++++++++++++++++++++++++++*/
+console.log("oh hi");
+/*
+TO DO
+now:
+       get the dog names in there instead of dog id
+   ✅ Make the time look less annoying (it is local time though!)
+   ✅ Change true and false into 'yes or no' and maybe show it in red or green or show an x or checkmark?
+   ✅ Show in reverse chron order
+      hide table and make it show when ready
+      fix header responsiveness
+      add intro text
+      move dog column in
+      add back in error handling
 
+
+  🔒later:
+   add user
+   make dropdown populate with user's dogs
+   Make the request just for that user's dogs
+   above form, show last update time?
+   add 'updated by user' info
+
+
+/*//////////////////// function to reset form after submit ///////////////////*/
 function reset() {
-  //.................................tells the dom to remove the user's text input
+  /////// tells the dom to remove the user's text input
   document.getElementById('dog_id').value = '';
   document.getElementById('poop').checked = '';
   document.getElementById('pee').checked = '';
   document.getElementById('notes').value = '';
-  //.................................resets the values stored in the variables
+  /////// resets the values stored in the variables
   dog_id = '';
   poop = '';
   pee = '';
   notes = '';
 };
+/*//////////////////// end of reset function ///////////////////*/
 
 
-///////////////////// end of function ////////////////////
-
-
-//event listener to capture form data on submit
-
+/*///////// event listener to capture form data on submit /////////*/
 let poopForm = document.getElementById('poopForm');
 poopForm.addEventListener('submit', function (event) {
   event.preventDefault();
+  // calls function that takes the user input and makes an object
   addFromForm();
   reset();
   /*debugger;*/
-  console.log(event.target.elements.dog_id.value);
+/* console.log(event.target.elements.dog_id.value);
   console.log(event.target.elements.poop.checked);
   console.log(event.target.elements.pee.checked);
-  console.log(event.target.elements.notes.value);
+  console.log(event.target.elements.notes.value);*/
 });
-
 console.log("now listening for submit button");
+/*//////////////////// end of event listener ///////////////////*/
 
 
-/*++++++++++++++++++++++++++++++++++++++++++++++++
-class to capture form input in an object
-++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+////////// class to capture form input in an object //////////
 class DogEvent {
   constructor(dog_id, poop, pee, notes) {
     this.dog_id = dog_id;
@@ -48,99 +64,167 @@ class DogEvent {
     this.notes = notes;
   }
 }
-
 console.log("this should print the newly created class DogEvent: ", DogEvent);
+///////////////////// end of class ////////////////////
 
 
 
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++
-function to take form input and turn into object
-++++++++++++++++++++++++++++++++++++++++++++++++*/
+////////// function to take form input and turn into object //////////
 function addFromForm() {
-  // .................................takes input values and saves as variables name + notes
+  /////// takes form input values and assigns the data to corresponding variables
   let dog_id = document.getElementById('dog_id').value;
-  console.log("this should print the value from user input in dog name (dog_id)  field:", dog_id);
+  console.log("this should print the selected dog's id: ", dog_id);
+
   /*debugger;*/
 
   let poop = document.getElementById('poop').checked;
   console.log("this should print the the boolean value from user input in poop field: ", poop);
 
   let pee = document.getElementById('pee').checked;
-  console.log("this should print the the boolean value from user input in pee field: ", pee);
+  console.log("peed? ", pee);
 
   let notes = document.getElementById('notes').value;
-  console.log("this should print the value from user input in Notes field: ", notes);
+  console.log("user notes: ", notes);
 
-  // .................................instantiates new Track object and passes variables defined above as arguments into the constructor
+  /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
   const dogEventFromForm = new DogEvent(dog_id, poop, pee, notes);
   console.log("this should print the new dogEvent object with values:", dogEventFromForm);
 
-  // .................................calls function to take the new track object and make a post request with it
+  /////// calls function to take the new object and make a post request with it
   sendDogEventToServer(dogEventFromForm);
-
-
-
 }
 ///////////////////// end of function /////////////////////
 
 
 
-
-/*++++++++++++++++++++++++++++++++++++++++++++++++
-function to send the new dogEvent object to the db
-++++++++++++++++++++++++++++++++++++++++++++++++*/
-
-/*function sendDogEventToServer(DogEvent) {*/
+////////// function to send the new dogEvent object to the db //////////
 function sendDogEventToServer(dogEventFromForm) {
   fetch(
-
     'http://localhost:8080/events',
     {
-      /* method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(DogEvent)*/
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(dogEventFromForm)
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      // takes the javascript object and turns it into a json string
+      // fetch needs to be in strings, but the server will interpret the json string as json
+      body: JSON.stringify(dogEventFromForm)
     }
   ).then(response => {
-
-
     if (response.ok) {
       console.log("omg did this work? if so, the response should be here: ", response);
       return response.json();
     }
-    throw new Error('Request failed!');
+    throw new Error('ugh, the request failed');
   })
 };
-
-//.................................turns the new dogEvent object into json and sends as request body
 ///////////////////// end of function /////////////////////
 
 
-//pasted from final project
-//function to populate html with json of item retrieved from database
 
-function displayPoopReport(dogEvent) {
-/*  const poopReportHTML = document.getElementById("poopReport");
-  poopReportHTML.appendChild(table); 
-  const itemsContainer = document.getElementById("list-items");
-  itemsContainer.innerHTML += itemHTML;*/
+///////////////////function to populate html with json retrieved from database////////////////
+function addToPoopReport(event) {
+
+//grab the table body by id to use at the end
+  const tableBody = document.getElementById("poopReport");
+ //make new row
+  const row = document.createElement('tr');
+  //make the cell
+  const dog_idCell = document.createElement('td');
+  //🧴🪣 it puts the data in the cell
+  dog_idCell.textContent = event.dog_id;
+  //insert the new cell into the row
+  row.appendChild(dog_idCell);
+
+
+// parses the entry time into a Date object
+const timestamp = new Date(event.entry_time);
+//time pulled from timestamp and inserted into time column
+  const timeCell = document.createElement('td');
+  const time = timestamp.toLocaleTimeString("en-US", { hour: 'numeric', minute: 'numeric', hour12: true });
+    timeCell.textContent = time;
+      row.appendChild(timeCell);
+
+
+    //day and date pulled from timestamp
+  const dayDateCell = document.createElement('td');
+  const dayDate = timestamp.toLocaleDateString("en-US", { weekday: 'short', month: 'numeric', day: 'numeric' });
+    dayDateCell.textContent = dayDate;
+  row.appendChild(dayDateCell);
+
+//poop
+  const poopCell = document.createElement('td');
+  if (event.poop == true){
+   poopCell.textContent = "✅" ;
+  }
+else{
+poopCell.textContent = "❌" ;
+}
+    row.appendChild(poopCell);
+
+/*look up a way to do that for each yes/no without repeating
+maybe a function within that works on all booleans?
+like if (datatype === boolean) ? or just get right to the if value === true/false ?
+then make cell, textContent the check or x and  appendchild*/
+
+
+//pee
+      const peeCell = document.createElement('td');
+        if (event.pee == true){
+         peeCell.textContent = "✅" ;
+        }
+      else{
+     peeCell.textContent = "❌" ;
+      }
+        row.appendChild(peeCell);
+
+//notes
+    const notesCell = document.createElement('td');
+         notesCell.textContent = event.notes;
+          row.appendChild(notesCell);
+
+//insert new row with data into table body
+ tableBody.appendChild(row);
+
+ //call function to change the order
+ //try to find how to do it once all data has been populated, rather than after each row?
+reverseChron();
+}
+///////////////////////end of function/////////////////////
+
+
+///////////////////////function to reverse the row order so most recent shows at the top/////////////////////
+function reverseChron(){
+
+ const tableBody = document.getElementById("poopReport");
+ // make an array of the rows
+ const reverseChronRows = Array.from(tableBody.rows);
+ // reverse the array
+ reverseChronRows.reverse();
+ // reset the table body content to an empty string
+ tableBody.innerHTML = '';
+ // Append the reversed rows to the table body (read up on this more)
+ reverseChronRows.forEach(row => tableBody.appendChild(row));
 }
 
 
-// call to  get dogEvent just submitted + turn it into json
-fetch('/events/all', {
+// call to  get all dogEvents (will make this just for the user's dogs,  once i add users)
+fetch('http://localhost:8080/events/all',
+{
   method: 'GET',
   headers: {
-    'Content-Type': 'application/json',
-  },
-
-}).then(response => response.json()).then(dogEventsArray => {
-console.log(dogEventsArray);
-  //for (let event of dogEventsArray) {
-    // displayPoopReport(dogEvents);
-  }
-
-  //how do i 
-).catch((error) => {
-  console.error('Error:', error);
+  'Content-Type': 'application/json' },
 }
-);
+)
+.then((response) => response.json())
+.then(dogEventsArray => {
+// loops through the event entries
+ for (let event of dogEventsArray) {
+ //console.log("TESTING ARRAY dog id = " + event.dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
+ //calls the function that populates the html with table/data
+addToPoopReport(event);
+ //debugger;
+ };
+});
+
+//  }).catch((error) => {
+ // console.error('Error:', error);
+//}

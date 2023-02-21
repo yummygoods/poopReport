@@ -55,13 +55,13 @@
         <label for="notes">notes:</label>
         <textarea name="notes" id="notes"></textarea>
 
-        <label for="imageUpload">select image file:</label>
-        <input
+        <!-- <label for="imageUpload">select image file:</label>
+       <input
                 name="image"
                 type="file"
                 id="imageUpload"
                 accept=".jpg, .jpeg, .png"
-        />
+        />-->
         <button id="submit" type="submit">SUBMIT</button>
 
         <!--       <span class="smol">thanks, you're a doll.</span>-->
@@ -75,20 +75,22 @@
     <!--  <h3>✨💩✨</h3>-->
     <br/>
     <section>
-        <table id="poopReport">
-    
+        <table>
+
             <caption>✨Poop💩Report✨</caption>
             <thead>
             <tr #tableHeading>
                 <th class="dogCol">dog</th>
                 <th>time</th>
+                <th>date</th>
                 <th>pooped</th>
                 <th>peed</th>
                 <th>notes</th>
             </tr>
             </thead>
-    <tbody>
-            <tr #dog1Row>
+            <tbody id="poopReport">
+
+            <!--<tr #dog1Row>
                 <td class="dogCol">gizmo</td>
                 <td class="timeCol"></td>
                 <td class="poopCol"></td>
@@ -108,8 +110,8 @@
                 <td class="poopCol"></td>
                 <td class="peeCol"></td>
                 <td class="notesCol"></td>
-            </tr>
-        </tbody>
+            </tr>-->
+            </tbody>
         </table>
     </section>
 </main>
