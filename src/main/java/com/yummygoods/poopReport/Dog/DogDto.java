@@ -1,4 +1,4 @@
-package com.yummygoods.poopReport;
+package com.yummygoods.poopReport.Dog;
 
 public class DogDto {
     public Integer id;

@@ -11,6 +11,7 @@ now:
       add intro text
       move dog column in
       add back in error handling
+      add info to readme
 
 
   🔒later:

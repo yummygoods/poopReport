@@ -1,4 +1,4 @@
-package com.yummygoods.poopReport;
+package com.yummygoods.poopReport.DogEvent;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

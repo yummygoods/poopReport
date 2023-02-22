@@ -1,10 +1,8 @@
-package com.yummygoods.poopReport;
+package com.yummygoods.poopReport.Dog;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-
 @Repository
-public interface DogEventRepository extends JpaRepository<DogEvent, Integer> {
-
+public interface DogRepository extends JpaRepository<Dog, Integer> {
 }
