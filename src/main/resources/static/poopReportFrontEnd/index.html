@@ -38,18 +38,27 @@
     <span>💩</span>
 
     <form class="container" enctype="multipart/form-data" id="poopForm">
-        <label for="dog_id">dog name</label>
+        <label for="user_dog_id">dog name</label>
         <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
-        <select name="dog_id" id="dog_id">
+        <select name="user_dog_id" id="user_dog_id">
+            <!--need to figure out how to populate with user's dogs-->
             <option value="5">Zero</option>
             <option value="6">Scooter</option>
             <option value="7">Gizmo</option>
         </select>
         <section class="checkboxes">
+            <label for="walk">did they walk?</label>
+            <input type="checkbox" id="walk"/>
             <label for="poop">did they poop?</label>
-            <input type="checkbox" name="event-type" id="poop"/>
+            <input type="checkbox" id="poop"/>
             <label for="pee">did they pee?</label>
-            <input type="checkbox" name="event-type" id="pee"/>
+            <input type="checkbox" id="pee"/>
+            <label for="was_fed">were they fed?</label>
+            <input type="checkbox" id="was_fed"/>
+            <label for="ate">did they eat it?</label>
+            <input type="checkbox" id="ate"/>
+            <label for="rx">did they take their rx?</label>
+            <input type="checkbox" id="rx"/>
         </section>
 
         <label for="notes">notes:</label>
@@ -79,12 +88,16 @@
 
             <caption>✨Poop💩Report✨</caption>
             <thead>
-            <tr #tableHeading>
+            <tr id="tableHeading">
                 <th class="dogCol">dog</th>
                 <th>time</th>
                 <th>date</th>
+                <th>walked</th>
                 <th>pooped</th>
                 <th>peed</th>
+                <th>was fed</th>
+                <th>ate</th>
+                <th>rx</th>
                 <th>notes</th>
             </tr>
             </thead>

@@ -24,6 +24,7 @@ public class DogEventController {
 
 
     @PostMapping(value = "/events")
+    //do i need @ResponseBody here?
     @ResponseBody
     public DogEvent save(@RequestBody DogEventDto dogEventDto) {
         return dogEventService.save(new DogEvent(dogEventDto)
@@ -39,9 +40,14 @@ public class DogEventController {
     @PutMapping(value = "/events/{id}")
     public DogEvent update(@RequestBody DogEventDto dogEventDto, @PathVariable Integer id) {
         DogEvent dogEvent = dogEventService.findById(id);
-        dogEvent.setDog_id(dogEventDto.getDog_id());
-        dogEvent.setEvent_type(dogEventDto.getEvent_type());
-        dogEvent.setPoop();
+        dogEvent.setUser_dog_id(dogEventDto.getUser_dog_id());
+        dogEvent.setWalk(dogEventDto.getWalk());
+        dogEvent.setPoop(dogEventDto.getPoop());
+        dogEvent.setPee(dogEventDto.getPee());
+        dogEvent.setWas_fed(dogEventDto.getWas_fed());
+        dogEvent.setAte(dogEventDto.getAte());
+        dogEvent.setRx(dogEventDto.getRx());
+
         return dogEventService.save(dogEvent);
     }
 

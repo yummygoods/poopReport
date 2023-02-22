@@ -23,18 +23,20 @@ now:
 
 
 /*//////////////////// function to reset form after submit ///////////////////*/
-function reset() {
+
+//trying built in reset in
+/*function reset() {
   /////// tells the dom to remove the user's text input
-  document.getElementById('dog_id').value = '';
+  document.getElementById('user_dog_id').value = '';
   document.getElementById('poop').checked = '';
   document.getElementById('pee').checked = '';
   document.getElementById('notes').value = '';
   /////// resets the values stored in the variables
-  dog_id = '';
+  user_dog_id = '';
   poop = '';
   pee = '';
   notes = '';
-};
+};*/
 /*//////////////////// end of reset function ///////////////////*/
 
 
@@ -44,9 +46,9 @@ poopForm.addEventListener('submit', function (event) {
   event.preventDefault();
   // calls function that takes the user input and makes an object
   addFromForm();
-  reset();
+  poopForm.reset();
   /*debugger;*/
-/* console.log(event.target.elements.dog_id.value);
+/* console.log(event.target.elements.user_dog_id.value);
   console.log(event.target.elements.poop.checked);
   console.log(event.target.elements.pee.checked);
   console.log(event.target.elements.notes.value);*/
@@ -58,11 +60,15 @@ console.log("now listening for submit button");
 
 ////////// class to capture form input in an object //////////
 class DogEvent {
-  constructor(dog_id, poop, pee, notes) {
-    this.dog_id = dog_id;
-    this.poop = poop;
-    this.pee = pee;
-    this.notes = notes;
+  constructor(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes) {
+            this.user_dog_id = user_dog_id;
+           this.walk = walk;
+           this.poop = poop;
+           this.pee = pee;
+           this.was_fed = was_fed;
+           this.ate = ate;
+           this.rx = rx;
+           this.notes = notes;
   }
 }
 console.log("this should print the newly created class DogEvent: ", DogEvent);
@@ -73,22 +79,23 @@ console.log("this should print the newly created class DogEvent: ", DogEvent);
 ////////// function to take form input and turn into object //////////
 function addFromForm() {
   /////// takes form input values and assigns the data to corresponding variables
-  let dog_id = document.getElementById('dog_id').value;
-  console.log("this should print the selected dog's id: ", dog_id);
+  let user_dog_id = document.getElementById('user_dog_id').value;
 
+  let walk = document.getElementById('walk').checked;
+
+  console.log("this should print the the boolean value from user input in walk field. The pup was walked: ", walk);
   /*debugger;*/
 
   let poop = document.getElementById('poop').checked;
-  console.log("this should print the the boolean value from user input in poop field: ", poop);
-
   let pee = document.getElementById('pee').checked;
-  console.log("peed? ", pee);
-
+  let was_fed = document.getElementById('was_fed').checked;
+ let ate = document.getElementById('ate').checked;
+ let rx = document.getElementById('rx').checked;
   let notes = document.getElementById('notes').value;
-  console.log("user notes: ", notes);
+
 
   /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
-  const dogEventFromForm = new DogEvent(dog_id, poop, pee, notes);
+  const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes);
   console.log("this should print the new dogEvent object with values:", dogEventFromForm);
 
   /////// calls function to take the new object and make a post request with it
@@ -128,12 +135,14 @@ function addToPoopReport(event) {
   const tableBody = document.getElementById("poopReport");
  //make new row
   const row = document.createElement('tr');
+
+
   //make the cell
-  const dog_idCell = document.createElement('td');
+  const user_dog_idCell = document.createElement('td');
   //🧴🪣 it puts the data in the cell
-  dog_idCell.textContent = event.dog_id;
+  user_dog_idCell.textContent = event.user_dog_id;
   //insert the new cell into the row
-  row.appendChild(dog_idCell);
+  row.appendChild(user_dog_idCell);
 
 
 // parses the entry time into a Date object
@@ -150,6 +159,12 @@ const timestamp = new Date(event.entry_time);
   const dayDate = timestamp.toLocaleDateString("en-US", { weekday: 'short', month: 'numeric', day: 'numeric' });
     dayDateCell.textContent = dayDate;
   row.appendChild(dayDateCell);
+
+//walk
+//trying out a ternary thingie
+  const walkCell = document.createElement('td');
+  event.walk ? (walkCell.textContent = "✅") : (walkCell.textContent = "❌");
+  row.appendChild(walkCell);
 
 //poop
   const poopCell = document.createElement('td');
@@ -176,6 +191,19 @@ then make cell, textContent the check or x and  appendchild*/
      peeCell.textContent = "❌" ;
       }
         row.appendChild(peeCell);
+
+
+const was_fedCell = document.createElement('td');
+  event.was_fed ? (was_fedCell.textContent = "✅") : (was_fedCell.textContent = "❌");
+  row.appendChild(was_fedCell);
+
+const ateCell = document.createElement('td');
+  event.ate ? (ateCell.textContent = "✅") : (ateCell.textContent = "❌");
+  row.appendChild(ateCell);
+
+  const rxCell = document.createElement('td');
+    event.rx ? (rxCell.textContent = "✅") : (rxCell.textContent = "❌");
+    row.appendChild(rxCell);
 
 //notes
     const notesCell = document.createElement('td');
@@ -219,7 +247,7 @@ fetch('http://localhost:8080/events/all',
 .then(dogEventsArray => {
 // loops through the event entries
  for (let event of dogEventsArray) {
- //console.log("TESTING ARRAY dog id = " + event.dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
+ //console.log("TESTING ARRAY dog id = " + event.user_dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
  //calls the function that populates the html with table/data
 addToPoopReport(event);
  //debugger;
