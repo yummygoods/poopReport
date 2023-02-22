@@ -26,8 +26,6 @@ public class DogService {
         return dogRepository.findAll();
     }
 
-    public void saveDog(Dog dog) {
-    }
 
     public Dog findById(Integer id) {
         Optional<Dog> dog;
