@@ -2,11 +2,15 @@ com/yummygoods/poopReport/DogEvent/DogEvent.class
 com/yummygoods/poopReport/Dog/DogService.class
 com/yummygoods/poopReport/Dog/DogDto.class
 com/yummygoods/poopReport/DogEvent/DogEventService.class
+com/yummygoods/poopReport/User/UserController.class
 com/yummygoods/poopReport/DogEvent/DogEventDto.class
+com/yummygoods/poopReport/User/UserRepository.class
 com/yummygoods/poopReport/Dog/DogController.class
 com/yummygoods/poopReport/Dog/DogRepository.class
 com/yummygoods/poopReport/PoopReportApplication.class
+com/yummygoods/poopReport/User/UserService.class
 com/yummygoods/poopReport/Dog/Dog.class
+com/yummygoods/poopReport/User/User.class
 com/yummygoods/poopReport/DogEvent/DogEventController.class
+com/yummygoods/poopReport/User/UserDTO.class
 com/yummygoods/poopReport/DogEvent/DogEventRepository.class
-User/User.class
