@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>poop💩report</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
-    <script src="app.js" defer></script>
+    <script src="user.js" defer></script>
 </head>
 <body>
 <a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
@@ -25,13 +25,26 @@
 </nav>
 
 <main>
-    <h1>💩 omg poop report 💩</h1>
+    <h1>💩 create your account 💩</h1>
     <br/>
-    <form class="container" enctype="form-data" id="createAccount">
-        <label for="user_name">your username</label>
-        <input type="text">
+    <!--  ??  action="/users"-->
+    <form class="container" enctype="text/plain" method="post" id="createAccount">
+        <label for="user_name">username</label>
+        <input name="user_name" type="text" id="user_name">
 
-        <button id="create" type="submit">CREATE</button>
+        <label for="first_name">first name</label>
+        <input type="text" id="first_name">
+
+
+        <label for="last_name">last name</label>
+        <input type="text" id="last_name">
+
+        <label for="emailAddress">email</label>
+        <input id="emailAddress" type="email"/>
+
+
+        <button id="create" type="submit">CREATE ACCOUNT</button>
+        <!-- <input type="reset" value="Start over">-->
     </form>
 
 

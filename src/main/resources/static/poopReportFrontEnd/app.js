@@ -58,7 +58,8 @@ console.log("now listening for submit button");
 
 
 
-////////// class to capture form input in an object //////////
+
+////////// class to capture user poop report in an object //////////
 class DogEvent {
   constructor(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes) {
             this.user_dog_id = user_dog_id;
