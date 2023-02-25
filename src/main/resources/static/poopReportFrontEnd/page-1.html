@@ -28,7 +28,7 @@
     <h1>💩 create your account 💩</h1>
     <br/>
     <!--  ??  action="/users"-->
-    <form class="container" action ="http://localhost:8080/create-account" id="createAccount">
+    <form class="container" enctype="multipart/form-data"  id="createAccount">
         <label for="user_name">username</label>
         <input name="user_name" type="text" id="user_name">
 
@@ -39,8 +39,8 @@
         <label for="last_name">last name</label>
         <input type="text" id="last_name">
 
-        <label for="emailAddress">email</label>
-        <input id="emailAddress" type="email"/>
+        <label for="email">email</label>
+        <input id="email" type="email"/>
 
 
         <button id="create" type="submit">CREATE ACCOUNT</button>

@@ -25,21 +25,29 @@ class User {
 function addUserFromForm(){
   let user_name = document.getElementById('user_name').value;
   console.log("this should print the new username : " + user_name);
+let first_name = document.getElementById('first_name').value;
+
+let last_name = document.getElementById('last_name').value;
+
+let email = document.getElementById('email').value;
 
   const userFromForm = new User(user_name, first_name, last_name, email);
+  console.log("this should print the new user object : " + userFromForm.value);
   sendUserToServer(userFromForm);
+  console.log("called function to send new user data to server")
 }
 
 ////////// function to send the new user object to the db //////////
-function sendUserToServer(userFromForm) {
+function sendUserToServer(User) {
+  console.log("insdide function to send to server")
   fetch(
-    'http://localhost:8080/users',
+    'http://localhost:8080/user',
     {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      // takes the javascript object and turns it into a json string
-      // fetch needs to be in strings, but the server will interpret the json string as json
-      body: JSON.stringify(userFromForm)
+      body: JSON.stringify(User),
+     /* mode: 'cors',
+      credentials: 'include'*/
     }
   ).then(response => {
     if (response.ok) {

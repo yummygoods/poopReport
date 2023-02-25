@@ -11,8 +11,6 @@ public class PoopReportApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(PoopReportApplication.class, args);
-
-
     }
 
 

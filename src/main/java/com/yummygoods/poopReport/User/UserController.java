@@ -4,7 +4,7 @@ package com.yummygoods.poopReport.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 @RestController
 @RequestMapping(value = "/")
 public class UserController {
@@ -20,8 +20,20 @@ public class UserController {
     public Iterable<User> getAllUsers() {
         return userService.getAll();
     }
+//test
+// @PostMapping(value = "/users")
+// public String testEndpoint() {
+//     return "This is a test response";
+// }
 
-    @PostMapping(value = "http://localhost:8080/create-account")
+
+
+
+
+
+
+
+    @PostMapping(value = "/user")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
