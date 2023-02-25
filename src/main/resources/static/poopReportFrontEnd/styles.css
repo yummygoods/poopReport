@@ -141,7 +141,7 @@ img{
       display: flex;
 
       flex-flow: column ;
-      align-content: center;
+
 
     }
   }
@@ -163,7 +163,6 @@ img{
  border-color: rgb(200, 237, 250);
   }
   input, textarea {
-
   min-width: 6rem;
   display: block;
   border-style: solid;
@@ -196,14 +195,16 @@ img{
   padding: .5rem;
   color: black;
 }
-
+div{
+display: inline;}
 .checkboxes{
 display: grid;
 border: solid;
+padding: 0rem 3rem;
+margin 2rem;
 border-color: rgb(200, 237, 250);
-
-
 }
+
 
 th, td, caption{
 padding: .5rem;
@@ -223,3 +224,23 @@ background-color: ;
 
 th{
 background-color: lightcyan}
+
+
+
+
+
+.radio-buttons input[type="radio"] {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.radio-buttons label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+.radio-buttons label:first-of-type {
+  margin-left: -10px;
+}

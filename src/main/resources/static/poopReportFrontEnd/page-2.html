@@ -27,13 +27,144 @@
 <main>
     <h1>page 2</h1>
     <br/>
-    <p>
-        poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report
-    </p>
+    <!--  <p>
+          poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report 💩 poop 💩 report
+      </p>-->
     <br/>
-    <img
-            src="https://img.icons8.com/color/256/dog-pooping.png"
-    />
+    <!--test form and function-->
+    <form>
+        <input type="checkbox" name="checkbox-cats[]" id="checkbox-1" value="1" checked>
+        <label for="checkbox-1">walked</label>
+    </form>
+    <!--TEST-->
+    <label for="yes-no-question">Do you like programming?</label>
+    <div class="radio-buttons">
+        <input type="radio" id="yes" name="yes-no-question" value="yes">
+        <label for="yes">Yes</label>
+        <input type="radio" id="no" name="yes-no-question" value="no">
+        <label for="no">No</label>
+    </div>
+
+
+    <!--TEST-->
+    <form class="usa-form">
+        <fieldset class="usa-fieldset">
+            <legend class="usa-legend">select yes or no:</legend>
+            <div class="usa-radio">
+                <input
+                        class="usa-radio__input usa-radio__input--tile"
+                        id="historical-truth-2"
+                        type="radio"
+                        name="historical-figures-2"
+                        value="sojourner-truth"
+                        checked="checked"
+                />
+                <label class="usa-radio__label" for="historical-truth-2"
+                >Sojourner Truth</label
+                >
+            </div>
+            <div class="usa-radio">
+                <input
+                        class="usa-radio__input usa-radio__input--tile"
+                        id="historical-douglass-2"
+                        type="radio"
+                        name="historical-figures-2"
+                        value="frederick-douglass"
+                />
+                <label class="usa-radio__label" for="historical-douglass-2"
+                >Frederick Douglass
+                    <p class="usa-checkbox__label-description">This is optional text </p
+                    ></label
+                >
+            </div>
+            <div class="usa-radio">
+                <input
+                        class="usa-radio__input usa-radio__input--tile"
+                        id="historical-washington-2"
+                        type="radio"
+                        name="historical-figures-2"
+                        value="booker-t-washington"
+                />
+                <label class="usa-radio__label" for="historical-washington-2"
+                >Booker T. Washington</label
+                >
+            </div>
+            <div class="usa-radio">
+                <input
+                        class="usa-radio__input usa-radio__input--tile"
+                        id="historical-carver-2"
+                        type="radio"
+                        name="historical-figures-2"
+                        value="george-washington-carver"
+                        disabled="disabled"
+                />
+                <label class="usa-radio__label" for="historical-carver-2"
+                >George Washington Carver</label
+                >
+            </div>
+        </fieldset>
+    </form>
+
+
+    <!--test test test -->
+
+
+    <form id="myForm" onsubmit="handleFormSubmit(event)">
+        <label>
+            Name:
+            <input type="text" name="name">
+        </label>
+        <br>
+        <label>
+            Email:
+            <input type="email" name="email">
+        </label>
+        <br>
+        <button type="submit">Submit</button>
+    </form>
+
+    <script>
+  function handleFormSubmit(event) {
+    event.preventDefault();
+  <!--  // Prevent the form from submitting in the traditional way-->
+    const formData = new FormData(event.target); // Get the form data
+
+ <!--   // Send an AJAX request to the server-->
+    fetch('http://localhost:8080/submit-form', {
+      method: 'POST',
+        headers: [
+    ["Content-Type", "application/json"]],
+      body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+    <!--  // Handle the response from the server-->
+    })
+    .catch(error => {
+      console.log(error);
+    });
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <!--  <img
+              src="https://img.icons8.com/color/256/dog-pooping.png"
+      />-->
     <h3>✨💩✨</h3>
     <br/>
 </main>

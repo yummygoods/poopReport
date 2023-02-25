@@ -21,7 +21,7 @@ public class UserController {
         return userService.getAll();
     }
 
-    @PostMapping(value = "users")
+    @PostMapping(value = "http://localhost:8080/create-account")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
