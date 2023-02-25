@@ -33,7 +33,7 @@ public class UserController {
 
 
 
-    @PostMapping(value = "/user")
+    @PostMapping(value = "/users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
