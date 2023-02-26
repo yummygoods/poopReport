@@ -27,12 +27,6 @@ public class UserController {
 // }
 
 
-
-
-
-
-
-
     @PostMapping(value = "/users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
@@ -50,10 +44,12 @@ public class UserController {
     @PutMapping(value = "users/{id}")
     public User update(@RequestBody UserDTO userDTO, @PathVariable Integer id) {
         User user = userService.findById(id);
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
         user.setUser_name(userDTO.getUser_name());
         user.setFirst_name(userDTO.getFirst_name());
         user.setLast_name(userDTO.getLast_name());
-        user.setEmail(userDTO.getEmail());
+
 
         return userService.save(user);
     }

@@ -5,18 +5,20 @@ import java.sql.Timestamp;
 
 public class UserDTO {
     public Integer id;
+    public String email;
+    public String password;
     public String user_name;
     public String first_name;
     public String last_name;
-    public String email;
     public Timestamp created;
 
-    public UserDTO(Integer id, String user_name, String first_name, String last_name, String email, Timestamp created) {
+    public UserDTO(Integer id, String email, String password, String user_name, String first_name, String last_name, Timestamp created) {
         this.id = id;
+        this.email = email;
+        this.password = password;
         this.user_name = user_name;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.email = email;
         this.created = created;
     }
 
@@ -26,6 +28,14 @@ public class UserDTO {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUser_name() {

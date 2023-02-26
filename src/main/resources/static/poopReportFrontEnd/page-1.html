@@ -27,20 +27,22 @@
 <main>
     <h1>💩 create your account 💩</h1>
     <br/>
-    <!--  ??  action="/users"-->
-    <form class="container" enctype="multipart/form-data"  id="createUser">
+    <!--add autocomplete attributes + confirm password field, add success message-->
+    <form class="container" enctype="multipart/form-data" id="createUser">
+        <label for="email">email</label>
+        <input name="email" type="email" id="email"/>
+
+        <label for="password">password (minimum 8 characters</label>
+        <input name="password" type="password" id="password" minlength="8" required>
+
         <label for="user_name">username</label>
         <input name="user_name" type="text" id="user_name">
 
         <label for="first_name">first name</label>
-        <input type="text" id="first_name">
-
+        <input name="first_name" type="text" id="first_name">
 
         <label for="last_name">last name</label>
-        <input type="text" id="last_name">
-
-        <label for="email">email</label>
-        <input id="email" type="email"/>
+        <input name="last_name" type="text" id="last_name">
 
 
         <button id="button" type="submit">CREATE ACCOUNT</button>

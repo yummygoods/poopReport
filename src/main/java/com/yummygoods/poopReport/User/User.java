@@ -16,6 +16,12 @@ public class User {
     private Integer id;
 
     @Column
+    private String email;
+
+    @Column
+    private String password;
+
+    @Column
     private String user_name;
 
     @Column
@@ -23,9 +29,6 @@ public class User {
 
     @Column
     private String last_name;
-
-    @Column
-    private String email;
 
     @CreationTimestamp
     @Column(name = "created", nullable = false, updatable = false)
@@ -37,27 +40,27 @@ public class User {
     }
 
     //main constructor
-    public void user(Integer id, String user_name, String first_name, String last_name, String email, Timestamp created) {
+    public void user(Integer id, String email, String password, String user_name, String first_name, String last_name, Timestamp created) {
         this.id = id;
+        this.email = email;
+        this.password = password;
         this.user_name = user_name;
         this.first_name = first_name;
         this.last_name = last_name;
-        this.email = email;
         this.created = created;
     }
 
     //constructor with DTO arg
     protected User(UserDTO userDTO) {
         this.id = userDTO.id;
+        this.email = userDTO.email;
+        this.password = userDTO.password;
         this.user_name = userDTO.user_name;
         this.first_name = userDTO.first_name;
         this.last_name = userDTO.last_name;
-        this.email = userDTO.email;
         this.created = userDTO.created;
     }
 
-
-    //do i need to add tostring method?
 
     //getter and setters
     public Integer getId() {
@@ -66,6 +69,22 @@ public class User {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public String getUser_name() {
@@ -92,13 +111,6 @@ public class User {
         this.last_name = last_name;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
 
     public Timestamp getCreated() {
         return created;
@@ -112,10 +124,11 @@ public class User {
     public String toString() {
         return "User{" +
                        "id=" + id +
+                       ", email='" + email + '\'' +
+                       ", password='" + password + '\'' +
                        ", user_name='" + user_name + '\'' +
                        ", first_name='" + first_name + '\'' +
                        ", last_name='" + last_name + '\'' +
-                       ", email='" + email + '\'' +
                        ", created=" + created +
                        '}';
     }
