@@ -94,7 +94,6 @@ function addFromForm() {
  let rx = document.getElementById('rx').checked;
   let notes = document.getElementById('notes').value;
 
-
   /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
   const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes);
   console.log("this should print the new dogEvent object with values:", dogEventFromForm);
@@ -251,10 +250,8 @@ fetch('http://localhost:8080/events/all',
  //console.log("TESTING ARRAY dog id = " + event.user_dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
  //calls the function that populates the html with table/data
 addToPoopReport(event);
- //debugger;
  };
+ }).catch(error => {
+ alert(error);
+ console.error('Error:', error);
 });
-
-//  }).catch((error) => {
- // console.error('Error:', error);
-//}

@@ -159,6 +159,8 @@ img{
     width: 20rem;
     margin: auto;
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 2rem;
  border: solid;
  border-color: rgb(200, 237, 250);
@@ -251,9 +253,16 @@ background-color: lightcyan}
 }
 
 
-
+fieldset{
+display: flex;
+flex-direction: column;
+}
 
 
 .radio-buttons label:first-of-type {
   margin-left: -10px;
 }
+
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;

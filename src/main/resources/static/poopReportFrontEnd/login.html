@@ -9,18 +9,19 @@
     <script src="login.js" defer></script>
 </head>
 <body>
-<form id="login">
-    <div>
-        <label for="user_name">Username:</label>
-        <input type="text" id="user_name" name="user_name">
-    </div>
+<form id="loginForm">
 
-    <div>
-        <label for="pass">Password</label>
-        <input type="password" id="pass" name="password" autocomplete="current-password">
-    </div>
+    <label for="user_name">Username:</label>
+    <input type="text" id="user_name" name="user_name" autocomplete="user_name">
 
-    <input type="submit" value="Sign in">
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" autocomplete="current-password">
+
+
+    <button type="submit">Sign in</button>
+    <p class="smol">🤔don't know if i need a reset button here?</p>
+    <button type="reset" class="resetBtn">reset</button>
 
 </form>
 </body>

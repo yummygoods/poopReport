@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>poop💩report</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script src="formdata.js" defer></script>
+</head>
+<body>
+<a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
+    <header>
+
+        <span id="title">poop💩report</span>
+    </header>
+</a>
+<nav id="top-nav">
+    <ul>
+        <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
+    </ul>
+</nav>
+
+<main>
+    <span>💩</span>
+    <h1>✨file a poop report✨</h1>
+    <br>
+    <form enctype="multipart/form-data" id="poopForm">
+        <label for="user_dog_id">dog name</label>
+        <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
+        <select name="user_dog_id" id="user_dog_id">
+            <!--need to figure out how to populate with user's dogs-->
+            <option value="5">Zero</option>
+            <option value="6">Scooter</option>
+            <option value="7">Gizmo</option>
+        </select>
+        <section class="checkboxes">
+
+            <div id="radioSet">
+                <label for="walk">did they walk?</label>
+                <input type="radio" style="display: inline;" id="walk" value="true"/><input type="radio"
+                                                                                            style="display: inline;"
+                                                                                            id="walk" value="false"/>
+            </div>
+
+            <label for="poop">did they poop?</label>
+            <input type="checkbox" id="poop"/>
+            <label for="pee">did they pee?</label>
+            <input type="checkbox" id="pee"/>
+            <label for="was_fed">were they fed?</label>
+            <input type="checkbox" id="was_fed"/>
+            <label for="ate">did they eat it?</label>
+            <input type="checkbox" id="ate"/>
+            <label for="rx">rx given?</label>
+            <input type="checkbox" id="rx"/>
+        </section>
+
+        <label for="notes">notes:</label>
+        <textarea name="notes" id="notes"></textarea>
+
+        <!-- <label for="imageUpload">select image file:</label>
+       <input
+                name="image"
+                type="file"
+                id="imageUpload"
+                accept=".jpg, .jpeg, .png"
+        />-->
+        <button id="submit" type="submit">SUBMIT</button>
+        <button type="reset" class="resetBtn">reset</button>
+
+        <!--       <span class="smol">thanks, you're a doll.</span>-->
+    </form>
+
+    <!--    <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
+    <!--<p>an app for Brandy + Jeff to help reduce puppers having poopcidents</p>
+<br/>
+<p>(so many poop emojis!)</p>-->
+    <br/>
+    <!--  <h3>✨💩✨</h3>-->
+
+    <!--
+    <p>
+        if you've ever witnessed a dog “airbrushing the juniper bushes” with their business...you might understand
+    </p>
+    <br/>
+     <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
+    <h3>✨💩✨</h3>
+    <br/>
+
+</main>
+
+<footer>
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>

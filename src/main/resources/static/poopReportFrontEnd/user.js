@@ -12,7 +12,7 @@ createAccountForm.addEventListener('submit', function (event) {
   const formData = new FormData(createAccountForm);
   let dto = new User(formData)
   debugger;
-  fetch('http://localhost:8080/create-account', {
+  fetch('http://localhost:8080/sign-up', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: dto
