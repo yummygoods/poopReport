@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "/")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UserController {
     final UserRepository userRepository;
     final UserService userService;

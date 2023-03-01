@@ -1,6 +1,16 @@
 
 console.log("oh heeeyyyy");
+class User {
+  //constructor(user_name, first_name, last_name, email) {
+  constructor(email, password) {
+      this.email = email;
+      this.password = password;
+  /*    this.user_name = user_name;
+      this.first_name = first_name;
+      this.last_name = last_name;*/
 
+  }
+}
 
 //grab form
 let createUserForm = document.querySelector('form');
@@ -11,13 +21,13 @@ createUserForm.addEventListener('submit', function (event) {
 
   const formData = new FormData(createUserForm);
   console.log(formData);
-  debugger;
+  /*debugger;*/
   let dto = new User(formData)
 
-  fetch('http://localhost:8080/sign-up', {
+  fetch('http://localhost:8080/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: dto
+    body: JSON.stringify(dto)
   }).then(console.log(dto.user_name))
     .then(response => response.json())
     .then(data => {

@@ -127,7 +127,7 @@ function sendDogEventToServer(dogEventFromForm) {
 ///////////////////// end of function /////////////////////
 
 
-
+/*
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
 
@@ -254,4 +254,4 @@ addToPoopReport(event);
  }).catch(error => {
  alert(error);
  console.error('Error:', error);
-});
+});*/
