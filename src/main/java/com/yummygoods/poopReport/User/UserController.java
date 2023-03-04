@@ -34,6 +34,13 @@ public class UserController {
         return userService.save(new User(userDTO));
     }
 
+   /* @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @PostMapping(value = "/login")
+    @ResponseBody
+    public User findByEmail(@RequestBody UserDTO userDTO) {
+        return userService.findByEmail(new User(userDTO));
+    }
+*/
 
     //trying request param instead of path variable
     @GetMapping(value = "users/{id}")
