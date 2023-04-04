@@ -1,7 +1,48 @@
-/*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
-*/
+
+
+/*start of media queries*/
+/*EXTRA SMALL up to 300px*/
+@media only screen and (max-width: 600px) {
+body{
+margin: 0;
+padding: 0;
+min-width: 100%
+}
+
+}
+/*SMALL up to 500px*/
+@media only screen and (max-width: 500px) {
+
+
+ul{
+display: flex;
+flex-direction: column;
+background-color: white;
+}
+
+li{
+    display: block;
+background-color: rgb(200, 237, 250)
+    padding: 0.25rem;
+    margin: 0.5rem;
+}
+
+.top-nav, .bottom-nav{
+background-color: white;
+margin: 0;
+
+
+}
+
+#title{
+font-size: 1.75rem;
+inline-size: min-content;
+}
+}
+
+/*end of media queries*/
+
+
 
 
 *,
@@ -35,6 +76,7 @@ textarea,
 select {
 	font: inherit;
 }
+
 p,
 h1,
 h2,
@@ -69,8 +111,8 @@ header {
 }
 
 footer {
-	display: flex;
-	background-color: rgb(200, 237, 250);
+/*	display: flex;*/
+
 	justify-content: center;
 	align-items: center;
 	min-height: 4rem;
@@ -86,12 +128,14 @@ ul {
 	list-style: none;
 	justify-content: center;
 	padding: 0;
+	  background-color: white;
 	 }
 
 li {
+
 	padding: .5rem 1rem;
 	text-align: center;
-
+background-color: rgb(200, 237, 250)
 }
 
 main {
@@ -115,7 +159,7 @@ span {
 	padding-left: 0.5rem;
         padding-right: 0.5rem;
 }
-#top-nav{
+.top-nav .bottom-nav{
 	display: block;
 	background-color: rgb(200, 237, 250);
 
@@ -124,9 +168,6 @@ margin-bottom: .5rem;
 
 }
 
-.bottom-nav{
-
-}
 
 img{
 	width: 50%;
@@ -197,13 +238,15 @@ margin-top: 1rem;
 
 
 .smol{
-
   font-size: .75rem ;
   padding: .5rem;
   color: black;
 }
+
 div{
-display: inline;}
+display: inline;
+}
+
 .checkboxes{
 display: grid;
 border: solid;
@@ -260,6 +303,8 @@ background-color: lightcyan}
 fieldset{
 display: flex;
 flex-direction: column;
+align-items: unset;
+max-width:
 }
 
 
@@ -272,43 +317,15 @@ flex-direction: column;
     flex-wrap: nowrap;
     flex-direction: row;*/
 
-@media only screen and (max-width: 600px) {
+/*
+@media only screen and (min-width: 351px) {
 #title{
-font-size:3rem;
+font-size:2.5rem;
 
 }
+*/
 
-}
-/*@media only screen and (max-width: 500px) {*/
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 350px) {
-body{
-margin: 0;
-padding: 0;
-min-width: 100%
-}
-ul{
-display: flex;
-flex-direction: column;
 
-}
-li{
-    display: block;
-    background-color: rgb(200, 237, 250);
-    padding: 0.25rem;
-    margin: 0.25rem;
-}
-#top-nav, .bottom-nav{
-margin: 0;
-background: none;
-height: fit-content;
-}
-#title{
-font-size: 2rem;
-display: inline;
-
-}
-}
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (min-width: 600px) {
