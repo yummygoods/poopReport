@@ -29,35 +29,53 @@
     <span>💩</span>
     <h1>✨file a poop report✨</h1>
     <br>
-    <form enctype="multipart/form-data" id="poopForm">
-        <label for="user_dog_id">dog name</label>
-        <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
-        <select name="user_dog_id" id="user_dog_id">
-            <!--need to figure out how to populate with user's dogs-->
-            <option value="5">Zero</option>
-            <option value="6">Scooter</option>
-            <option value="7">Gizmo</option>
-        </select>
-        <section class="checkboxes">
 
-            <div id="radioSet">
-                <label for="walk">did they walk?</label>
-                <input type="radio" style="display: inline;" id="walk" value="true"/><input type="radio"
-                                                                                            style="display: inline;"
-                                                                                            id="walk" value="false"/>
-            </div>
+    <form enctype="multipart/form-data" id="poopForm">
+        <fieldset>
+            <label for="user_dog_id">dog name</label>
+            <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
+            <select name="user_dog_id" id="user_dog_id">
+                <!--need to figure out how to populate with user's dogs-->
+                <option value="5">Zero</option>
+                <option value="6">Scooter</option>
+                <option value="7">Gizmo</option>
+            </select>
+        </fieldset>
+
+        <fieldset id="radioStyle" class="radio-buttons">
+            <p>did they walk?</p>
+            <label for="walkedTrue">
+                <span> Yes</span>
+                <input
+                        type="radio"
+                        id="walkedTrue"
+                        value="true"
+                        name="hasWalked"/>
+
+
+            </label>
+
+
+            <label for="walkedFalse">No</label>
+            <input
+                    type="radio"
+                    id="walkedFalse"
+                    value="false"
+                    name="hasWalked"
+            />
+
 
             <label for="poop">did they poop?</label>
-            <input type="checkbox" id="poop"/>
+            <input type="radio" id="poop"/>
             <label for="pee">did they pee?</label>
-            <input type="checkbox" id="pee"/>
+            <input type="radio" id="pee"/>
             <label for="was_fed">were they fed?</label>
-            <input type="checkbox" id="was_fed"/>
+            <input type="radio" id="was_fed"/>
             <label for="ate">did they eat it?</label>
-            <input type="checkbox" id="ate"/>
+            <input type="radio" id="ate"/>
             <label for="rx">rx given?</label>
-            <input type="checkbox" id="rx"/>
-        </section>
+            <input type="radio" id="rx"/>
+        </fieldset>
 
         <label for="notes">notes:</label>
         <textarea name="notes" id="notes"></textarea>
