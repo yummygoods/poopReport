@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>poop💩report</title>
+    <link href="styles.css" rel="stylesheet" type="text/css"/>
+    <script src="/scripts/app.js" defer></script>
+</head>
+<body>
+<a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
+    <header>
+
+        <span id="title">poop💩report</span>
+    </header>
+</a>
+<nav class="top-nav">
+    <ul>
+        <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
+        <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
+    </ul>
+</nav>
+
+<main>
+    <br> <br>
+    <form enctype="multipart/form-data" id="poopForm">
+        <h2>✨file a poop report✨</h2>
+        <fieldset>
+            <legend>select dog</legend>
+            <label for="user_dog_id"></label>
+            <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
+            <select name="user_dog_id" id="user_dog_id">
+                <!--need to figure out how to populate with user's dogs-->
+                <option value="5">Zero</option>
+                <option value="6">Scooter</option>
+                <option value="7">Gizmo</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend>did they walk?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="walkedTrue"
+                        value="true"
+                        name="hasWalked"
+                />
+                <label for="walkedTrue">yes</label>
+            </div>
+
+            <div>
+                <input
+                        type="radio"
+                        id="walkedFalse"
+                        value="false"
+                        name="hasWalked"
+                        checked
+                />
+                <label for="walkedFalse">no</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>did they poop?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="poopedTrue"
+                        value="true"
+                        name="hasPooped"
+                />
+                <label for="poopedTrue">yes</label>
+            </div>
+
+            <div>
+                <input
+                        type="radio"
+                        id="poopedFalse"
+                        value="false"
+                        name="hasPooped"
+                        checked
+                />
+                <label for="poopedFalse">no</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>did they pee?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="peedTrue"
+                        value="true"
+                        name="hasPeed"
+                        checked
+                />
+                <label for="peedTrue">yes</label>
+            </div>
+
+            <div>
+                <input
+                        type="radio"
+                        id="peedFalse"
+                        value="false"
+                        name="hasPeed"
+                        checked
+                />
+                <label for="peedFalse">no</label>
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>were they fed?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="fedTrue"
+                        value="true"
+                        name="wasFed"
+                />
+                <label for="fedTrue">yes</label>
+            </div>
+
+            <div>
+                <input
+                        type="radio"
+                        id="fedFalse"
+                        value="false"
+                        name="wasFed"
+                        checked
+                />
+                <label for="fedFalse">no</label>
+            </div>
+        </fieldset>
+
+        <!--   <fieldset>
+               <legend>did they eat it?</legend>
+               <div>
+                   <input
+                           type="radio"
+                           id="ateTrue"
+                           value="true"
+                           name="didEat"
+                   />
+                   <label for="ateTrue" class="radio-buttons">yes</label>
+               </div>
+
+               <div>
+                   <input
+                           type="radio"
+                           id="ateFalse"
+                           value="false"
+                           name="didEat"
+                   />
+                   <label for="ateFalse">no</label>
+               </div>
+           </fieldset>
+   -->
+        <fieldset>
+            <legend>rx given?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="givenRxTrue"
+                        value="true"
+                        name="givenRx"
+                />
+                <label for="givenRxTrue">yes</label>
+            </div>
+
+            <div>
+                <input
+                        type="radio"
+                        id="givenRxFalse"
+                        value="false"
+                        name="givenRx"
+                        checked
+                />
+                <label for="givenRxFalse">no</label>
+            </div>
+        </fieldset>
+        <div>
+            <label for="notes">notes:</label>
+            <textarea name="notes" id="notes"></textarea>
+        </div>
+        <!-- <label for="imageUpload">select image file:</label>
+       <input
+                name="image"
+                type="file"
+                id="imageUpload"
+                accept=".jpg, .jpeg, .png"
+        />-->
+        <button id="submit" type="submit">SUBMIT REPORT</button>
+        <button type="reset" class="resetBtn">reset form</button>
+
+        <!--       <span class="smol">thanks, you're a doll.</span>-->
+    </form>
+
+    <!--    <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
+    <!--<p>an app for Brandy + Jeff to help reduce puppers having poopcidents</p>
+<br/>
+<p>(so many poop emojis!)</p>-->
+    <br/>
+    <!--  <h3>✨💩✨</h3>-->
+
+    <!--
+    <p>
+        if you've ever witnessed a dog “airbrushing the juniper bushes” with their business...you might understand
+    </p>
+    <br/>
+     <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
+    <h3>✨💩✨</h3>
+    <br/>
+
+</main>
+
+<footer>
+    <nav class="bottom-nav">
+        <ul>
+            <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
+            <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
+        </ul>
+    </nav>
+</footer>
+</body>
+</html>
