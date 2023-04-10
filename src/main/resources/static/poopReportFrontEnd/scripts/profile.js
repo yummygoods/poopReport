@@ -7,7 +7,7 @@ event.preventDefault();
 console.log("prevented form default, noice");
 getDogData();
 dogForm.reset();
-
+promptAnotherDog();
 });
 
 console.log("now listening for submit button");
@@ -49,3 +49,7 @@ fetch( 'http://localhost:8080/dogs',
              throw new Error('ugh, the request failed');
            })
          }
+
+         promptAnotherDog(){
+
+         };

@@ -18,7 +18,6 @@ let jsonData = JSON.stringify(jsonObject);
 
     }).then(response => {
     redirectToProfilePage();
-    showSuccessMessage();
 
     })
 .catch(err => {
@@ -31,6 +30,7 @@ let jsonData = JSON.stringify(jsonObject);
         e.preventDefault();
      theForm.reset();
        console.log("just reset the form" );
+         showSuccessMessage();
 
     });
 
@@ -41,14 +41,21 @@ let jsonData = JSON.stringify(jsonObject);
 
 function redirectToProfilePage() {
   // redirect to profile page after 3 seconds
+
   setTimeout(() => {
     window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/profile-page.html';
-  }, 1000);
-}
+  }, 7000);
+
+
+   }
 //show success message by inserting html
   function showSuccessMessage(){
-    const successMessage = document.createElement('div');
-    successMessage.textContent = "yay etc now make your profile below"
-    document.body.appendChild(successMessage);
-      console.log("inside the function to show the success message");
+    const successMessage = document.createElement('h4');
+    successMessage.textContent = "yay! in a couple seconds you'll be redirected to the profile page where you can add your dog!"
+    const form = document.getElementById('createUser'); // replace with your actual form ID
+
+      form.insertAdjacentElement('beforebegin', successMessage);
+       console.log(successMessage);
+  /*  document.body.appendChild(successMessage);
+      console.log("inside the function to show the success message");*/
     }
