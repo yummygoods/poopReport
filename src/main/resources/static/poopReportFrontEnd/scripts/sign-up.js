@@ -1,4 +1,5 @@
 
+
 function sendData() {
     // Create and populate the FormData to send
     theForm = document.getElementById("createUser");
@@ -26,9 +27,12 @@ let jsonData = JSON.stringify(jsonObject);
 }
 
     document.getElementById("createUser").addEventListener("submit", e => {
+
         sendData();
         e.preventDefault();
      theForm.reset();
+    /* confetti();*/
+
        console.log("just reset the form" );
          showSuccessMessage();
 
