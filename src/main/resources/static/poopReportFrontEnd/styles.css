@@ -351,3 +351,22 @@ font-size:2.5rem;
 /* Extra large devices (large laptops and desktops, 1200px and up) */
 @media only screen and (min-width: 1200px) {
 }
+
+
+.modal {
+  position: fixed;
+  z-index: 1;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
