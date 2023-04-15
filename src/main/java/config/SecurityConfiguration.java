@@ -1,6 +1,5 @@
 package config;
 
-import org.springframework.boot.context.annotation.Configurations;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -26,17 +25,23 @@ public class SecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        http.authorizeRequests(request -> 
-                request.antMatchers(ENDPOINTS_WHITELIST).permitAll()
-                        .anyRequest().authenticated())
+        http
+                .authorizeHttpRequests(authorize -> authorize
+                                                            .requestMatchers("/api/admin/**").hasRole("ADMIN")
+                                                            .requestMatchers("/api/user/**").hasRole("USER")
+                                                            .anyRequest().authenticated()
+                )
                 .csrf().disable()
                 .formLogin(form -> form
-                        .loginPage(LOGIN_URL)
-                        .loginProcessingUrl(LOGIN_URL)
-                        .failureUrl(LOGIN_FAIL_URL)
-                        .usernameParameter(USERNAME)
-                        .passwordParameter(PASSWORD)
-                        .defaultSuccessUrl(DEFAULT_SUCCESS_URL));
+                                           .loginPage(LOGIN_URL)
+                                           .loginProcessingUrl(LOGIN_URL)
+                                           .failureUrl(LOGIN_FAIL_URL)
+                                           .usernameParameter(USERNAME)
+                                           .passwordParameter(PASSWORD)
+                                           .defaultSuccessUrl(DEFAULT_SUCCESS_URL)
+                );
+
+
         return http.build();
     }
 }
