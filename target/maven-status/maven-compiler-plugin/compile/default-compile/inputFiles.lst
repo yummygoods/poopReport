@@ -3,6 +3,7 @@
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/User/UserController.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/DogEvent/DogEventRepository.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/DogEvent/DogEventDto.java
+/Users/melissaaverinos2022/1-dev/poopReport/src/main/java/config/BasicAuthProperties.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/User/User.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/User/UserService.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/User/UserDTO.java
@@ -14,3 +15,4 @@
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/Dog/DogService.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/PoopReportApplication.java
 /Users/melissaaverinos2022/1-dev/poopReport/src/main/java/com/yummygoods/poopReport/Dog/DogController.java
+/Users/melissaaverinos2022/1-dev/poopReport/src/main/java/config/SecurityConfiguration.java
