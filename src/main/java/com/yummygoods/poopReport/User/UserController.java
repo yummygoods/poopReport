@@ -3,10 +3,11 @@ package com.yummygoods.poopReport.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/")
 /*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+/*@CrossOrigin(origins = "http://localhost:8080/")*/
 public class UserController {
 
     final UserRepository userRepository;
@@ -31,7 +32,8 @@ public class UserController {
     //     return "This is a test response";
     // }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    /*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
+    @CrossOrigin
     @PostMapping(value = "/users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {

@@ -1,13 +1,10 @@
 com/yummygoods/poopReport/Dog/DogService.class
 com/yummygoods/poopReport/DogEvent/DogEventService.class
 com/yummygoods/poopReport/User/UserController.class
-config/BasicAuthProperties$UserDetail.class
 com/yummygoods/poopReport/Dog/DogRepository.class
 com/yummygoods/poopReport/PoopReportApplication.class
 com/yummygoods/poopReport/Dog/Dog.class
 com/yummygoods/poopReport/User/User.class
-config/BasicAuthProperties.class
-config/SecurityConfiguration.class
 com/yummygoods/poopReport/DogEvent/DogEventController.class
 com/yummygoods/poopReport/User/UserDTO.class
 com/yummygoods/poopReport/DogEvent/DogEventRepository.class

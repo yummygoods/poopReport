@@ -3,6 +3,7 @@ package config;
 //USED THIS REFERENCE https://reflectoring.io/spring-security/
 //and updated from ant matchers specified there to request matchers: https://docs.spring.io/spring-security/reference/5.8/migration/servlet/config.html
 
+/*
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -40,7 +41,9 @@ public class SecurityConfiguration {
                                                             .requestMatchers("/user/**").hasRole("USER")
                                                             .anyRequest().authenticated()
                 )
-                /* .csrf().disable()*/
+                */
+/* .csrf().disable()*//*
+
                 .formLogin(form -> form
                                            .loginPage(LOGIN_URL)
                                            .loginProcessingUrl(LOGIN_URL)
@@ -48,7 +51,8 @@ public class SecurityConfiguration {
                                            .usernameParameter(USERNAME)
                                            .passwordParameter(PASSWORD)
                                            .defaultSuccessUrl(DEFAULT_SUCCESS_URL))
-             /*   .logout(logout -> logout
+             */
+/*   .logout(logout -> logout
                                           .logoutUrl("/logout")
                                           .invalidateHttpSession(true)
                                           .deleteCookies("JSESSIONID")
@@ -57,7 +61,8 @@ public class SecurityConfiguration {
                                                       .sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
                                                       .invalidSessionUrl("/invalidSession.htm")
                                                       .maximumSessions(1)
-                                                      .maxSessionsPreventsLogin(true))*/
+                                                      .maxSessionsPreventsLogin(true))*//*
+
 
         ;
 
@@ -65,4 +70,4 @@ public class SecurityConfiguration {
         return http.build();
     }
 
-}
+}*/

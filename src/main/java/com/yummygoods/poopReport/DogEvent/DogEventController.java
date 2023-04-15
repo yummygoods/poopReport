@@ -3,8 +3,8 @@ package com.yummygoods.poopReport.DogEvent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+/*@CrossOrigin(origins = "http://localhost:8080/")*/
+@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/")
 public class DogEventController {
@@ -22,7 +22,7 @@ public class DogEventController {
         return dogEventService.getAll();
     }
 
-
+    @CrossOrigin
     @PostMapping(value = "/events")
     //do i need @ResponseBody here?
     @ResponseBody

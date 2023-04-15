@@ -3,9 +3,10 @@ package com.yummygoods.poopReport.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = "*", allowedHeaders = "*")
+@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/")
+/*@CrossOrigin(origins = "http://localhost:8080/")*/
 public class DogController {
     final DogRepository dogRepository;
     final DogService dogService;
@@ -21,7 +22,7 @@ public class DogController {
         return dogService.getAll();
     }
 
-
+    @CrossOrigin
     @PostMapping(value = "/dogs")
     @ResponseBody
     public Dog save(@RequestBody DogDto dogDto) {
