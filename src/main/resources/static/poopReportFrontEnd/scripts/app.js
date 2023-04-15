@@ -43,7 +43,6 @@ now:
 /*///////// event listener to capture form data on submit /////////*/
 let poopForm = document.getElementById('poopForm');
 poopForm.addEventListener('submit', function (event) {
-
   event.preventDefault();
   // calls function that takes the user input and makes an object
   addFromForm();
@@ -54,7 +53,7 @@ poopForm.addEventListener('submit', function (event) {
   console.log(event.target.elements.pee.checked);
   console.log(event.target.elements.notes.value);*/
 });
- console.log("now listening for submit button");
+console.log("now listening for submit button");
 /*//////////////////// end of event listener ///////////////////*/
 
 
@@ -73,7 +72,7 @@ class DogEvent {
            this.notes = notes;
   }
 }
-/*console.log("this should print the newly created class DogEvent: ", DogEvent);*/
+console.log("this should print the newly created class DogEvent: ", DogEvent);
 ///////////////////// end of class ////////////////////
 
 
@@ -81,24 +80,26 @@ class DogEvent {
 ////////// function to take form input and turn into object //////////
 function addFromForm() {
   /////// takes form input values and assigns the data to corresponding variables
- let user_dog_id = document.getElementById('user_dog_id').value;
- let walk = document.querySelector("#walk input:checked").value;
+  let user_dog_id = document.getElementById('user_dog_id').value;
+
+  let walk = document.getElementById('walk').checked;
+
+  console.log("this should print the the boolean value from user input in walk field. The pup was walked: ", walk);
   /*debugger;*/
-  let poop = document.querySelector("#poop input:checked").value;
-  let pee = document.querySelector("#pee input:checked").value;
-  let was_fed = document.querySelector("#was_fed input:checked").value;
-/* let ate = document.querySelector("#ate input:checked").value;*/
- let rx = document.querySelector("#rx input:checked").value;
+
+  let poop = document.getElementById('poop').checked;
+  let pee = document.getElementById('pee').checked;
+  let was_fed = document.getElementById('was_fed').checked;
+ let ate = document.getElementById('ate').checked;
+ let rx = document.getElementById('rx').checked;
   let notes = document.getElementById('notes').value;
 
   /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
-  const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, /*ate,*/ rx, notes);
+  const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes);
   console.log("this should print the new dogEvent object with values:", dogEventFromForm);
 
   /////// calls function to take the new object and make a post request with it
   sendDogEventToServer(dogEventFromForm);
-  //need to add success message and prompt to add report for another dog
-  redirectToReportPage();
 }
 ///////////////////// end of function /////////////////////
 
@@ -125,25 +126,9 @@ function sendDogEventToServer(dogEventFromForm) {
 };
 ///////////////////// end of function /////////////////////
 
-function redirectToReportPage() {
-  // redirect to profile page after 3 seconds
-
-  setTimeout(() => {
-    window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/results-table.html';
-  }, 6000);
-
-
-   }
-
-
-
-
-
-
-/////////this is now in report.js///////////////
-///////////////////function to populate html with json retrieved from database////////////////
 
 /*
+///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
 
 //grab the table body by id to use at the end
@@ -191,16 +176,14 @@ poopCell.textContent = "❌" ;
 }
     row.appendChild(poopCell);
 
-*/
 /*look up a way to do that for each yes/no without repeating
 maybe a function within that works on all booleans?
 like if (datatype === boolean) ? or just get right to the if value === true/false ?
-then make cell, textContent the check or x and  appendchild*//*
-
+then make cell, textContent the check or x and  appendchild*/
 
 
 //pee
- const peeCell = document.createElement('td');
+      const peeCell = document.createElement('td');
         if (event.pee == true){
          peeCell.textContent = "✅" ;
         }
@@ -221,24 +204,23 @@ const ateCell = document.createElement('td');
   const rxCell = document.createElement('td');
     event.rx ? (rxCell.textContent = "✅") : (rxCell.textContent = "❌");
     row.appendChild(rxCell);
+
 //notes
     const notesCell = document.createElement('td');
          notesCell.textContent = event.notes;
           row.appendChild(notesCell);
-//insert new row with data into table body
 
+//insert new row with data into table body
  tableBody.appendChild(row);
 
  //call function to change the order
  //try to find how to do it once all data has been populated, rather than after each row?
 reverseChron();
-
 }
 ///////////////////////end of function/////////////////////
 
 
 ///////////////////////function to reverse the row order so most recent shows at the top/////////////////////
-
 function reverseChron(){
 
  const tableBody = document.getElementById("poopReport");
