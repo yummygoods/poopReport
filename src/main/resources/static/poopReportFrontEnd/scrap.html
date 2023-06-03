@@ -98,14 +98,14 @@
     <button type="submit">Submit</button>
 </form>
 
-
-<!--SAMPLE SCRIPT-->
+<!--
+&lt;!&ndash;SAMPLE SCRIPT&ndash;&gt;
 function handleFormSubmit(event) {
 event.preventDefault();
-<!--  // Prevent the form from submitting in the traditional way-->
+&lt;!&ndash;  // Prevent the form from submitting in the traditional way&ndash;&gt;
 const formData = new FormData(event.target); // Get the form data
 
-<!--   // Send an AJAX request to the server-->
+&lt;!&ndash;   // Send an AJAX request to the server&ndash;&gt;
 fetch('http://localhost:8080/submit-form', {
 method: 'POST',
 headers: [
@@ -114,13 +114,15 @@ body: formData
 })
 .then(response => response.json())
 .then(data => {
-<!--  // Handle the response from the server-->
+&lt;!&ndash;  // Handle the response from the server&ndash;&gt;
 })
 .catch(error => {
 console.log(error);
 });
-}
-
-
+}-->
+<script src="./scripts/confetti.js"
+></script>
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"
+></script>
 </body>
 </html>

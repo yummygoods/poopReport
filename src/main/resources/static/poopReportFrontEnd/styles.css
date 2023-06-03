@@ -2,22 +2,23 @@
 
 /*start of media queries*/
 /*EXTRA SMALL up to 300px*/
-@media only screen and (max-width: 600px) {
+
+/* @media only screen and (max-width: 00px) {
 body{
 margin: 0;
 padding: 0;
 min-width: 100%
 }
 
-}
+} */
 /*SMALL up to 500px*/
-@media only screen and (max-width: 500px) {
+/* @media only screen and (max-width: 500px) {
 
 
 ul{
 display: flex;
 flex-direction: column;
-background-color: rgb(200, 237, 250);
+background-color: white;
 }
 
 li{
@@ -27,7 +28,7 @@ li{
 }
 
 .top-nav, .bottom-nav{
-background-color: white;
+
 margin: 0;
 
 
@@ -37,7 +38,7 @@ margin: 0;
 font-size: 1.75rem;
 inline-size: min-content;
 }
-}
+} */
 
 /*end of media queries*/
 
@@ -54,7 +55,9 @@ inline-size: min-content;
 }
 html,
 body {
-	height: 100%;
+	/* height: 100%; */
+  max-width: 550px;
+  min-width: 330px;
 }
 body {
 	line-height: 1.5;
@@ -100,10 +103,11 @@ body {
 
 header {
 	display: flex;
-	background-color: rgb(68, 48, 67);
+	background-color: rgb(201, 167, 237);
 	justify-content: center;
 	align-items: center;
 	min-height: 4rem;
+
 	font-family:'Courier New', Courier, monospace;
 	font-weight: bold;
 
@@ -117,33 +121,60 @@ footer {
 	min-height: 4rem;
 }
 
-#title {
+/* #title {
 	color: white;
-	font-size: 3rem;
+	font-size: 2rem;
+  min-width: 330px;
+} */
+
+#logoWithText{
+  min-width: 330px;
+  max-width: 550px;
+  margin : .5rem;
 }
+
+
 
 ul {
 	display: flex;
 	list-style: none;
 	justify-content: center;
+  align-items: center;
 	padding: 0;
-	  background-color: white;
+  margin-top: .25rem;
+  
+/* background-color: rgb(200, 237, 250); */
+background-color: black;
 	 }
 
 li {
-
+color: white;
+text-decoration: none;
 	padding: .5rem 1rem;
 	text-align: center;
-background-color: rgb(200, 237, 250);
+/* background-color: rgb(200, 237, 250); */
+}
+
+li a{
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+a:visited {
+  color: white;
+  text-decoration: none;
 }
 
 main {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+  
 
 }
-
+#about{
+  margin-top: 1rem;
+}
 span {
 
 	padding-left: 0.5rem;
@@ -160,9 +191,10 @@ margin-bottom: .5rem;
 
 
 img{
-	width: 50%;
+
+	/* width: 50%;
 	margin: 1rem;
-}
+} */
 #header-text {
   text-decoration: none;
 }
@@ -191,8 +223,8 @@ img{
 
 
   form {
-  min-width: 20rem;
-    max-width: 22rem;
+  min-width: 375px;
+    max-width: 550px;
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -336,21 +368,21 @@ font-size:2.5rem;
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
 
-}
+} */
 
 /* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
-}
+/* @media only screen and (min-width: 768px) {
+} */
 
 /* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-}
+/* @media only screen and (min-width: 992px) {
+} */
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-}
+/* @media only screen and (min-width: 1200px) {
+} */
 
 
 .modal {
@@ -369,4 +401,18 @@ font-size:2.5rem;
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+}
+#poopForm{
+padding: 0 ;
+}
+#fileReportHeading{
+  margin-top: 1rem;
+}
+
+#resultsSection{
+  display: flex;
+  flex-direction: column;
+  min-width: 330px;
+  max-width: 550px;
+  margin : .5rem;
 }
