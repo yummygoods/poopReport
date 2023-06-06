@@ -129,7 +129,7 @@ function redirectToReportPage() {
   // redirect to profile page after 3 seconds
 
   setTimeout(() => {
-    window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/results-table.html';
+    window.location.href = '../results-table.html';
   }, 6000);
 
 

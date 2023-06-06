@@ -70,7 +70,7 @@ fetch( 'http://localhost:8080/dogs',
 function noMoreDogs(){
   const  noMoreDogsButton = document.getElementById('no-other-dog-btn');
                   noMoreDogsButton.addEventListener('click', () => {
-                 window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
+                 window.location.href = '../make-report.html';
                    });
                    };
 
