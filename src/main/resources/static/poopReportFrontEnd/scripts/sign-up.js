@@ -27,9 +27,9 @@ let jsonData = JSON.stringify(jsonObject);
 }
 
     document.getElementById("createUser").addEventListener("submit", e => {
-
+  e.preventDefault();
         sendData();
-        e.preventDefault();
+
      theForm.reset();
     /* confetti();*/
 

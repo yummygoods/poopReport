@@ -1,5 +1,5 @@
 console.log("hello");
-
+/*export default User;*/
 
 let userForm = document.getElementById('createUser');
 
