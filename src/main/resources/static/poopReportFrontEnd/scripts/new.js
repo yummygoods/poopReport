@@ -1,5 +1,5 @@
 console.log("hello");
-/*export default User;*/
+
 
 let userForm = document.getElementById('createUser');
 
@@ -62,3 +62,4 @@ function sendUserToServer(userFromForm) {
   })
 };
 ///////////////////// end of function /////////////////////
+
