@@ -40,7 +40,8 @@ public class UserController {
         return userService.save(new User(userDTO));
     }
 
-  /* @CrossOrigin(origins = "*", allowedHeaders = "*")
+/*
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
     @PostMapping(value = "/login")
     @ResponseBody
     public User findByEmail(@RequestBody UserDTO userDTO) {

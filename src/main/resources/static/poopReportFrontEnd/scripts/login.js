@@ -37,14 +37,15 @@ async function checkData(loginData) {
 let loginForm = document.getElementById('loginForm')
 .addEventListener('submit', (event) => {
 	event.preventDefault();
-
+console.log("default prevented");
   const email = document.getElementById('email').value;
 const password = document.getElementById('password').value;
 	 const loginData = new User(email, password);
+	//  loginForm.reset();
    console.log(loginData);
 	checkData(loginData);
 
-	loginForm.reset();
+	
 });
 
 /*

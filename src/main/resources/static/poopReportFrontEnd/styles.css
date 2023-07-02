@@ -106,9 +106,7 @@ align-items: center;
 
 }
 
-* {
-	box-sizing: border-box;
-}
+
 header{
   display: flex;
 flex-direction: column;
@@ -118,9 +116,12 @@ flex-direction: column;
 }
 
 header p {
+  z-index: 4;
+  margin-top: -20px;
 font-size: 75%;
+margin-bottom: 20px;
 }
-header #welcome{
+ #welcome{
   display: flex;
 	background-color: rgb(225, 138, 254);
 	justify-content: center;
@@ -176,6 +177,33 @@ header span {
     z-index: 0; /* Set a lower z-index to place it below the logo */
   }
 
+
+nav span {
+  background-color: black;
+  color: white;
+  margin: .35rem;
+  font-family:'Courier New', Courier, monospace;
+	font-weight: bolder;
+
+}
+nav a {
+	text-decoration: none;
+	}
+
+nav a:visited {
+text-decoration: none;
+}
+
+#border{
+  display:flex;
+  max-width: 500px;
+  min-width: 275px;
+  justify-content: center;
+	align-items: center;
+  background-color: rgb(225, 138, 254);
+	min-height: 1rem; 
+ 
+}
 
 
 
@@ -382,9 +410,6 @@ display: inline;
 */
 
 
-
-
-
 th, td, caption{
 padding: .5rem;
 border: solid;
@@ -404,6 +429,18 @@ background-color: ;
 th{
 background-color: lightcyan}
 
+#border{
+    display: flex;
+    background-color: rgb(225, 138, 254);
+    justify-content: center;
+    align-items: center;
+    min-height: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    max-width: 500px;
+    min-width: 275px;
+    font-size: 100%;
+}
 
 
               /* ==========================================
