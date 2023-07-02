@@ -121,12 +121,30 @@ header p {
 font-size: 75%;
 margin-bottom: 20px;
 }
+
+
+
+#border{
+    display: flex;
+    background-color: rgb(225, 138, 254);
+    justify-content: center;
+    align-items: center;
+    min-height: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    max-width: 500px;
+    min-width: 275px;
+    font-size: 100%;
+    width: 100%;
+}
+
+
  #welcome{
   display: flex;
 	background-color: rgb(225, 138, 254);
 	justify-content: center;
 	align-items: center;
-	min-height: 2.5rem;
+
 	font-family:'Courier New', Courier, monospace;
 	font-weight: bolder;
   max-width: 500px;
@@ -136,6 +154,7 @@ margin-bottom: 20px;
 header span {
   background-color: white;
   margin: .35rem;
+  font-size: 80%;
 }
 
 
@@ -151,16 +170,19 @@ header span {
  
 }
 
-.logo:hover {
+#animated-logo:hover {
   opacity:0;
   /* width: 100% */
  
 }
 
-
-#logo_container {
+#static-logo-container{
+width: 100%
+}
+.logo_container {
   /* display: flex;
   flex-direction: column; */
+
     max-width: 500px;
     min-width: 275px;
    width: 100%;
@@ -177,7 +199,15 @@ header span {
     z-index: 0; /* Set a lower z-index to place it below the logo */
   }
 
+#static-logo{
+max-width: 250px;
 
+}
+
+
+nav{
+display: flex;
+}
 nav span {
   background-color: black;
   color: white;
@@ -194,16 +224,6 @@ nav a:visited {
 text-decoration: none;
 }
 
-#border{
-  display:flex;
-  max-width: 500px;
-  min-width: 275px;
-  justify-content: center;
-	align-items: center;
-  background-color: rgb(225, 138, 254);
-	min-height: 1rem; 
- 
-}
 
 
 
@@ -306,28 +326,39 @@ margin-bottom: .5rem;
 
 
   form {
-  min-width: 375px;
-    max-width: 550px;
-    margin: auto;
+  min-width: 250px;
+    max-width: 350px;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
  border: solid;
  border-width: 4px;
  border-color: gold ;
  align-items: center;
   }
 
-fieldset{
+#dogForm {
+
+  }
+
+.label-input-div{
+/*background: red;*/
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+fieldset {
 display: flex;
 flex-direction: column;
 margin: .5rem 0rem;
 border-color: rgb(200, 237, 250);
-  min-width: 18rem;
-    max-width: 20rem;
 border-width: 4px;
 border-style: solid;
+width: 90%;
+min-width: 0;
 }
   input, textarea {
 /*  min-width: 6rem;*/
@@ -336,6 +367,12 @@ border-style: solid;
     border-color: gray;
     border-width: 2px;
     margin: .5rem;
+        max-width: 80%;
+  }
+  label{
+  max-width: 75%;
+  min-width: 0;
+
   }
 textarea{
  min-width: 18rem;
@@ -429,18 +466,7 @@ background-color: ;
 th{
 background-color: lightcyan}
 
-#border{
-    display: flex;
-    background-color: rgb(225, 138, 254);
-    justify-content: center;
-    align-items: center;
-    min-height: 2.5rem;
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: bolder;
-    max-width: 500px;
-    min-width: 275px;
-    font-size: 100%;
-}
+
 
 
               /* ==========================================
@@ -507,4 +533,7 @@ padding: 0 ;
   min-width: 330px;
   max-width: 550px;
   margin : .5rem;
+}
+
+#static-logo{
 }

@@ -39,17 +39,17 @@ public class UserController {
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
     }
-
 /*
+
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping(value = "/login")
+    @PostMapping(value = "/login/{email}")
     @ResponseBody
     public User findByEmail(@RequestBody UserDTO userDTO) {
         return userService.findByEmail(new User(userDTO));
     }
+
 */
 
-    //trying request param instead of path variable
     @GetMapping(value = "users/{id}")
     public User findById(@PathVariable Integer id) {
         return userService.findById(id);

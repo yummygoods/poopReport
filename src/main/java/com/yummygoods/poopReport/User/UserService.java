@@ -38,6 +38,11 @@ public class UserService {
 
     }
 
+/*
+    public User findByEmail(User email) {
+    }
+*/
+
 
     //check that a user with that email address is present
     //if yes, return
