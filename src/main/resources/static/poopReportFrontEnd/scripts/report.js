@@ -1,4 +1,7 @@
 
+
+
+///this is creating the visual table
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
 
