@@ -42,7 +42,7 @@ public class UserController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(value = "/login")
-    public Boolean login(@RequestParam String email, @RequestParam String password) {
+    public User login(@RequestParam String email, @RequestParam String password) {
         System.out.println(email);
         System.out.println(password);
         return userService.login(email, password);

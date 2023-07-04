@@ -39,8 +39,12 @@ public class UserService {
     }
 
 
-    public Boolean login(String email, String password) {
+    public User login(String email, String password) {
         User user = userRepository.findByEmail(email);
-        return user.getPassword().equals(password);
+        if (user.getPassword().equals(password)) {
+            return user;
+        } else {
+            return null;
+        }
     }
 }

@@ -17,7 +17,6 @@ class Dog {
 		this.name = name;
 	}
 }
-console.log('this should print the newly created class Dog: ' + Dog);
 ///////////////////// end of class ////////////////////
 
 function getDogData() {
