@@ -34,21 +34,19 @@ public class UserController {
 
     /*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
     @CrossOrigin
-    @PostMapping(value = "/users")
+    @PostMapping(value = "users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
     }
-/*
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping(value = "/login/{email}")
-    @ResponseBody
-    public User findByEmail(@RequestBody UserDTO userDTO) {
-        return userService.findByEmail(new User(userDTO));
+    @GetMapping(value = "/login")
+    public Boolean login(@RequestParam String email, @RequestParam String password) {
+        System.out.println(email);
+        System.out.println(password);
+        return userService.login(email, password);
     }
-
-*/
 
     @GetMapping(value = "users/{id}")
     public User findById(@PathVariable Integer id) {

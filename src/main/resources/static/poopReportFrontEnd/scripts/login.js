@@ -15,12 +15,12 @@ class User {
 
 
 async function checkData(loginData) {
-	let response = await fetch('http://localhost:8080/login', {
-		method: 'POST',
+	let response = await fetch( `http://localhost:8080/login?email=${loginData.email}&password=${loginData.password}`, {
+		method: 'GET',
 		headers: { 'Content-Type': 'application/json' },
-		body: JSON.stringify(loginData),
+		params: JSON.stringify(loginData),
 		mode: 'cors',
-		credentials: 'include',
+	/*	credentials: 'include',*/
 	});
 
 	if (!response.ok) {
@@ -28,11 +28,9 @@ async function checkData(loginData) {
 	}
 
 	let data = await response.json();
-  console.log(data);
-  // need to write java logic to check for user
+	localStorage.setItem("isLoggedIn", data);
+console.log(data);
 }
-
-
 
 let loginForm = document.getElementById('loginForm')
 .addEventListener('submit', (event) => {

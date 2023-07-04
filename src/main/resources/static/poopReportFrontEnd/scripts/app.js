@@ -1,4 +1,5 @@
 console.log("oh hi");
+
 /*
 TO DO
 now:
@@ -21,44 +22,7 @@ now:
    above form, show last update time?
    add 'updated by user' info
 
-
-/*//////////////////// function to reset form after submit ///////////////////*/
-
-//trying built in reset in
-/*function reset() {
-  /////// tells the dom to remove the user's text input
-  document.getElementById('user_dog_id').value = '';
-  document.getElementById('poop').checked = '';
-  document.getElementById('pee').checked = '';
-  document.getElementById('notes').value = '';
-  /////// resets the values stored in the variables
-  user_dog_id = '';
-  poop = '';
-  pee = '';
-  notes = '';
-};*/
-/*//////////////////// end of reset function ///////////////////*/
-
-
-/*///////// event listener to capture form data on submit /////////*/
-let poopForm = document.getElementById('poopForm');
-poopForm.addEventListener('submit', function (event) {
-
-  event.preventDefault();
-  // calls function that takes the user input and makes an object
-  addFromForm();
-  poopForm.reset();
-  /*debugger;*/
-/* console.log(event.target.elements.user_dog_id.value);
-  console.log(event.target.elements.poop.checked);
-  console.log(event.target.elements.pee.checked);
-  console.log(event.target.elements.notes.value);*/
-});
- console.log("now listening for submit button");
-/*//////////////////// end of event listener ///////////////////*/
-
-
-
+*/
 
 ////////// class to capture user poop report in an object //////////
 class DogEvent {
@@ -73,36 +37,7 @@ class DogEvent {
            this.notes = notes;
   }
 }
-/*console.log("this should print the newly created class DogEvent: ", DogEvent);*/
 ///////////////////// end of class ////////////////////
-
-
-
-////////// function to take form input and turn into object //////////
-function addFromForm() {
-  /////// takes form input values and assigns the data to corresponding variables
- let user_dog_id = document.getElementById('user_dog_id').value;
- let walk = document.querySelector("#walk input:checked").value;
-  debugger;
-  let poop = document.querySelector("#poop input:checked").value;
-  let pee = document.querySelector("#pee input:checked").value;
-  let was_fed = document.querySelector("#was_fed input:checked").value;
-/* let ate = document.querySelector("#ate input:checked").value;*/
- let rx = document.querySelector("#rx input:checked").value;
-  let notes = document.getElementById('notes').value;
-
-  /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
-  const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, /*ate,*/ rx, notes);
-  console.log("this should print the new dogEvent object with values:", dogEventFromForm);
-
-  /////// calls function to take the new object and make a post request with it
-  sendDogEventToServer(dogEventFromForm);
-  //need to add success message and prompt to add report for another dog
-  redirectToReportPage();
-}
-///////////////////// end of function /////////////////////
-
-
 
 ////////// function to send the new dogEvent object to the db //////////
 function sendDogEventToServer(dogEventFromForm) {
@@ -126,6 +61,52 @@ function sendDogEventToServer(dogEventFromForm) {
 ///////////////////// end of function /////////////////////
 
 
+
+////////// function to take form input and turn into object //////////
+function addFromForm() {
+  /////// takes form input values and assigns the data to corresponding variables
+ let user_dog_id = document.getElementById('user_dog_id').value;
+ let walk = document.querySelector("#walk input:checked").value;
+/*  debugger;*/
+  let poop = document.querySelector("#poop input:checked").value;
+  let pee = document.querySelector("#pee input:checked").value;
+  let was_fed = document.querySelector("#was_fed input:checked").value;
+ let ate = document.querySelector("#ate input:checked").value;
+ let rx = document.querySelector("#rx input:checked").value;
+  let notes = document.getElementById('notes').value;
+
+  /////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
+  const dogEventFromForm = new DogEvent(user_dog_id, walk, poop, pee, was_fed, ate, rx, notes);
+  console.log("this should print the new dogEvent object with values:", dogEventFromForm);
+
+  /////// calls function to take the new object and make a post request with it
+  sendDogEventToServer(dogEventFromForm);
+
+
+  //need to add success message and prompt to add report for another dog
+
+ /* redirectToReportPage();*/
+}
+///////////////////// end of function /////////////////////
+
+
+
+/*///////// event listener to capture form data on submit /////////*/
+let poopForm = document.getElementById('poopForm');
+poopForm.addEventListener('submit', function (event) {
+
+  event.preventDefault();
+  // calls function that takes the user input and makes an object
+  addFromForm();
+  poopForm.reset();
+  /*debugger;*/
+});
+
+///////////////////// end of event listener ///////////////////
+
+
+
+/*
 //need to change this
 function redirectToReportPage() {
   // redirect to profile page after 3 seconds
@@ -133,5 +114,36 @@ function redirectToReportPage() {
   setTimeout(() => {
     window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/results-table.html';
   }, 6000);
-   }
-});*/
+   }*/
+
+
+
+// ************************************ MODAL SHIZ ************************************
+//is this better in the global scope so two functions can use it? or is there another way besides repeating it?
+const modal = document.getElementById('success-modal');
+
+function showSuccessModal() {
+	//since i wrote this i learned that there is a built in method to show and close a modal :(
+	modal.style.display = 'block';
+	noMoreDogs();
+	addAnotherDog();
+	//aso i need to add a close/dismiss option
+}
+
+function noMoreDogs() {
+	const noMoreDogsButton = document.getElementById('no-other-dog-btn');
+	noMoreDogsButton.addEventListener('click', () => {
+		window.location.href =
+			'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
+	});
+}
+
+function addAnotherDog() {
+	const addAnotherDogButton = document.getElementById('add-another-dog-btn');
+	addAnotherDogButton.addEventListener('click', () => {
+		//is this a good way to dismiss the modal?
+		modal.style.display = 'none';
+	});
+}
+
+// ************************************ END OF MODAL SHIZ ************************************

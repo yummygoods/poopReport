@@ -37,15 +37,15 @@ function sendDog(dog) {
 		body: JSON.stringify(dog),
 	}).then((response) => {
     console.log(response);
-		// if (response.ok) {
-		// 	showSuccessModal();
-		// 	console.log(
-		// 		'omg did this work? if so, the response should be here: ',
-		// 		response
-		// 	);
-		// 	return response.json();
-		// }
-		// throw new Error('ugh, the request failed');
+		 if (response.ok) {
+		 	showSuccessModal();
+		 	console.log(
+		 		'omg did this work? if so, the response should be here: ',
+		 		response
+		 	);
+		 	return response.json();
+		 }
+		 throw new Error('ugh, the request failed');
 		
 	});
 }

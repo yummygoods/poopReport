@@ -29,9 +29,9 @@
 -->
 
 <nav id="welcome">
-    <div id="welcome">
-        <span><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></span>
-    </div>
+
+    <span><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></span>
+
 </nav>
 
 <main>
@@ -107,7 +107,7 @@
                         id="peedTrue"
                         value="true"
                         name="hasPeed"
-                        checked
+
                 />
                 <label for="peedTrue">yes</label>
             </div>
@@ -148,29 +148,29 @@
             </div>
         </fieldset>
 
-        <!--   <fieldset id="ate">
-               <legend>did they eat it?</legend>
-               <div>
-                   <input
-                           type="radio"
-                           id="ateTrue"
-                           value="true"
-                           name="didEat"
-                   />
-                   <label for="ateTrue" class="radio-buttons">yes</label>
-               </div>
+        <fieldset id="ate">
+            <legend>did they eat it?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="ateTrue"
+                        value="true"
+                        name="didEat"
+                />
+                <label for="ateTrue" class="radio-buttons">yes</label>
+            </div>
 
-               <div>
-                   <input
-                           type="radio"
-                           id="ateFalse"
-                           value="false"
-                           name="didEat"
-                   />
-                   <label for="ateFalse">no</label>
-               </div>
-           </fieldset>
-   -->
+            <div>
+                <input
+                        type="radio"
+                        id="ateFalse"
+                        value="false"
+                        name="didEat"
+                        checked
+                />
+                <label for="ateFalse">no</label>
+            </div>
+        </fieldset>
         <fieldset id="rx">
             <legend>rx given?</legend>
             <div>
@@ -212,18 +212,15 @@
     </form>
 
 
-    <!--  <h3>✨💩✨</h3>-->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span>Success!</span>
+            <p>File another Poop Report? </p>
+            <button id="no-other-dog-btn">file a report</button>
+            <button id="add-another-dog-btn">add dog</button>
 
-    <!--
-    <p>
-        if you've ever witnessed a dog “airbrushing the juniper bushes” with their business...you might understand
-    </p>
-    <br/>
-     <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
-    <br/>
-    <h3>✨💩✨</h3>
-    <br/>
-
+        </div>
+    </div>
 </main>
 
 <footer>
