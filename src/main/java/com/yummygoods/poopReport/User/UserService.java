@@ -3,6 +3,7 @@ package com.yummygoods.poopReport.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.lang.reflect.Array;
 import java.util.Optional;
 
 @Service
@@ -39,12 +40,17 @@ public class UserService {
     }
 
 
-    public User login(String email, String password) {
+    public Integer login(String email, String password) {
         User user = userRepository.findByEmail(email);
         if (user.getPassword().equals(password)) {
-            return user;
+            return user.getId();
         } else {
             return null;
         }
+    }
+
+
+    public Array getUserDogs(Integer id) {
+        User user = userRepository.findById(email);
     }
 }

@@ -52,7 +52,6 @@ function sendDogEventToServer(dogEventFromForm) {
     }
   ).then(response => {
     if (response.ok) {
-      console.log("omg did this work? if so, the response should be here: ", response);
       return response.json();
     }
     throw new Error('ugh, the request failed');

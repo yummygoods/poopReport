@@ -39,8 +39,6 @@ event.preventDefault();
 	const email = document.getElementById('email').value;
 	const password = document.getElementById('password').value;
 	const loginData = new User(email, password);
-	console.log("login data: ", loginData)
 	login(loginData);
-	console.log("login data: ", loginData)
 	loginForm.reset();
 });

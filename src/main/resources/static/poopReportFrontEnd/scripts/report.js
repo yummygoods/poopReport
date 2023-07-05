@@ -108,8 +108,8 @@ function reverseChron(){
  reverseChronRows.forEach(row => tableBody.appendChild(row));
 }
 
+//get id of logged in user to populate for just their dogs
 
-// call to  get all dogEvents (will make this just for the user's dogs,  once i add users)
 fetch('http://localhost:8080/events/all',
 {
   method: 'GET',
