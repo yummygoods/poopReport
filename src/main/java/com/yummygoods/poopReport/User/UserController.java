@@ -1,7 +1,10 @@
 package com.yummygoods.poopReport.User;
 
+import com.yummygoods.poopReport.Dog.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Set;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
@@ -66,5 +69,10 @@ public class UserController {
     @DeleteMapping(value = "users/{id}")
     public void delete(@PathVariable Integer id) {
         userService.delete(id);
+    }
+
+    @GetMapping(value = "users/{id}/dogs")
+    public Set<Dog> getUserDogs(@PathVariable Integer id) {
+        return userService.getUserDogs(id);
     }
 }

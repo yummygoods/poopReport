@@ -1,6 +1,10 @@
 package com.yummygoods.poopReport.Dog;
 
+import com.yummygoods.poopReport.User.User;
 import jakarta.persistence.*;
+
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "dogs")
@@ -21,6 +25,10 @@ public class Dog {
 
     @Column
     private String name;
+
+    @ManyToMany(mappedBy = "dogs", fetch = FetchType.LAZY)
+    private Set<User> dogs = new HashSet<>();
+
 
     public Dog(Integer id, String name) {
         this.id = id;
@@ -43,4 +51,11 @@ public class Dog {
         this.name = name;
     }
 
+    public Set<User> getDogParents() {
+        return dogs;
+    }
+
+    public void setDogParents(Set<User> dogParents) {
+        this.dogs = dogParents;
+    }
 }
