@@ -8,6 +8,7 @@ import java.util.Optional;
 @Service
 public class DogService {
     private final DogRepository dogRepository;
+    private Iterable<Dog> userDogs;
 
     public DogService(@Autowired DogRepository dogRepository) {
         this.dogRepository = dogRepository;
@@ -22,7 +23,7 @@ public class DogService {
     }
 
 
-    public Iterable<Dog> getAll() {
+    public Iterable<Dog> findAll() {
         return dogRepository.findAll();
     }
 
@@ -36,5 +37,10 @@ public class DogService {
         } else {
             return null;
         }
+    }
+
+
+    public Iterable<Dog> getUserDogs() {
+        return userDogs;
     }
 }

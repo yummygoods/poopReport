@@ -18,8 +18,8 @@ public class DogController {
 
 
     @GetMapping(value = "dogs/all")
-    public Iterable<Dog> getAllDogs() {
-        return dogService.getAll();
+    public Iterable<Dog> getUserDogs() {
+        return dogService.getUserDogs();
     }
 
     @CrossOrigin

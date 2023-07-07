@@ -41,14 +41,13 @@ public class User {
     @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(name = "rel_user_dogs",
             joinColumns = {
-                    @JoinColumn(name = "user_id", referencedColumnName = "id",
-                            nullable = false, updatable = false)},
+                    @JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {
-                    @JoinColumn(name = "dog_id", referencedColumnName = "id",
-                            nullable = false, updatable = false)})
+                    @JoinColumn(name = "dog_id", referencedColumnName = "id")
+            })
     private Set<Dog> userDogs = new HashSet<>();
 
-    @ManyToMany
+
     @JoinTable(name = "users_dogs",
             joinColumns = @JoinColumn(name = "user_id"))
     private Set<Dog> dogs = new LinkedHashSet<>();
