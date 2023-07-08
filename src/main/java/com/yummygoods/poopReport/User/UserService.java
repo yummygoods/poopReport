@@ -1,11 +1,9 @@
 package com.yummygoods.poopReport.User;
 
-import com.yummygoods.poopReport.Dog.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-import java.util.Set;
 
 @Service
 public class UserService {
@@ -49,12 +47,15 @@ public class UserService {
             return null;
         }
     }
+}
 
 
+/*
     public Set<Dog> getUserDogs(Integer id) {
         return userRepository.getUserDogs();
     }
 }
+*/
 
    /* public User findById(Integer id) {
         Optional<User> user;

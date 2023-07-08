@@ -1,13 +1,9 @@
 package com.yummygoods.poopReport.User;
 
-import com.yummygoods.poopReport.Dog.Dog;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
-import java.util.HashSet;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Entity
 @Table(name = "users")
@@ -37,28 +33,6 @@ public class User {
     @CreationTimestamp
     @Column(name = "created", nullable = false, updatable = false)
     private Timestamp created;
-
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-    @JoinTable(name = "rel_user_dogs",
-            joinColumns = {
-                    @JoinColumn(name = "user_id", referencedColumnName = "id")},
-            inverseJoinColumns = {
-                    @JoinColumn(name = "dog_id", referencedColumnName = "id")
-            })
-    private Set<Dog> userDogs = new HashSet<>();
-
-
-    @JoinTable(name = "users_dogs",
-            joinColumns = @JoinColumn(name = "user_id"))
-    private Set<Dog> dogs = new LinkedHashSet<>();
-
-    public Set<Dog> getDogs() {
-        return dogs;
-    }
-
-    public void setDogs(Set<Dog> dogs) {
-        this.dogs = dogs;
-    }
 
     // no args constructor
     public User() {
@@ -157,12 +131,35 @@ public class User {
                        ", created=" + created +
                        '}';
     }
+}
 
-    public Set<Dog> getUserDogs() {
+  /*  public Set<Dog> getUserDogs() {
         return userDogs;
     }
 
     public void setUserDogs(Set<Dog> userDogs) {
         this.userDogs = userDogs;
-    }
-}
+    }*/
+
+//
+// @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
+// @JoinTable(name = "rel_user_dogs",
+//         joinColumns = {
+//                 @JoinColumn(name = "user_id", referencedColumnName = "id")},
+//         inverseJoinColumns = {
+//                 @JoinColumn(name = "dog_id", referencedColumnName = "id")
+//         })
+// private Set<Dog> userDogs = new HashSet<>();
+//
+//
+// @JoinTable(name = "users_dogs",
+//         joinColumns = @JoinColumn(name = "user_id"))
+// private Set<Dog> dogs = new LinkedHashSet<>();
+//
+// public Set<Dog> getDogs() {
+//     return dogs;
+// }
+//
+// public void setDogs(Set<Dog> dogs) {
+//     this.dogs = dogs;
+// }

@@ -17,10 +17,7 @@ public class DogController {
     }
 
 
-    @GetMapping(value = "dogs/all")
-    public Iterable<Dog> getUserDogs() {
-        return dogService.getUserDogs();
-    }
+// @GetMapping(value = "dogs/all") public Iterable<Dog> getUserDogs() {return dogService.getUserDogs();}
 
     @CrossOrigin
     @PostMapping(value = "/dogs")
