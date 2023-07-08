@@ -22,9 +22,6 @@ public class Dog {
     @Column(name = "name")
     private String name;
 
-//    @ManyToMany(mappedBy = "dogs", fetch = FetchType.LAZY) private Set<User> dogs = new HashSet<>();
-//
-
 
     public Dog(Integer id, String name) {
         this.id = id;

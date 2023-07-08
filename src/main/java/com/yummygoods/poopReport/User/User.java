@@ -1,5 +1,6 @@
 package com.yummygoods.poopReport.User;
 
+
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -33,6 +34,7 @@ public class User {
     @CreationTimestamp
     @Column(name = "created", nullable = false, updatable = false)
     private Timestamp created;
+
 
     // no args constructor
     public User() {
@@ -132,34 +134,3 @@ public class User {
                        '}';
     }
 }
-
-  /*  public Set<Dog> getUserDogs() {
-        return userDogs;
-    }
-
-    public void setUserDogs(Set<Dog> userDogs) {
-        this.userDogs = userDogs;
-    }*/
-
-//
-// @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
-// @JoinTable(name = "rel_user_dogs",
-//         joinColumns = {
-//                 @JoinColumn(name = "user_id", referencedColumnName = "id")},
-//         inverseJoinColumns = {
-//                 @JoinColumn(name = "dog_id", referencedColumnName = "id")
-//         })
-// private Set<Dog> userDogs = new HashSet<>();
-//
-//
-// @JoinTable(name = "users_dogs",
-//         joinColumns = @JoinColumn(name = "user_id"))
-// private Set<Dog> dogs = new LinkedHashSet<>();
-//
-// public Set<Dog> getDogs() {
-//     return dogs;
-// }
-//
-// public void setDogs(Set<Dog> dogs) {
-//     this.dogs = dogs;
-// }
