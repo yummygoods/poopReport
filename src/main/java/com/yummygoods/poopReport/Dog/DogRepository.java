@@ -6,5 +6,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DogRepository extends JpaRepository<Dog, Integer> {
 
+    Dog findByName(String name);
 
+    Iterable<Dog> findByUser_Id(Integer id);
 }

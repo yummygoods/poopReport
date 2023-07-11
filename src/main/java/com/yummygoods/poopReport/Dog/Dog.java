@@ -8,7 +8,12 @@ import java.util.List;
 @Entity
 @Table(name = "dogs")
 public class Dog {
+
     public Dog() {
+    }
+
+    public Dog(List<User> user) {
+        this.user = user;
     }
 
     protected Dog(DogDto dogDto) {
@@ -25,8 +30,8 @@ public class Dog {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "dogs")
-    private List<User> users;
+    @ManyToMany/*(mappedBy = "dogs")*/
+    private List<User> user;
 
     public Dog(Integer id, String name) {
         this.id = id;
