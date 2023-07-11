@@ -10,36 +10,24 @@
 
 </head>
 <body>
-<a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
-    <header>
-        <img src="./assets/poop-report.png" id="logoWithText">
-        <!-- <span id="title">poop💩report</span> -->
-    </header>
-</a>
-<nav class="top-nav">
-    <ul>
-        <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make report</a></li>
-        <!--        <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>-->
-    </ul>
+
+<nav id="welcome">
+    <span><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></span>
 </nav>
 
 <main>
-    <br> <br>
+
     <form enctype="multipart/form-data" id="poopForm">
-        <h2 id="fileReportHeading">✨file a poop report✨</h2>
+     
         <fieldset>
             <!--           todo render dog options from api based on user session id -->
             <legend>select dog</legend>
             <label for="user_dog_id"></label>
-            <!--  <input name="name" autocomplete="off" type="text" id="name"/>-->
             <select name="user_dog_id" id="user_dog_id">
                 <!--need to figure out how to populate with user's dogs-->
-                <option value="5">Zero</option>
-                <option value="6">Scooter</option>
-                <option value="7">Gizmo</option>
+                <option value=${dog.id}>${dog.name}</option>
+                <!-- <option value="6">Scooter</option>
+                <option value="7">Gizmo</option> -->
             </select>
         </fieldset>
 
@@ -99,7 +87,7 @@
                         id="peedTrue"
                         value="true"
                         name="hasPeed"
-                        checked
+
                 />
                 <label for="peedTrue">yes</label>
             </div>
@@ -140,29 +128,29 @@
             </div>
         </fieldset>
 
-        <!--   <fieldset id="ate">
-               <legend>did they eat it?</legend>
-               <div>
-                   <input
-                           type="radio"
-                           id="ateTrue"
-                           value="true"
-                           name="didEat"
-                   />
-                   <label for="ateTrue" class="radio-buttons">yes</label>
-               </div>
+        <fieldset id="ate">
+            <legend>did they eat it?</legend>
+            <div>
+                <input
+                        type="radio"
+                        id="ateTrue"
+                        value="true"
+                        name="didEat"
+                />
+                <label for="ateTrue" class="radio-buttons">yes</label>
+            </div>
 
-               <div>
-                   <input
-                           type="radio"
-                           id="ateFalse"
-                           value="false"
-                           name="didEat"
-                   />
-                   <label for="ateFalse">no</label>
-               </div>
-           </fieldset>
-   -->
+            <div>
+                <input
+                        type="radio"
+                        id="ateFalse"
+                        value="false"
+                        name="didEat"
+                        checked
+                />
+                <label for="ateFalse">no</label>
+            </div>
+        </fieldset>
         <fieldset id="rx">
             <legend>rx given?</legend>
             <div>
@@ -204,30 +192,21 @@
     </form>
 
 
-    <!--  <h3>✨💩✨</h3>-->
+    <div id="success-modal" class="modal">
+        <div class="modal-content">
+            <span>Success!</span>
 
-    <!--
-    <p>
-        if you've ever witnessed a dog “airbrushing the juniper bushes” with their business...you might understand
-    </p>
-    <br/>
-     <img src="https://img.icons8.com/color/256/dog-pooping.png">-->
-    <br/>
-    <h3>✨💩✨</h3>
-    <br/>
+            <!-- //////////////////ADD LOGIC TO CHECK IF MORE DOGS -->
+            <p>File another Poop Report? </p>
+            <button id="no-other-dog-btn">file a report</button>
+            <button id="add-another-dog-btn">add dog</button>
 
+        </div>
+    </div>
 </main>
 
 <footer>
-    <nav class="bottom-nav">
-        <ul>
-            <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
-        </ul>
-    </nav>
+ 
 </footer>
 </body>
 </html>

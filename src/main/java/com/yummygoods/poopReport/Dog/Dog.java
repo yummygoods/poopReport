@@ -1,6 +1,9 @@
 package com.yummygoods.poopReport.Dog;
 
+import com.yummygoods.poopReport.User.User;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "dogs")
@@ -19,8 +22,11 @@ public class Dog {
     @Column(name = "id", nullable = false, updatable = false)
     private Integer id;
 
-    @Column
+    @Column(name = "name")
     private String name;
+
+    @ManyToMany(mappedBy = "dogs")
+    private List<User> users;
 
     public Dog(Integer id, String name) {
         this.id = id;
@@ -42,5 +48,6 @@ public class Dog {
     public void setName(String name) {
         this.name = name;
     }
+
 
 }

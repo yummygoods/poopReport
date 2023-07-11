@@ -24,9 +24,7 @@ public class DogEventController {
 
     @CrossOrigin
     @PostMapping(value = "/events")
-    //do i need @ResponseBody here?
-    @ResponseBody
-    public DogEvent save(@RequestBody DogEventDto dogEventDto) {
+    public DogEvent save(DogEventDto dogEventDto) {
         return dogEventService.save(new DogEvent(dogEventDto)
         );
     }

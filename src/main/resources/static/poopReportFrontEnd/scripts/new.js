@@ -7,6 +7,7 @@ userForm.addEventListener('submit', function (event) {
   event.preventDefault();
  addUserData();
  console.log("called function to add user data");
+ 
   userForm.reset();
   
 });
@@ -62,3 +63,4 @@ function sendUserToServer(userFromForm) {
   })
 };
 ///////////////////// end of function /////////////////////
+

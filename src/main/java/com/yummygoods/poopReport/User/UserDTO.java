@@ -1,7 +1,10 @@
 package com.yummygoods.poopReport.User;
 
 
+import com.yummygoods.poopReport.Dog.Dog;
+
 import java.sql.Timestamp;
+import java.util.List;
 
 public class UserDTO {
     public Integer id;
@@ -11,8 +14,9 @@ public class UserDTO {
     public String first_name;
     public String last_name;
     public Timestamp created;
+    public List<Dog> dogs;
 
-    public UserDTO(Integer id, String email, String password, String user_name, String first_name, String last_name, Timestamp created) {
+    public UserDTO(Integer id, String email, String password, String user_name, String first_name, String last_name, Timestamp created, List<Dog> dogs) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -20,6 +24,7 @@ public class UserDTO {
         this.first_name = first_name;
         this.last_name = last_name;
         this.created = created;
+        this.dogs = dogs;
     }
 
     public Integer getId() {
@@ -76,5 +81,9 @@ public class UserDTO {
 
     public void setCreated(Timestamp created) {
         this.created = created;
+    }
+
+    public List<Dog> getDogs() {
+        return dogs;
     }
 }

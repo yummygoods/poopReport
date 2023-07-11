@@ -11,35 +11,31 @@
 
 </head>
 <body>
-<a id="header-text" href="/poopReport/static/poopReportFrontEnd/index.html">
-    <header>
-        <img src="./assets/poop-report.png" id="logoWithText">
-        <!-- <span id="title">poop💩report</span> -->
-    </header>
-</a>
-<nav class="top-nav">
-    <ul>
-        <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
-        <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make report</a></li>
-        <!--        <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>-->
-    </ul>
+
+<nav id="border">
+    <span><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></span>
+
 </nav>
 
+
 <main>
-    <br/> <br/>
+
     <!--  todo make a request to your api that will use the session id to dynamically return only the dogs that belong to the user of the specified id  -->
-    <form id="dogForm">
-        <h2>✨create profile✨</h2>
-        <fieldset>
+    <form>
+        <h2>✨add your dog(s)!✨</h2>
+        <p>
+
+        </p>
+        <fieldset id="dogForm">
             <!--  <legend>Add your dog(s)</legend>-->
-
-            <label for="dog_name">dog's name:</label>
-            <input type="text" name="dog_name" id="dog_name">
-
-            <label for="dogPic">dog's profile pic:</label>
-            <input type="file" name="dog_name" id="dogPic">
+            <div class="label-input-div">
+                <label for="dog_name">dog's name:</label>
+                <input type="text" name="dog_name" id="dog_name">
+            </div>
+            <div class="label-input-div">
+                <label for="dogPic">dog's profile pic:</label>
+                <input type="file" name="dog_name" id="dogPic">
+            </div>
         </fieldset>
         <button type="submit">ADD DOG</button>
         <button type="reset" class="resetBtn">reset form</button>
@@ -58,21 +54,20 @@
 
 
     <br/>
-    <h3>✨💩✨</h3>
-    <br/>
+
 </main>
 
 
 <footer>
-    <nav class="bottom-nav">
-        <ul>
-            <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
-            <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
-        </ul>
-    </nav>
+    <!--  <nav class="bottom-nav">
+          <ul>
+              <li><a href="/poopReport/static/poopReportFrontEnd/index.html">home</a></li>
+              <li><a href="/poopReport/static/poopReportFrontEnd/sign-up.html">sign up</a></li>
+              <li><a href="/poopReport/static/poopReportFrontEnd/profile-page.html">profile</a></li>
+              <li><a href="/poopReport/static/poopReportFrontEnd/make-report.html">make a report</a></li>
+              <li><a href="/poopReport/static/poopReportFrontEnd/about.html">about</a></li>
+          </ul>
+      </nav>-->
 </footer>
 
 <script>

@@ -53,16 +53,23 @@ inline-size: min-content;
 * {
 	margin: 0;
 }
-html,
-body {
-	/* height: 100%; */
-  max-width: 550px;
-  min-width: 330px;
+html
+ {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
 }
 body {
 	line-height: 1.5;
 	-webkit-font-smoothing: antialiased;
 	margin: 1rem;
+  display: flex;
+  flex-direction: column;
+ align-items: center;
+ justify-content: center;
+ max-width: 550px;
+ min-width: 330px;
 }
 img,
 picture,
@@ -91,27 +98,134 @@ h6 {
 body {
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
 		'Lucida Sans', Arial, sans-serif;
-
+display: flex;
+flex-direction: column;
+align-items: center;
 	font-size: 1rem;
 /*	padding: 4rem;*/
 
 }
 
-* {
-	box-sizing: border-box;
+
+header{
+  display: flex;
+flex-direction: column;
+  max-width: 500px;
+  min-width: 275px;
+  justify-content: center;
 }
 
-header {
-	display: flex;
-	background-color: rgb(201, 167, 237);
+header p {
+  z-index: 4;
+  margin-top: -20px;
+font-size: 75%;
+margin-bottom: 20px;
+}
+
+
+
+#border{
+    display: flex;
+    background-color: rgb(225, 138, 254);
+    justify-content: center;
+    align-items: center;
+    min-height: 2.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bolder;
+    max-width: 500px;
+    min-width: 275px;
+    font-size: 100%;
+    width: 100%;
+}
+
+
+ #welcome{
+  display: flex;
+	background-color: rgb(225, 138, 254);
 	justify-content: center;
 	align-items: center;
-	min-height: 4rem;
 
 	font-family:'Courier New', Courier, monospace;
-	font-weight: bold;
+	font-weight: bolder;
+  max-width: 500px;
+  min-width: 275px;
+  font-size: 100%
+}
+header span {
+  background-color: white;
+  margin: .35rem;
+  font-size: 80%;
+}
+
+
+.logo {
+  /* position:absolute; */
+  position: relative;
+  background: white;
+  max-width: 500px;
+  min-width: 275px;
+  width: 100%;
+  height: auto;
+  z-index: 1; 
+ 
+}
+
+#animated-logo:hover {
+  opacity:0;
+  /* width: 100% */
+ 
+}
+
+#static-logo-container{
+width: 100%
+}
+.logo_container {
+  /* display: flex;
+  flex-direction: column; */
+
+    max-width: 500px;
+    min-width: 275px;
+   width: 100%;
+   position: relative;
+  
+  }
+
+  .active {
+    position: absolute; /* Use absolute positioning to layer the GIF */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0; /* Set a lower z-index to place it below the logo */
+  }
+
+#static-logo{
+max-width: 250px;
 
 }
+
+
+nav{
+display: flex;
+}
+nav span {
+  background-color: black;
+  color: white;
+  margin: .35rem;
+  font-family:'Courier New', Courier, monospace;
+	font-weight: bolder;
+
+}
+nav a {
+	text-decoration: none;
+	}
+
+nav a:visited {
+text-decoration: none;
+}
+
+
+
 
 footer {
 /*	display: flex;*/
@@ -126,12 +240,6 @@ footer {
 	font-size: 2rem;
   min-width: 330px;
 } */
-
-#logoWithText{
-  min-width: 330px;
-  max-width: 550px;
-  margin : .5rem;
-}
 
 
 
@@ -190,11 +298,7 @@ margin-bottom: .5rem;
 }
 
 
-img{
 
-	/* width: 50%;
-	margin: 1rem;
-} */
 #header-text {
   text-decoration: none;
 }
@@ -211,8 +315,7 @@ img{
 
 
     }
-  }
-
+ 
   ::placeholder {
     color: rgba(245, 166, 97, .75);
     text-align: center;
@@ -223,28 +326,39 @@ img{
 
 
   form {
-  min-width: 375px;
-    max-width: 550px;
-    margin: auto;
+  min-width: 250px;
+    max-width: 350px;
+    margin-top: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 1rem 2rem;
+    padding: 1rem 0;
  border: solid;
  border-width: 4px;
  border-color: gold ;
  align-items: center;
   }
 
-fieldset{
+#dogForm {
+
+  }
+
+.label-input-div{
+/*background: red;*/
+display: flex;
+flex-direction: column;
+justify-content: center;
+}
+
+fieldset {
 display: flex;
 flex-direction: column;
 margin: .5rem 0rem;
 border-color: rgb(200, 237, 250);
-  min-width: 18rem;
-    max-width: 20rem;
 border-width: 4px;
 border-style: solid;
+width: 90%;
+min-width: 0;
 }
   input, textarea {
 /*  min-width: 6rem;*/
@@ -253,6 +367,12 @@ border-style: solid;
     border-color: gray;
     border-width: 2px;
     margin: .5rem;
+        max-width: 80%;
+  }
+  label{
+  max-width: 75%;
+  min-width: 0;
+
   }
 textarea{
  min-width: 18rem;
@@ -327,9 +447,6 @@ display: inline;
 */
 
 
-
-
-
 th, td, caption{
 padding: .5rem;
 border: solid;
@@ -348,6 +465,7 @@ background-color: ;
 
 th{
 background-color: lightcyan}
+
 
 
 
@@ -415,4 +533,7 @@ padding: 0 ;
   min-width: 330px;
   max-width: 550px;
   margin : .5rem;
+}
+
+#static-logo{
 }

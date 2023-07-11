@@ -1,7 +1,11 @@
 package com.yummygoods.poopReport.User;
 
+import com.yummygoods.poopReport.Dog.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
@@ -26,29 +30,19 @@ public class UserController {
         return userService.getAll();
     }
 
-    //test
-    // @PostMapping(value = "/users")
-    // public String testEndpoint() {
-    //     return "This is a test response";
-    // }
-
-    /*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
     @CrossOrigin
-    @PostMapping(value = "/users")
+    @PostMapping(value = "users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         return userService.save(new User(userDTO));
     }
 
-  /* @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @PostMapping(value = "/login")
-    @ResponseBody
-    public User findByEmail(@RequestBody UserDTO userDTO) {
-        return userService.findByEmail(new User(userDTO));
+    @CrossOrigin(origins = "*", allowedHeaders = "*")
+    @GetMapping(value = "/login")
+    public Integer login(@RequestParam String email, @RequestParam String password) {
+        return userService.login(email, password);
     }
-*/
 
-    //trying request param instead of path variable
     @GetMapping(value = "users/{id}")
     public User findById(@PathVariable Integer id) {
         return userService.findById(id);
@@ -70,4 +64,10 @@ public class UserController {
     public void delete(@PathVariable Integer id) {
         userService.delete(id);
     }
+
+    @GetMapping("users/dogs/{id}")
+    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
+        return Optional.ofNullable(userService.getDogsById(id));
+    }
+
 }

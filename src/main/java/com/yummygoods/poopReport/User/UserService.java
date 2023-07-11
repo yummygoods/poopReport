@@ -1,8 +1,10 @@
 package com.yummygoods.poopReport.User;
 
+import com.yummygoods.poopReport.Dog.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -39,22 +41,18 @@ public class UserService {
     }
 
 
-    //check that a user with that email address is present
-    //if yes, return
-/*
+    public List<Dog> getDogsById(Integer id) {
+        Optional<User> user = userRepository.findById(id);
+        return userRepository.findDogsById(id);
+    }
 
-    public User findByEmail(String email) {
-        Optional<User> user;
-        user = userRepository.findByEmail(String email);
-        boolean isPresent = user.isPresent();
-        if (isPresent) {
-            */
-    /*return user.get();*//*
 
+    public Integer login(String email, String password) {
+        User user = userRepository.findByEmail(email);
+        if (user.getPassword().equals(password)) {
+            return user.getId();
         } else {
             return null;
         }
-*/
-
-
+    }
 }

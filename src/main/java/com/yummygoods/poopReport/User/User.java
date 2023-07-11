@@ -1,9 +1,12 @@
 package com.yummygoods.poopReport.User;
 
+
+import com.yummygoods.poopReport.Dog.Dog;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -34,6 +37,15 @@ public class User {
     @Column(name = "created", nullable = false, updatable = false)
     private Timestamp created;
 
+    @ManyToMany
+    @JoinTable(name = "rel_user_dogs",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "dog_id"))
+    private List<Dog> dogs;
+
+    public User(List<Dog> dogs) {
+        this.dogs = dogs;
+    }
 
     // no args constructor
     public User() {
@@ -131,5 +143,10 @@ public class User {
                        ", last_name='" + last_name + '\'' +
                        ", created=" + created +
                        '}';
+    }
+
+    public List<Dog> getDogs(Integer id) {
+
+        return dogs;
     }
 }
