@@ -1,7 +1,11 @@
 package com.yummygoods.poopReport.User;
 
+import com.yummygoods.poopReport.Dog.Dog;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
@@ -26,13 +30,6 @@ public class UserController {
         return userService.getAll();
     }
 
-    //test
-    // @PostMapping(value = "/users")
-    // public String testEndpoint() {
-    //     return "This is a test response";
-    // }
-
-    /*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
     @CrossOrigin
     @PostMapping(value = "users")
     @ResponseBody
@@ -68,8 +65,9 @@ public class UserController {
         userService.delete(id);
     }
 
- /*   @GetMapping(value = "users/{id}/dogs")
-    public Set<Dog> getUserDogs(@PathVariable Integer id) {
-        return userService.getUserDogs(id);
-    }*/
+    @GetMapping("users/dogs/{id}")
+    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
+        return Optional.ofNullable(userService.getDogsById(id));
+    }
+
 }

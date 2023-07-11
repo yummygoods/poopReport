@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface DogRepository extends JpaRepository<Dog, Integer> {
 
-    /*    Set<Dog> findAll(Integer id);*/
+
 }

@@ -6,7 +6,6 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/")
-/*@CrossOrigin(origins = "http://localhost:8080/")*/
 public class DogController {
     final DogRepository dogRepository;
     final DogService dogService;
@@ -15,9 +14,6 @@ public class DogController {
         this.dogService = dogService;
         this.dogRepository = dogRepository;
     }
-
-
-// @GetMapping(value = "dogs/all") public Iterable<Dog> getUserDogs() {return dogService.getUserDogs();}
 
     @CrossOrigin
     @PostMapping(value = "/dogs")
@@ -45,5 +41,6 @@ public class DogController {
     public void delete(@PathVariable Integer id) {
         dogService.delete(id);
     }
+
 
 }
