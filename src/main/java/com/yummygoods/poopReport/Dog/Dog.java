@@ -30,7 +30,10 @@ public class Dog {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany/*(mappedBy = "dogs")*/
+    @ManyToMany
+    @JoinTable(name = "rel_user_dogs",
+            joinColumns = @JoinColumn(name = "dog_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> user;
 
     public Dog(Integer id, String name) {
