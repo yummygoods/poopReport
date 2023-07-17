@@ -42,7 +42,7 @@ public class UserService {
 
 
     public List<Dog> getDogsById(Integer id) {
-        Optional<User> user = userRepository.findById(id);
+        //Optional<User> user = userRepository.findById(id);
         return userRepository.findDogsById(id);
     }
 

@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
@@ -39,7 +38,8 @@ public class UserController {
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
     @GetMapping(value = "/login")
-    public Integer login(@RequestParam String email, @RequestParam String password) {
+    public Integer login(@RequestParam String email,
+                         @RequestParam String password) {
         return userService.login(email, password);
     }
 
@@ -49,7 +49,8 @@ public class UserController {
     }
 
     @PutMapping(value = "users/{id}")
-    public User update(@RequestBody UserDTO userDTO, @PathVariable Integer id) {
+    public User update(@RequestBody UserDTO userDTO,
+                       @PathVariable Integer id) {
         User user = userService.findById(id);
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
@@ -65,9 +66,15 @@ public class UserController {
         userService.delete(id);
     }
 
+// @GetMapping("users/dogs/{id}")
+//    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
+//        return Optional.ofNullable(userService.getDogsById(id));
+//    }
+
+    //try without optional
     @GetMapping("users/dogs/{id}")
-    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
-        return Optional.ofNullable(userService.getDogsById(id));
+    public List<Dog> getUserDogs(@PathVariable Integer id) {
+        return userService.getDogsById(id);
     }
 
 }
