@@ -7,6 +7,7 @@
     <title>poop💩report</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
     <script src="./scripts/app.js" defer></script>
+    <script src="./scripts/populateDogs.js" defer></script>></script>
 
 </head>
 <body>
@@ -18,16 +19,18 @@
 <main>
 
     <form enctype="multipart/form-data" id="poopForm">
-     
+
         <fieldset>
             <!--           todo render dog options from api based on user session id -->
             <legend>select dog</legend>
-            <label for="user_dog_id"></label>
-            <select name="user_dog_id" id="user_dog_id">
+            <!-- <label for="user_dog_id"></label>
+            <select name="user_dog_id" id="user_dog_id"> -->
+            <label for="dog_id"></label>
+            <select name="dog_id" id="dog_id">
                 <!--need to figure out how to populate with user's dogs-->
-                <option value=${dog.id}>${dog.name}</option>
-                <!-- <option value="6">Scooter</option>
-                <option value="7">Gizmo</option> -->
+
+                <!--   <option value=${dog.id}>${dog.name}</option>-->
+
             </select>
         </fieldset>
 
@@ -206,7 +209,7 @@
 </main>
 
 <footer>
- 
+
 </footer>
 </body>
 </html>

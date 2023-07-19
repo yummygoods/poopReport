@@ -1,6 +1,7 @@
 package com.yummygoods.poopReport.User;
 
 import com.yummygoods.poopReport.Dog.Dog;
+import com.yummygoods.poopReport.Dog.DogRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,9 +11,12 @@ import java.util.Optional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
+    private final DogRepository dogRepository;
 
-    public UserService(@Autowired UserRepository userRepository) {
+    public UserService(@Autowired UserRepository userRepository,
+                       @Autowired DogRepository dogRepository) {
         this.userRepository = userRepository;
+        this.dogRepository = dogRepository;
     }
 
     public User save(User user) {
@@ -41,12 +45,6 @@ public class UserService {
     }
 
 
-    public List<Dog> getDogsById(Integer id) {
-        //Optional<User> user = userRepository.findById(id);
-        return userRepository.findDogsById(id);
-    }
-
-
     public Integer login(String email, String password) {
         User user = userRepository.findByEmail(email);
         if (user.getPassword().equals(password)) {
@@ -54,5 +52,18 @@ public class UserService {
         } else {
             return null;
         }
+    }
+
+
+    public List<Dog> getDogsByUserId(Integer userId) {
+        return dogRepository.findByUserId(userId);
+
+    }
+
+
+    public Dog addDog(Dog dog, Integer id) {
+        User user = userRepository.findById(id).get();
+        user.getDogs().add(dog);
+        return dogRepository.save(dog);
     }
 }

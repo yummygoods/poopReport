@@ -29,7 +29,7 @@ async function login(loginData) {
 
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
 	window.location.href =
-			'http://localhost:63342/poopReport/static/poopReportFrontEnd/dashboard.html';
+			'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
 }
 
 const loginForm = document.getElementById('loginForm');

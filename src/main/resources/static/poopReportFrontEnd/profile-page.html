@@ -21,23 +21,23 @@
 <main>
 
     <!--  todo make a request to your api that will use the session id to dynamically return only the dogs that belong to the user of the specified id  -->
-    <form>
+    <form id="dogForm">
         <h2>✨add your dog(s)!✨</h2>
         <p>
 
         </p>
-        <fieldset id="dogForm">
+        <fieldset >
             <!--  <legend>Add your dog(s)</legend>-->
             <div class="label-input-div">
                 <label for="dog_name">dog's name:</label>
                 <input type="text" name="dog_name" id="dog_name">
             </div>
-            <div class="label-input-div">
+            <!-- <div class="label-input-div">
                 <label for="dogPic">dog's profile pic:</label>
-                <input type="file" name="dog_name" id="dogPic">
-            </div>
+                <input type="file" name="dog_pic" id="dogPic">
+            </div> -->
         </fieldset>
-        <button type="submit">ADD DOG</button>
+        <button type="submit" id="submit-btn">ADD DOG</button>
         <button type="reset" class="resetBtn">reset form</button>
 
 

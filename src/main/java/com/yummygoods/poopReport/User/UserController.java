@@ -9,8 +9,7 @@ import java.util.List;
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/")
-/*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
-/*@CrossOrigin(origins = "http://localhost:8080/")*/
+
 public class UserController {
 
     final UserRepository userRepository;
@@ -33,7 +32,12 @@ public class UserController {
     @PostMapping(value = "users")
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
-        return userService.save(new User(userDTO));
+        // Create new user from DTO
+        User newUser = new User(userDTO);
+        userService.save(new User(userDTO));
+// Log them in
+        userService.login(userDTO.getEmail(), userDTO.getPassword());
+        return newUser;
     }
 
     @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -66,15 +70,13 @@ public class UserController {
         userService.delete(id);
     }
 
-// @GetMapping("users/dogs/{id}")
-//    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
-//        return Optional.ofNullable(userService.getDogsById(id));
-//    }
-
-    //try without optional
     @GetMapping("users/dogs/{id}")
-    public List<Dog> getUserDogs(@PathVariable Integer id) {
-        return userService.getDogsById(id);
+    public List<Dog> getDogsByUserId(@PathVariable Integer id) {
+        return userService.getDogsByUserId(id);
     }
 
+    @PostMapping("users/dogs/{id}")
+    public Dog addDog(@RequestBody Dog dog, @PathVariable Integer id) {
+        return userService.addDog(dog, id);
+    }
 }

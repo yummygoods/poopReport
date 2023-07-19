@@ -40,7 +40,7 @@ public class DogService {
     //arraylist?
 
     public Iterable<Dog> findDogsByUserId(Integer id) {
-        return dogRepository.findByUser_Id(id);
+        return dogRepository.findByUserId(id);
     }
 
     public Dog addDog(Dog dog) {

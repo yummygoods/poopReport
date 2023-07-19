@@ -108,9 +108,11 @@ function reverseChron(){
  reverseChronRows.forEach(row => tableBody.appendChild(row));
 }
 
-//get id of logged in user to populate for just their dogs
 
-fetch('http://localhost:8080/events/all',
+
+//get id of logged in user to populate for just their dogs
+// was using 'http://localhost:8080/events/all' ++++STILL WORKING ON THIS
+fetch(`http://localhost:8080/users/dogs/${user}/events`,
 {
   method: 'GET',
   headers: {
