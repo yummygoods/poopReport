@@ -1,7 +1,7 @@
 console.log("connected");
 
 let user = localStorage.getItem('loggedInUser');
-console.log('user is:', user);
+console.log('logged in user is:', user);
 
 document.addEventListener('load', populateDogs(user));
 
