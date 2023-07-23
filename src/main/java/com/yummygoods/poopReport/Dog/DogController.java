@@ -4,13 +4,14 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
-@RequestMapping(value = "/dogs")
+@RequestMapping(value = "/api/dogs")
 public class DogController {
 
     final DogRepository dogRepository;
     final DogService dogService;
 
-    public DogController(DogService dogService, DogRepository dogRepository) {
+    public DogController(DogService dogService,
+                         DogRepository dogRepository) {
         this.dogService = dogService;
         this.dogRepository = dogRepository;
     }
@@ -38,8 +39,6 @@ public class DogController {
     }
 
 
-    //responsebody + requestbody?
-    @PostMapping(value = "/dogs")
     @ResponseBody
     public Dog save(@RequestBody DogDto dogDto) {
         return dogService.addDog(new Dog(dogDto)

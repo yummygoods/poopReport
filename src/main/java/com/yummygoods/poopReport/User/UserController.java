@@ -8,8 +8,7 @@ import java.util.List;
 
 @CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
-@RequestMapping(value = "/")
-
+@RequestMapping(value = "/api/users")
 public class UserController {
 
     final UserRepository userRepository;
@@ -23,13 +22,13 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "users/all")
+    @GetMapping(value = "/all")
     public Iterable<User> getAllUsers() {
         return userService.getAll();
     }
 
     @CrossOrigin
-    @PostMapping(value = "users")
+    @PostMapping
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
         // Create new user from DTO
@@ -47,12 +46,12 @@ public class UserController {
         return userService.login(email, password);
     }
 
-    @GetMapping(value = "users/{id}")
+    @GetMapping(value = "/{id}")
     public User findById(@PathVariable Integer id) {
         return userService.findById(id);
     }
 
-    @PutMapping(value = "users/{id}")
+    @PutMapping(value = "/{id}")
     public User update(@RequestBody UserDTO userDTO,
                        @PathVariable Integer id) {
         User user = userService.findById(id);
@@ -65,17 +64,17 @@ public class UserController {
         return userService.save(user);
     }
 
-    @DeleteMapping(value = "users/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Integer id) {
         userService.delete(id);
     }
 
-    @GetMapping("users/dogs/{id}")
+    @GetMapping("/dogs/{id}")
     public List<Dog> getDogsByUserId(@PathVariable Integer id) {
         return userService.getDogsByUserId(id);
     }
 
-    @PostMapping("users/dogs/{id}")
+    @PostMapping("/dogs/{id}")
     public Dog addDog(@RequestBody Dog dog, @PathVariable Integer id) {
         return userService.addDog(dog, id);
     }
