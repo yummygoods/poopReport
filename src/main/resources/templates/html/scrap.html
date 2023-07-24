@@ -107,7 +107,7 @@ event.preventDefault();
 const formData = new FormData(event.target); // Get the form data
 
 &lt;!&ndash;   // Send an AJAX request to the server&ndash;&gt;
-fetch('http://localhost:8080/submit-form', {
+fetch('/api/submit-form', {
 method: 'POST',
 headers: [
 ["Content-Type", "application/json"]],

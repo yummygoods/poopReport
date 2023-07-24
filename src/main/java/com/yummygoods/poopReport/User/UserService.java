@@ -44,7 +44,9 @@ public class UserService {
     }
 
 
-    public Integer login(String email, String password) {
+    public Integer login(User loginUser) {
+        String password = loginUser.getPassword();
+        String email = loginUser.getEmail();
         User user = userRepository.findByEmail(email);
         if (user.getPassword().equals(password)) {
             return user.getId();
@@ -64,5 +66,8 @@ public class UserService {
         User user = userRepository.findById(id).get();
         user.getDogs().add(dog);
         return dogRepository.save(dog);
+    }
+
+    public void login(String email, String password) {
     }
 }

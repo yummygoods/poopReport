@@ -12,7 +12,7 @@ let user = localStorage.getItem('loggedInUser');
 console.log('user is:', user);
 
 function sendDog(dog) {
-	fetch(`http://localhost:8080/users/dogs/${user}`, {
+	fetch(`/api/users/dogs/${user}`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		// takes the javascript object and turns it into a json string
@@ -79,7 +79,7 @@ function noMoreDogs() {
 	const noMoreDogsButton = document.getElementById('no-other-dog-btn');
 	noMoreDogsButton.addEventListener('click', () => {
 		window.location.href =
-			'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
+			'make-report';
 	});
 }
 

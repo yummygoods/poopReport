@@ -1,6 +1,7 @@
 console.log('oh hi');
 
-
+let user_id = localStorage.getItem('loggedInUser');
+console.log('logged in user is:', user_id);
 
 /*
 TO DO
@@ -28,10 +29,8 @@ now:
 
 ////////// class to capture user poop report in an object //////////
 class DogEvent {
-	constructor(dog_id, walk, poop, pee, was_fed, ate, rx, notes) {
-		// add user_dog_id  back in as first param if needed
-    // this.user_dog_id = user_dog_id;
-
+	constructor(user_id, dog_id, walk, poop, pee, was_fed, ate, rx, notes) {
+this.user_id = user_id;
     this.dog_id = dog_id;
 		this.walk = walk;
 		this.poop = poop;
@@ -46,7 +45,7 @@ class DogEvent {
 
 ////////// function to send the new dogEvent object to the db //////////
 function sendDogEventToServer(dogEventFromForm) {
-	fetch('http://localhost:8080/events', {
+	fetch('/api/events', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		// takes the javascript object and turns it into a json string
@@ -63,15 +62,9 @@ function sendDogEventToServer(dogEventFromForm) {
 
 ////////// function to take form input and turn into object //////////
 function addFromForm() {
-	/////// takes form input values and assigns the data to corresponding variables
-
-  // TRYING WITH JUST USERS DOGS
-let dog_id = document.getElementById('dog_id').value;
-	// let user_dog_id = document.getElementById('user_dog_id').value;
+    let user_id = localStorage.getItem('loggedInUser')
+    let dog_id = document.getElementById('dog_id').value;
 	let walk = document.querySelector('#walk input:checked').value;
-
-
-	/*  debugger;*/
 	let poop = document.querySelector('#poop input:checked').value;
 	let pee = document.querySelector('#pee input:checked').value;
 	let was_fed = document.querySelector('#was_fed input:checked').value;
@@ -81,7 +74,7 @@ let dog_id = document.getElementById('dog_id').value;
 
 	/////// instantiates new DogEvent object and passes above variables (now storing user input) as arguments into the constructor
 	const dogEventFromForm = new DogEvent(
-		// user_dog_id,
+	user_id,
     dog_id,
 		walk,
 		poop,
@@ -91,10 +84,7 @@ let dog_id = document.getElementById('dog_id').value;
 		rx,
 		notes
 	);
-	console.log(
-		'this should print the new dogEvent object with values:',
-		dogEventFromForm
-	);
+console.log(dogEventFromForm);
 
 	/////// calls function to take the new object and make a post request with it
 	sendDogEventToServer(dogEventFromForm);
@@ -109,10 +99,8 @@ let dog_id = document.getElementById('dog_id').value;
 let poopForm = document.getElementById('poopForm');
 poopForm.addEventListener('submit', function (event) {
 	event.preventDefault();
-	// calls function that takes the user input and makes an object
 	addFromForm();
 	poopForm.reset();
-	/*debugger;*/
 });
 
 ///////////////////// end of event listener ///////////////////
@@ -123,7 +111,7 @@ function redirectToReportPage() {
   // redirect to profile page after 3 seconds
 
   setTimeout(() => {
-    window.location.href = 'http://localhost:63342/poopReport/static/poopReportFrontEnd/results-table.html';
+    window.location.href = '/html/results-table.html';
   }, 6000);
    }*/
 
@@ -143,7 +131,7 @@ function noMoreDogs() {
 	const noMoreDogsButton = document.getElementById('no-other-dog-btn');
 	noMoreDogsButton.addEventListener('click', () => {
 		window.location.href =
-			'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
+			'/html/make-report.html';
 	});
 }
 

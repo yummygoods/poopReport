@@ -4,12 +4,11 @@ async function login(formData) {
 	console.log(formData.email);
 	console.log(formData.password);
 	let response = await fetch(
-		`http://localhost:8080/login?email=${formData.email}&password=${formData.password}`,
+		`/api/login`,
 		{
-			method: 'GET',
+			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			params: JSON.stringify(formData),
-			mode: 'cors',
+			body: JSON.stringify(formData),
 		}
 	);
 	if (!response.ok) {
@@ -18,14 +17,14 @@ async function login(formData) {
 	let data = await response.json();
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
 	// window.location.href =
-	// 	'http://localhost:63342/poopReport/static/poopReportFrontEnd/profile.html';
+	// 	'/html/profile.html';
 }
 
 //sends form data to create new user
 function sendData(jsonObject) {
 	console.log(jsonObject);
 	let jsonData = JSON.stringify(jsonObject);
-	fetch('http://localhost:8080/users', {
+	fetch('/api/users', {
 		method: 'POST',
 		headers: {
 			'Content-Type': 'application/json',
@@ -35,9 +34,9 @@ function sendData(jsonObject) {
 		.then((response) => {
 			return response.json();
 		})
-		// .then(() => {
-		// 	redirectToProfilePage();
-		// })
+		 .then(() => {
+		 	redirectToProfilePage();
+		 })
 		.catch((err) => {
 			console.log(err);
 		});
@@ -66,9 +65,9 @@ theForm.addEventListener('submit', (e) => {
 });
 
 // 	// redirect to profile page after 3 seconds
-// function redirectToProfilePage() {
-// 	setTimeout(() => {
-// 		window.location.href =
-// 			'http://localhost:63342/poopReport/static/poopReportFrontEnd/profile-page.html';
-// 	}, 3000);
-// }
+function redirectToProfilePage() {
+setTimeout(() => {
+		window.location.href =
+		'profile-page';
+	}, 3000);
+}

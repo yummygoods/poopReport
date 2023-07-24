@@ -3,6 +3,8 @@ package com.yummygoods.poopReport;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
+
+//JUST controller, not REST controller because we dont need to return JSON
 @Controller
 public class ViewController {
     @GetMapping("/")

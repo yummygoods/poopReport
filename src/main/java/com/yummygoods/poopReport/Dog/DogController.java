@@ -2,7 +2,7 @@ package com.yummygoods.poopReport.Dog;
 
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
+//@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
 @RequestMapping(value = "/api/dogs")
 public class DogController {

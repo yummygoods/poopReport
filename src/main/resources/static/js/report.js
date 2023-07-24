@@ -12,11 +12,11 @@ function addToPoopReport(event) {
 
 
   //make the cell
-  const user_dog_idCell = document.createElement('td');
+  const dog_idCell = document.createElement('td');
   //🧴🪣 it puts the data in the cell
-  user_dog_idCell.textContent = event.user_dog_id;
+ dog_idCell.textContent = event.dog_id;
   //insert the new cell into the row
-  row.appendChild(user_dog_idCell);
+  row.appendChild(dog_idCell);
 
 
 // parses the entry time into a Date object
@@ -111,8 +111,9 @@ function reverseChron(){
 
 
 //get id of logged in user to populate for just their dogs
-// was using 'http://localhost:8080/events/all' ++++STILL WORKING ON THIS
-fetch(`http://localhost:8080/users/dogs/${user}/events`,
+// was using '/api/events/all' ++++STILL WORKING ON THIS
+let user = localStorage.getItem('loggedInUser');
+fetch(`/api/users/dogs/${user}/events`,
 {
   method: 'GET',
   headers: {

@@ -39,7 +39,8 @@ public class DogEventController {
     public DogEvent update(@RequestBody DogEventDto dogEventDto,
                            @PathVariable Integer id) {
         DogEvent dogEvent = dogEventService.findById(id);
-        dogEvent.setUser_dog_id(dogEventDto.getUser_dog_id());
+      /*  dogEvent.setUser_id(dogEventDto.getUser_id());
+        dogEvent.setDog_id(dogEventDto.getDog_id());*/
         dogEvent.setWalk(dogEventDto.getWalk());
         dogEvent.setPoop(dogEventDto.getPoop());
         dogEvent.setPee(dogEventDto.getPee());

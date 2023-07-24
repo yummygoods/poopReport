@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
+
 @RestController
 @RequestMapping(value = "/api/users")
 public class UserController {
@@ -27,7 +27,7 @@ public class UserController {
         return userService.getAll();
     }
 
-    @CrossOrigin
+
     @PostMapping
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
@@ -39,11 +39,9 @@ public class UserController {
         return newUser;
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping(value = "/login")
-    public Integer login(@RequestParam String email,
-                         @RequestParam String password) {
-        return userService.login(email, password);
+    @PostMapping(value = "/login")
+    public Integer login(@RequestBody User user) {
+        return userService.login(user);
     }
 
     @GetMapping(value = "/{id}")
