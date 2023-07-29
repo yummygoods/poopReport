@@ -45,6 +45,7 @@ this.user_id = user_id;
 
 ////////// function to send the new dogEvent object to the db //////////
 function sendDogEventToServer(dogEventFromForm) {
+console.log("inside the sendDogEventToServer function");
 	fetch('/api/events', {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
@@ -84,11 +85,11 @@ function addFromForm() {
 		rx,
 		notes
 	);
-console.log(dogEventFromForm);
+//console.log(dogEventFromForm);
 
 	/////// calls function to take the new object and make a post request with it
 	sendDogEventToServer(dogEventFromForm);
-
+	
 	//need to add success message and prompt to add report for another dog
 
 	/* redirectToReportPage();*/

@@ -23,12 +23,17 @@ public class DogEventController {
     }
 
 
-    @PostMapping
+    /*@PostMapping
     public DogEvent save(DogEventDto dogEventDto) {
         return dogEventService.save(new DogEvent(dogEventDto)
         );
-    }
+    }*/
 
+    @PostMapping
+    public DogEvent save(@RequestBody DogEventDto dogEventDto) {
+        return dogEventService.save(new DogEvent(dogEventDto)
+        );
+    }
 
     @GetMapping(value = "/{id}")
     public void findById(@PathVariable Integer id) {
@@ -39,8 +44,8 @@ public class DogEventController {
     public DogEvent update(@RequestBody DogEventDto dogEventDto,
                            @PathVariable Integer id) {
         DogEvent dogEvent = dogEventService.findById(id);
-      /*  dogEvent.setUser_id(dogEventDto.getUser_id());
-        dogEvent.setDog_id(dogEventDto.getDog_id());*/
+        dogEvent.setUser_id(dogEventDto.getUser_id());
+        dogEvent.setDog_id(dogEventDto.getDog_id());
         dogEvent.setWalk(dogEventDto.getWalk());
         dogEvent.setPoop(dogEventDto.getPoop());
         dogEvent.setPee(dogEventDto.getPee());

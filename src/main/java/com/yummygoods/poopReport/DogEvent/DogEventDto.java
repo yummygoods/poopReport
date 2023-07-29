@@ -4,8 +4,8 @@ import java.sql.Timestamp;
 
 public class DogEventDto {
     public Integer id;
-    /* public Integer user_id;
-    public Integer dog_id;*/
+    public Integer user_id;
+    public Integer dog_id;
     public Boolean walk;
     public Boolean poop;
     public Boolean pee;
@@ -16,13 +16,13 @@ public class DogEventDto {
     public Timestamp entry_time;
 
 
-    public DogEventDto(Integer id, /*Integer user_id, Integer dog_id,*/
+    public DogEventDto(Integer id, Integer user_id, Integer dog_id,
                        Boolean walk, Boolean poop,
                        Boolean pee, Boolean was_fed, Boolean ate,
                        Boolean rx, String notes, Timestamp entry_time) {
         this.id = id;
-     /*   this.user_id = user_id;
-        this.dog_id = dog_id;*/
+        this.user_id = user_id;
+        this.dog_id = dog_id;
         this.walk = walk;
         this.poop = poop;
         this.pee = pee;
@@ -41,7 +41,7 @@ public class DogEventDto {
         this.id = id;
     }
 
-    /*public Integer getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
@@ -55,7 +55,7 @@ public class DogEventDto {
 
     public void setDog_id(Integer dog_id) {
         this.dog_id = dog_id;
-    }*/
+    }
 
 
     public Boolean getWalk() {
