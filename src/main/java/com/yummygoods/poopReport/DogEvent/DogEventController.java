@@ -40,6 +40,8 @@ public class DogEventController {
         dogEventService.findById(id);
     }
 
+    @GetMapping(value = "/{do_id}")
+
     @PutMapping(value = "/{id}")
     public DogEvent update(@RequestBody DogEventDto dogEventDto,
                            @PathVariable Integer id) {

@@ -113,7 +113,7 @@ function reverseChron(){
 //get id of logged in user to populate for just their dogs
 // was using '/api/events/all' ++++STILL WORKING ON THIS
 let user = localStorage.getItem('loggedInUser');
-fetch(`/api/users/dogs/${user}/events`,
+fetch(`/api/events/all`,
 {
   method: 'GET',
   headers: {

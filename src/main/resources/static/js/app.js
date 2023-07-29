@@ -1,4 +1,4 @@
-console.log('oh hi');
+ console.log('oh hi');
 
 let user_id = localStorage.getItem('loggedInUser');
 console.log('logged in user is:', user_id);
@@ -90,9 +90,7 @@ function addFromForm() {
 	/////// calls function to take the new object and make a post request with it
 	sendDogEventToServer(dogEventFromForm);
 	
-	//need to add success message and prompt to add report for another dog
 
-	/* redirectToReportPage();*/
 }
 ///////////////////// end of function /////////////////////
 
@@ -102,6 +100,9 @@ poopForm.addEventListener('submit', function (event) {
 	event.preventDefault();
 	addFromForm();
 	poopForm.reset();
+    showSuccessModal();
+
+
 });
 
 ///////////////////// end of event listener ///////////////////
@@ -120,28 +121,30 @@ function redirectToReportPage() {
 //is this better in the global scope so two functions can use it? or is there another way besides repeating it?
 const modal = document.getElementById('success-modal');
 
+
+
 function showSuccessModal() {
 	//since i wrote this i learned that there is a built in method to show and close a modal :(
 	modal.style.display = 'block';
-	noMoreDogs();
-	addAnotherDog();
+	seeReport();
+	fileAnotherReport();
 	//aso i need to add a close/dismiss option
 }
 
-function noMoreDogs() {
-	const noMoreDogsButton = document.getElementById('no-other-dog-btn');
-	noMoreDogsButton.addEventListener('click', () => {
+function seeReport() {
+	const seeReportButton = document.getElementById('see-report-btn');
+	seeReportButton.addEventListener('click', () => {
 		window.location.href =
-			'/html/make-report.html';
+			'/dashboard';
 	});
 }
 
-function addAnotherDog() {
-	const addAnotherDogButton = document.getElementById('add-another-dog-btn');
-	addAnotherDogButton.addEventListener('click', () => {
+function fileAnotherReport() {
+	const fileAnotherReportButton = document.getElementById('file-another-btn');
+	fileAnotherReportButton.addEventListener('click', () => {
 		//is this a good way to dismiss the modal?
 		modal.style.display = 'none';
 	});
 }
 
-// ************************************ END OF MODAL SHIZ ************************************
+// ************************************ END OF MODAL SHIZ ************************************ 

@@ -36,6 +36,10 @@ public class Dog {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> user;
 
+ /*   @OneToMany(mappedBy = "dog")
+    private List<DogEvent> dogEvents;*/
+
+
     public Dog(Integer id, String name) {
         this.id = id;
         this.name = name;
