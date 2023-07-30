@@ -37,7 +37,7 @@ public class Dog {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> user;
 
-    @OneToMany(mappedBy = "dog")
+    @OneToMany(mappedBy = "dog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<DogEvent> dogEvents;
 
 

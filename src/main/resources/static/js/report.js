@@ -3,28 +3,10 @@ let user_id = localStorage.getItem('loggedInUser');
 console.log('logged in user is:', user_id);
 
 
-async function getDogs(user_id) {
-  console.log("inside getDogs function)");
-  //fix this path
-	let response = await fetch(`/api/users/dogs/${user_id}`);
-	let dogs = await response.json();
-  dogs.forEach(dog => {
-    let dog_id = dog.id;
-    let dog_name = dog.name;
-    console.log("dog id is: " + dog_id);
-    console.log("dog name is: " + dog_name);
-    return dog_id;
-    return dog_name;
-	/*localStorage.setItem(`loggedInUserDog`, JSON.stringify(dog))*/
-	});
-};
 
 document.addEventListener('load', getDogs(user_id));
 let dog_id = localStorage.getItem('loggedInUserDog');
 console.log('logged in user dog is:', dog_id);
-
-
-
 
 
 
@@ -40,14 +22,12 @@ function addToPoopReport(event) {
  //make new row
   const row = document.createElement('tr');
 
-
   //make the cell
   const dog_idCell = document.createElement('td');
   //🧴🪣 it puts the data in the cell
  dog_idCell.textContent = event.dog_id;
   //insert the new cell into the row
   row.appendChild(dog_idCell);
-
 
 // parses the entry time into a Date object
 const timestamp = new Date(event.entry_time);
@@ -144,22 +124,28 @@ function reverseChron(){
 // was using '/api/events/all' ++++STILL WORKING ON THIS
 let user = localStorage.getItem('loggedInUser');
 /*fetch(`/api/events/${dog_id}`,*/
-fetch(`/api/events/48`,
-{
-  method: 'GET',
+
+async function getDogs(user_id) {
+  console.log("inside getDogs function)");
+  //fix this path
+	let response = await fetch(`/api/users/dogs/${user_id}`);
+	let dogs = await response.json();
+dogs.forEach(dog => {
+fetch(`api/events/${dog.id}`,
+{ method: 'GET',
   headers: {
   'Content-Type': 'application/json' },
 }
 )
 .then((response) => response.json())
 .then(dogEventsArray => {
-// loops through the event entries
  for (let event of dogEventsArray) {
- //console.log("TESTING ARRAY dog id = " + event.user_dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
- //calls the function that populates the html with table/data
+
 addToPoopReport(event);
  };
  }).catch(error => {
  alert(error);
  console.error('Error:', error);
 });
+});
+}
