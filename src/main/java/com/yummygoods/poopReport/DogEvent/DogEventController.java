@@ -35,12 +35,15 @@ public class DogEventController {
         );
     }
 
-    @GetMapping(value = "/{id}")
+   /* @GetMapping(value = "/{id}")
     public void findById(@PathVariable Integer id) {
         dogEventService.findById(id);
-    }
+    }*/
 
-    @GetMapping(value = "/{do_id}")
+    @GetMapping(value = "/{dog_id}")
+    public Iterable<DogEvent> findByDogId(@PathVariable Integer dog_id) {
+        return dogEventService.findByDogId(dog_id);
+    }
 
     @PutMapping(value = "/{id}")
     public DogEvent update(@RequestBody DogEventDto dogEventDto,

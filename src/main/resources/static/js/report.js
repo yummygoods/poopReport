@@ -1,4 +1,34 @@
 
+let user_id = localStorage.getItem('loggedInUser');
+console.log('logged in user is:', user_id);
+
+
+async function getDogs(user_id) {
+  console.log("inside getDogs function)");
+  //fix this path
+	let response = await fetch(`/api/users/dogs/${user_id}`);
+	let dogs = await response.json();
+  dogs.forEach(dog => {
+    let dog_id = dog.id;
+    let dog_name = dog.name;
+    console.log("dog id is: " + dog_id);
+    console.log("dog name is: " + dog_name);
+    return dog_id;
+    return dog_name;
+	/*localStorage.setItem(`loggedInUserDog`, JSON.stringify(dog))*/
+	});
+};
+
+document.addEventListener('load', getDogs(user_id));
+let dog_id = localStorage.getItem('loggedInUserDog');
+console.log('logged in user dog is:', dog_id);
+
+
+
+
+
+
+
 
 
 ///this is creating the visual table
@@ -113,7 +143,8 @@ function reverseChron(){
 //get id of logged in user to populate for just their dogs
 // was using '/api/events/all' ++++STILL WORKING ON THIS
 let user = localStorage.getItem('loggedInUser');
-fetch(`/api/events/all`,
+/*fetch(`/api/events/${dog_id}`,*/
+fetch(`/api/events/48`,
 {
   method: 'GET',
   headers: {

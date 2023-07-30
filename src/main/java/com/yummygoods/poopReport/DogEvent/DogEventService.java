@@ -21,6 +21,9 @@ public class DogEventService {
         dogEventRepository.deleteById(id);
     }
 
+    public Iterable<DogEvent> findByDogId(Integer dog_id) {
+        return dogEventRepository.findByDogId(dog_id);
+    }
 
     public Iterable<DogEvent> getAll() {
         return dogEventRepository.findAll();

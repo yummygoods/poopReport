@@ -1,5 +1,6 @@
 package com.yummygoods.poopReport.Dog;
 
+import com.yummygoods.poopReport.DogEvent.DogEvent;
 import com.yummygoods.poopReport.User.User;
 import jakarta.persistence.*;
 
@@ -36,8 +37,8 @@ public class Dog {
             inverseJoinColumns = @JoinColumn(name = "user_id"))
     private List<User> user;
 
- /*   @OneToMany(mappedBy = "dog")
-    private List<DogEvent> dogEvents;*/
+    @OneToMany(mappedBy = "dog")
+    private List<DogEvent> dogEvents;
 
 
     public Dog(Integer id, String name) {

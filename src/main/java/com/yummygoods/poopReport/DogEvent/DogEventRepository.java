@@ -5,6 +5,8 @@ import org.springframework.stereotype.Repository;
 
 
 @Repository
-public interface DogEventRepository extends JpaRepository<DogEvent, Integer> {
+public interface DogEventRepository extends JpaRepository<DogEvent,
+                                                                 Integer> {
 
+    Iterable<DogEvent> findByDogId(Integer dog_id);
 }
