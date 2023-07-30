@@ -12,14 +12,18 @@ async function getDogs(user) {
   console.log("inside getDogs function)");
 	let response = await fetch(`/api/users/dogs/${user}`);
 	let dogs = await response.json();
-	console.log(dogs);
   dogs.forEach(dog => {
 		let option = document.createElement('option');
 		option.value = dog.id;
     option.textContent = dog.name;
 		dropdown.appendChild(option);
+
 	});
 };
+
+
+
+
 
 function populateDogs(){
   console.log("running function on page load");

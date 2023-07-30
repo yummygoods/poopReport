@@ -16,7 +16,11 @@ console.log('logged in user dog is:', dog_id);
 ///this is creating the visual table
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
+    // Find dog name
+    const dog =
 
+    // Add dog name to event object
+    event.dogName = dog.name ;
 //grab the table body by id to use at the end
   const tableBody = document.getElementById("poopReport");
  //make new row
