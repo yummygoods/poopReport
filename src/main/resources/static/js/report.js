@@ -1,12 +1,10 @@
-
+//get id of logged in user to populate for just their dogs
 let user_id = localStorage.getItem('loggedInUser');
 console.log('logged in user is:', user_id);
 
-
+let dogs = localStorage.getItem('loggedInDogs');
 
 document.addEventListener('load', getDogs(user_id));
-let dog_id = localStorage.getItem('loggedInUserDog');
-console.log('logged in user dog is:', dog_id);
 
 
 
@@ -17,10 +15,12 @@ console.log('logged in user dog is:', dog_id);
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
     // Find dog name
-    const dog =
-
+/*let dog = JSON.parse(localStorage.getItem('loggedInDogs')).find(dog => dog.id == event.dog_id);*/
     // Add dog name to event object
-    event.dogName = dog.name ;
+
+    /*
+   event.dog_name = dog.name;
+   console.log("dog name is: ", event.dog_name);*/
 //grab the table body by id to use at the end
   const tableBody = document.getElementById("poopReport");
  //make new row
@@ -122,12 +122,36 @@ function reverseChron(){
  reverseChronRows.forEach(row => tableBody.appendChild(row));
 }
 
+/*
+document.addEventListener('load', getEvents());
+async function getEvents(dogs){
+dogs.forEach(dog =>  {
+fetch(`api/events/${dog.id}`,
+{ method: 'GET',
+  headers: {
+  'Content-Type': 'application/json' },
+}
+)
+.then((response) => response.json())
+.then(dogEventsArray => {
+ for (let event of dogEventsArray) {
+addToPoopReport(event);
+ };
+ }).catch(error => {
+ alert(error);
+ console.error('Error:', error);
+});
+});
+
+}
+
+*/
 
 
-//get id of logged in user to populate for just their dogs
-// was using '/api/events/all' ++++STILL WORKING ON THIS
-let user = localStorage.getItem('loggedInUser');
-/*fetch(`/api/events/${dog_id}`,*/
+
+
+
+
 
 async function getDogs(user_id) {
   console.log("inside getDogs function)");
@@ -144,7 +168,6 @@ fetch(`api/events/${dog.id}`,
 .then((response) => response.json())
 .then(dogEventsArray => {
  for (let event of dogEventsArray) {
-
 addToPoopReport(event);
  };
  }).catch(error => {
