@@ -3,7 +3,8 @@ let user_id = localStorage.getItem('loggedInUser');
 console.log('logged in user is:', user_id);
 
 let dogs = localStorage.getItem('loggedInDogs');
-
+	let loggedInDogs = localStorage.getItem('loggedInDogs', JSON.parse(dogs));
+console.log('logged in dogs are:', loggedInDogs);
 document.addEventListener('load', getDogs(user_id));
 
 
@@ -14,13 +15,13 @@ document.addEventListener('load', getDogs(user_id));
 ///this is creating the visual table
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
+
     // Find dog name
-/*let dog = JSON.parse(localStorage.getItem('loggedInDogs')).find(dog => dog.id == event.dog_id);*/
+let dog = JSON.parse(localStorage.getItem('loggedInDogs')).find(dog => dog.id == event.dog_id);
     // Add dog name to event object
 
-    /*
    event.dog_name = dog.name;
-   console.log("dog name is: ", event.dog_name);*/
+
 //grab the table body by id to use at the end
   const tableBody = document.getElementById("poopReport");
  //make new row
@@ -29,7 +30,8 @@ function addToPoopReport(event) {
   //make the cell
   const dog_idCell = document.createElement('td');
   //🧴🪣 it puts the data in the cell
- dog_idCell.textContent = event.dog_id;
+ /*dog_idCell.textContent = event.dog_id;*/
+ dog_idCell.textContent = event.dog_name;
   //insert the new cell into the row
   row.appendChild(dog_idCell);
 
@@ -99,27 +101,33 @@ const ateCell = document.createElement('td');
           row.appendChild(notesCell);
 
 //insert new row with data into table body
+
+
+
+
  tableBody.appendChild(row);
 
  //call function to change the order
  //try to find how to do it once all data has been populated, rather than after each row?
-reverseChron();
+
 }
 ///////////////////////end of function/////////////////////
 
 
 ///////////////////////function to reverse the row order so most recent shows at the top/////////////////////
-function reverseChron(){
-
+function reverseChron(event){
+let date = event.timestamp;
  const tableBody = document.getElementById("poopReport");
  // make an array of the rows
- const reverseChronRows = Array.from(tableBody.rows);
+ const rows = Array.from(tableBody.rows);
  // reverse the array
- reverseChronRows.reverse();
+ rows.sort((a, b) => b.cells[1].textContent.localeCompare(a.cells[1].textContent));
+ console.log(rows);
+reverseChron(event.timestamp);
  // reset the table body content to an empty string
  tableBody.innerHTML = '';
  // Append the reversed rows to the table body (read up on this more)
- reverseChronRows.forEach(row => tableBody.appendChild(row));
+rows.forEach(row => tableBody.appendChild(row));
 }
 
 /*

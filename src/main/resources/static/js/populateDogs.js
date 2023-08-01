@@ -10,6 +10,7 @@ async function getDogs(user) {
 	let response = await fetch(`/api/users/dogs/${user}`);
 	let dogs = await response.json();
 	localStorage.setItem('loggedInDogs', JSON.stringify(dogs));
+
   dogs.forEach(dog => {
 		let option = document.createElement('option');
 		option.value = dog.id;
