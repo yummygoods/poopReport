@@ -24,7 +24,7 @@ createUserForm.addEventListener('submit', function (event) {
   /*debugger;*/
   let dto = new User(formData)
 
-  fetch('http://localhost:8080/users', {
+  fetch('/api/users', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(dto)
@@ -101,7 +101,7 @@ createUserForm.addEventListener('submit', function (event) {
 
 // createAccount.onsubmit = async (e) => {
 //     e.preventDefault();
-//     let response = await fetch('http://localhost:8080/formdata', {
+//     let response = await fetch('/api/formdata', {
 //       method: 'POST',
 
 //       body: new FormData(createAccount)

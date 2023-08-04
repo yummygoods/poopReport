@@ -5,13 +5,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
-@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
+
 @RestController
-@RequestMapping(value = "/")
-/*@CrossOrigin(origins = "*", allowedHeaders = "*")*/
-/*@CrossOrigin(origins = "http://localhost:8080/")*/
+@RequestMapping(value = "/api/users")
 public class UserController {
 
     final UserRepository userRepository;
@@ -25,31 +22,36 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping(value = "users/all")
+    @GetMapping(value = "/all")
     public Iterable<User> getAllUsers() {
         return userService.getAll();
     }
 
-    @CrossOrigin
-    @PostMapping(value = "users")
+
+    @PostMapping
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
-        return userService.save(new User(userDTO));
+        // Create new user from DTO
+        User newUser = new User(userDTO);
+        userService.save(new User(userDTO));
+// Log them in
+        userService.login(userDTO.getEmail(), userDTO.getPassword());
+        return newUser;
     }
 
-    @CrossOrigin(origins = "*", allowedHeaders = "*")
-    @GetMapping(value = "/login")
-    public Integer login(@RequestParam String email, @RequestParam String password) {
-        return userService.login(email, password);
+    @PostMapping(value = "/login")
+    public Integer login(@RequestBody User user) {
+        return userService.login(user);
     }
 
-    @GetMapping(value = "users/{id}")
+    @GetMapping(value = "/{id}")
     public User findById(@PathVariable Integer id) {
         return userService.findById(id);
     }
 
-    @PutMapping(value = "users/{id}")
-    public User update(@RequestBody UserDTO userDTO, @PathVariable Integer id) {
+    @PutMapping(value = "/{id}")
+    public User update(@RequestBody UserDTO userDTO,
+                       @PathVariable Integer id) {
         User user = userService.findById(id);
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
@@ -60,14 +62,18 @@ public class UserController {
         return userService.save(user);
     }
 
-    @DeleteMapping(value = "users/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Integer id) {
         userService.delete(id);
     }
 
-    @GetMapping("users/dogs/{id}")
-    public Optional<List<Dog>> getUserDogs(@PathVariable Integer id) {
-        return Optional.ofNullable(userService.getDogsById(id));
+    @GetMapping("/dogs/{id}")
+    public List<Dog> getDogsByUserId(@PathVariable Integer id) {
+        return userService.getDogsByUserId(id);
     }
 
+    @PostMapping("/dogs/{id}")
+    public Dog addDog(@RequestBody Dog dog, @PathVariable Integer id) {
+        return userService.addDog(dog, id);
+    }
 }

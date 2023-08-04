@@ -1,3 +1,4 @@
+<!--
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +7,7 @@
 </head>
 <body>
 
-<!--test form and function-->
+&lt;!&ndash;test form and function&ndash;&gt;
 <form>
     <input type="checkbox" name="checkbox-cats[]" id="checkbox-1" value="1" checked>
     <label for="checkbox-1">walked</label>
@@ -21,13 +22,13 @@
 </div>
 
 
-<!--TEST-->
+&lt;!&ndash;TEST&ndash;&gt;
 <form class="usa-form">
     <fieldset class="usa-fieldset">
         <legend class="usa-legend">select yes or no:</legend>
         <div class="usa-radio">
             <input
-                    class="usa-radio__input usa-radio__input--tile"
+                    class="usa-radio__input usa-radio__input&#45;&#45;tile"
                     id="historical-truth-2"
                     type="radio"
                     name="historical-figures-2"
@@ -40,7 +41,7 @@
         </div>
         <div class="usa-radio">
             <input
-                    class="usa-radio__input usa-radio__input--tile"
+                    class="usa-radio__input usa-radio__input&#45;&#45;tile"
                     id="historical-douglass-2"
                     type="radio"
                     name="historical-figures-2"
@@ -54,7 +55,7 @@
         </div>
         <div class="usa-radio">
             <input
-                    class="usa-radio__input usa-radio__input--tile"
+                    class="usa-radio__input usa-radio__input&#45;&#45;tile"
                     id="historical-washington-2"
                     type="radio"
                     name="historical-figures-2"
@@ -66,7 +67,7 @@
         </div>
         <div class="usa-radio">
             <input
-                    class="usa-radio__input usa-radio__input--tile"
+                    class="usa-radio__input usa-radio__input&#45;&#45;tile"
                     id="historical-carver-2"
                     type="radio"
                     name="historical-figures-2"
@@ -81,7 +82,7 @@
 </form>
 
 
-<!--test test test -->
+&lt;!&ndash;test test test &ndash;&gt;
 
 
 <form id="myForm" onsubmit="handleFormSubmit(event)">
@@ -98,7 +99,7 @@
     <button type="submit">Submit</button>
 </form>
 
-<!--
+&lt;!&ndash;
 &lt;!&ndash;SAMPLE SCRIPT&ndash;&gt;
 function handleFormSubmit(event) {
 event.preventDefault();
@@ -106,7 +107,7 @@ event.preventDefault();
 const formData = new FormData(event.target); // Get the form data
 
 &lt;!&ndash;   // Send an AJAX request to the server&ndash;&gt;
-fetch('http://localhost:8080/submit-form', {
+fetch('/api/submit-form', {
 method: 'POST',
 headers: [
 ["Content-Type", "application/json"]],
@@ -119,10 +120,10 @@ body: formData
 .catch(error => {
 console.log(error);
 });
-}-->
-<script src="./scripts/confetti.js"
+}&ndash;&gt;
+<script src="./js/confetti.js"
 ></script>
 <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"
 ></script>
 </body>
-</html>
+</html>-->

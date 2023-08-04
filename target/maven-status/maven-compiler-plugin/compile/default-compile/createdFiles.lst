@@ -5,6 +5,7 @@ com/yummygoods/poopReport/Dog/DogRepository.class
 com/yummygoods/poopReport/PoopReportApplication.class
 com/yummygoods/poopReport/Dog/Dog.class
 com/yummygoods/poopReport/User/User.class
+com/yummygoods/poopReport/ViewController.class
 com/yummygoods/poopReport/DogEvent/DogEventController.class
 com/yummygoods/poopReport/User/UserDTO.class
 com/yummygoods/poopReport/DogEvent/DogEventRepository.class

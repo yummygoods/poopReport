@@ -1,3 +1,14 @@
+//get id of logged in user to populate for just their dogs
+let user_id = localStorage.getItem('loggedInUser');
+console.log('logged in user is:', user_id);
+
+let dogs = localStorage.getItem('loggedInDogs');
+	let loggedInDogs = localStorage.getItem('loggedInDogs', JSON.parse(dogs));
+console.log('logged in dogs are:', loggedInDogs);
+document.addEventListener('load', getDogs(user_id));
+
+
+
 
 
 
@@ -5,19 +16,24 @@
 ///////////////////function to populate html with json retrieved from database////////////////
 function addToPoopReport(event) {
 
+    // Find dog name
+let dog = JSON.parse(localStorage.getItem('loggedInDogs')).find(dog => dog.id == event.dog_id);
+    // Add dog name to event object
+
+   event.dog_name = dog.name;
+
 //grab the table body by id to use at the end
   const tableBody = document.getElementById("poopReport");
  //make new row
   const row = document.createElement('tr');
 
-
   //make the cell
-  const user_dog_idCell = document.createElement('td');
+  const dog_idCell = document.createElement('td');
   //🧴🪣 it puts the data in the cell
-  user_dog_idCell.textContent = event.user_dog_id;
+ /*dog_idCell.textContent = event.dog_id;*/
+ dog_idCell.textContent = event.dog_name;
   //insert the new cell into the row
-  row.appendChild(user_dog_idCell);
-
+  row.appendChild(dog_idCell);
 
 // parses the entry time into a Date object
 const timestamp = new Date(event.entry_time);
@@ -85,47 +101,86 @@ const ateCell = document.createElement('td');
           row.appendChild(notesCell);
 
 //insert new row with data into table body
+
+
+
+
  tableBody.appendChild(row);
 
  //call function to change the order
  //try to find how to do it once all data has been populated, rather than after each row?
-reverseChron();
+
 }
 ///////////////////////end of function/////////////////////
 
 
 ///////////////////////function to reverse the row order so most recent shows at the top/////////////////////
-function reverseChron(){
-
+function reverseChron(event){
+let date = event.timestamp;
  const tableBody = document.getElementById("poopReport");
  // make an array of the rows
- const reverseChronRows = Array.from(tableBody.rows);
+ const rows = Array.from(tableBody.rows);
  // reverse the array
- reverseChronRows.reverse();
+ rows.sort((a, b) => b.cells[1].textContent.localeCompare(a.cells[1].textContent));
+ console.log(rows);
+reverseChron(event.timestamp);
  // reset the table body content to an empty string
  tableBody.innerHTML = '';
  // Append the reversed rows to the table body (read up on this more)
- reverseChronRows.forEach(row => tableBody.appendChild(row));
+rows.forEach(row => tableBody.appendChild(row));
 }
 
-//get id of logged in user to populate for just their dogs
-
-fetch('http://localhost:8080/events/all',
-{
-  method: 'GET',
+/*
+document.addEventListener('load', getEvents());
+async function getEvents(dogs){
+dogs.forEach(dog =>  {
+fetch(`api/events/${dog.id}`,
+{ method: 'GET',
   headers: {
   'Content-Type': 'application/json' },
 }
 )
 .then((response) => response.json())
 .then(dogEventsArray => {
-// loops through the event entries
  for (let event of dogEventsArray) {
- //console.log("TESTING ARRAY dog id = " + event.user_dog_id + " pooped? = " + event.poop +  " peed? = " + event.pee );
- //calls the function that populates the html with table/data
 addToPoopReport(event);
  };
  }).catch(error => {
  alert(error);
  console.error('Error:', error);
 });
+});
+
+}
+
+*/
+
+
+
+
+
+
+
+async function getDogs(user_id) {
+  console.log("inside getDogs function)");
+  //fix this path
+	let response = await fetch(`/api/users/dogs/${user_id}`);
+	let dogs = await response.json();
+dogs.forEach(dog => {
+fetch(`api/events/${dog.id}`,
+{ method: 'GET',
+  headers: {
+  'Content-Type': 'application/json' },
+}
+)
+.then((response) => response.json())
+.then(dogEventsArray => {
+ for (let event of dogEventsArray) {
+addToPoopReport(event);
+ };
+ }).catch(error => {
+ alert(error);
+ console.error('Error:', error);
+});
+});
+}

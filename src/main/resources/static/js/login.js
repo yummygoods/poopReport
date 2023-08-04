@@ -12,24 +12,21 @@ class User {
 
 async function login(loginData) {
 	let response = await fetch(
-		`http://localhost:8080/login?email=${loginData.email}&password=${loginData.password}`,
+		`/api/users/login`,
 		{
-			method: 'GET',
+			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
-			params: JSON.stringify(loginData),
-			mode: 'cors',
-		
+			body: JSON.stringify(loginData),
+
 		}
 	);
-
 	if (!response.ok) {
 		throw new Error('BOOOOOOOO there was a problem');
 	}
 	let data = await response.json();
-
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
 	window.location.href =
-			'http://localhost:63342/poopReport/static/poopReportFrontEnd/dashboard.html';
+			'/make-report';
 }
 
 const loginForm = document.getElementById('loginForm');

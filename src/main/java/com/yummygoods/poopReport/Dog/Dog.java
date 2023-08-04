@@ -1,5 +1,6 @@
 package com.yummygoods.poopReport.Dog;
 
+import com.yummygoods.poopReport.DogEvent.DogEvent;
 import com.yummygoods.poopReport.User.User;
 import jakarta.persistence.*;
 
@@ -8,7 +9,12 @@ import java.util.List;
 @Entity
 @Table(name = "dogs")
 public class Dog {
+
     public Dog() {
+    }
+
+    public Dog(List<User> user) {
+        this.user = user;
     }
 
     protected Dog(DogDto dogDto) {
@@ -25,8 +31,15 @@ public class Dog {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany(mappedBy = "dogs")
-    private List<User> users;
+    @ManyToMany
+    @JoinTable(name = "rel_user_dogs",
+            joinColumns = @JoinColumn(name = "dog_id"),
+            inverseJoinColumns = @JoinColumn(name = "user_id"))
+    private List<User> user;
+
+    @OneToMany(mappedBy = "dog", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<DogEvent> dogEvents;
+
 
     public Dog(Integer id, String name) {
         this.id = id;

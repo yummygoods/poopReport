@@ -1,43 +1,61 @@
 package com.yummygoods.poopReport.Dog;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
+//@CrossOrigin(origins = {"*"}, maxAge = 4800, allowCredentials = "false")
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping(value = "/api/dogs")
 public class DogController {
+
     final DogRepository dogRepository;
     final DogService dogService;
 
-    public DogController(@Autowired DogService dogService, @Autowired DogRepository dogRepository) {
+    public DogController(DogService dogService,
+                         DogRepository dogRepository) {
         this.dogService = dogService;
         this.dogRepository = dogRepository;
     }
 
-    @CrossOrigin
-    @PostMapping(value = "/dogs")
+    @GetMapping(value = "/{id}")
+    public Dog findDogById(@PathVariable Integer id) {
+        return dogService.getDogById(id);
+    }
+
+    @GetMapping(value = "/all")
+    public Iterable<Dog> findAllDogs() {
+        return dogService.findAllDogs();
+    }
+
+
+    /*   //make an optional? do i even need this?
+       @GetMapping(value = "/name")
+       public Dog findDogByName(@RequestParam String name) {
+           return dogService.findDogByName(name);
+       }
+   */
+    @GetMapping(value = "/users/{id}")
+    public Iterable<Dog> findDogsByUserId(@PathVariable Integer id) {
+        return dogService.findDogsByUserId(id);
+    }
+
+
     @ResponseBody
     public Dog save(@RequestBody DogDto dogDto) {
-        return dogService.save(new Dog(dogDto)
+        return dogService.addDog(new Dog(dogDto)
         );
     }
 
 
-    @GetMapping(value = "/dogs/{id}")
-    public void findById(@PathVariable Integer id) {
-        dogService.findById(id);
-    }
-
-    @PutMapping(value = "/dogs/{id}")
-    public Dog update(@RequestBody DogDto dogDto, @PathVariable Integer id) {
-        Dog dog = dogService.findById(id);
+    //response entity? requestBody updates?
+    @PutMapping(value = "/{id}")
+    public Dog updateDog(@PathVariable Integer id) {
+        Dog dog = dogService.getDogById(id);
         dog.setName(dog.getName());
-        return dogService.save(dog);
+        return dogService.addDog(dog);
     }
 
 
-    @DeleteMapping(value = "/dogs/{id}")
+    @DeleteMapping(value = "/{id}")
     public void delete(@PathVariable Integer id) {
         dogService.delete(id);
     }

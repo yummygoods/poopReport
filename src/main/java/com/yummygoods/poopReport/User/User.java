@@ -52,7 +52,9 @@ public class User {
     }
 
     //main constructor
-    public void user(Integer id, String email, String password, String user_name, String first_name, String last_name, Timestamp created) {
+    public void user(Integer id, String email, String password,
+                     String user_name, String first_name,
+                     String last_name, Timestamp created, List<Dog> dogs) {
         this.id = id;
         this.email = email;
         this.password = password;
@@ -60,6 +62,7 @@ public class User {
         this.first_name = first_name;
         this.last_name = last_name;
         this.created = created;
+        this.dogs = dogs;
     }
 
     //constructor with DTO arg
@@ -71,6 +74,7 @@ public class User {
         this.first_name = userDTO.first_name;
         this.last_name = userDTO.last_name;
         this.created = userDTO.created;
+        this.dogs = userDTO.dogs;
     }
 
 
@@ -145,8 +149,12 @@ public class User {
                        '}';
     }
 
-    public List<Dog> getDogs(Integer id) {
-
+    public List<Dog> getDogs() {
         return dogs;
     }
+
+    public void setDogs(List<Dog> dogs) {
+        this.dogs = dogs;
+    }
+
 }

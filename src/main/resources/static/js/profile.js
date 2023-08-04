@@ -1,22 +1,44 @@
 console.log('profile page is connected');
 
+function test(){
+console.log("is it working?");
+}
+test();
+
 const dogForm = document.getElementById('dogForm');
 
-dogForm.addEventListener('submit', () => {
-	dogForm.preventDefault();
-	console.log('prevented form default, noice');
-	getDogData();
-	dogForm.reset();
-});
+console.log(dogForm);
+let user = localStorage.getItem('loggedInUser');
+console.log('user is:', user);
 
-console.log('now listening for submit button');
-
+function sendDog(dog) {
+	fetch(`/api/users/dogs/${user}`, {
+		method: 'POST',
+		headers: { 'Content-Type': 'application/json' },
+		// takes the javascript object and turns it into a json string
+		// fetch needs to be in strings, but the server will interpret the json string as json
+		body: JSON.stringify(dog),
+	}).then((response) => {
+		console.log(response);
+		if (response.ok) {
+			showSuccessModal();
+			console.log(
+				'omg did this work? if so, the response should be here: ',
+				response
+			);
+			return response.json();
+		}
+		throw new Error('ugh, the request failed');
+	});
+}
 ////////// class to capture dog info //////////
 class Dog {
 	constructor(name) {
 		this.name = name;
 	}
 }
+/*console.log(Dog);*/
+
 ///////////////////// end of class ////////////////////
 
 function getDogData() {
@@ -27,27 +49,19 @@ function getDogData() {
 	sendDog(dog);
 }
 
-function sendDog(dog) {
-	fetch('http://localhost:8080/dogs', {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' },
-		// takes the javascript object and turns it into a json string
-		// fetch needs to be in strings, but the server will interpret the json string as json
-		body: JSON.stringify(dog),
-	}).then((response) => {
-    console.log(response);
-		 if (response.ok) {
-		 	showSuccessModal();
-		 	console.log(
-		 		'omg did this work? if so, the response should be here: ',
-		 		response
-		 	);
-		 	return response.json();
-		 }
-		 throw new Error('ugh, the request failed');
-		
-	});
-}
+const button = document.getElementById('submit-btn');
+console.log(button);
+button.addEventListener('click', (e) => {
+	console.log('event listener is working');
+	e.preventDefault();
+	console.log('prevented form default, noice');
+	getDogData();
+	dogForm.reset();
+});
+
+/*console.log('now listening for submit button');*/
+
+
 
 // ************************************ MODAL SHIZ ************************************
 //is this better in the global scope so two functions can use it? or is there another way besides repeating it?
@@ -65,7 +79,7 @@ function noMoreDogs() {
 	const noMoreDogsButton = document.getElementById('no-other-dog-btn');
 	noMoreDogsButton.addEventListener('click', () => {
 		window.location.href =
-			'http://localhost:63342/poopReport/static/poopReportFrontEnd/make-report.html';
+			'make-report';
 	});
 }
 
