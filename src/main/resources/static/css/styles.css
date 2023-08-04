@@ -1,14 +1,18 @@
 /*start of media queries*/
 /*EXTRA SMALL up to 300px*/
-
-/* @media only screen and (max-width: 00px) {
+/* @media only screen and (max-width: 500px) {
 body{
 margin: 0;
 padding: 0;
-min-width: 100%
+width: 100%;
 }
 
-} */
+form{
+width: 100vw;
+}*/
+
+
+
 /*SMALL up to 500px*/
 /* @media only screen and (max-width: 500px) {
 
@@ -69,7 +73,7 @@ body {
   align-items: center;
   justify-content: center;
   max-width: 550px;
-  min-width: 330px;
+/*  min-width: 330px;*/
 }
 
 img,
@@ -229,10 +233,6 @@ nav a {
   text-decoration: none;
 }
 
-nav a:visited {
-  text-decoration: none;
-  text-decoration-color: white;
-}
 
 
 
@@ -279,9 +279,10 @@ li a {
   font-weight: bold;
 }
 
-a:visited {
-  color: white;
+
+span a:visited {
   text-decoration: none;
+  text-decoration-color: white;
 }
 
 main {
@@ -340,7 +341,7 @@ span {
 
 
 form {
-  min-width: 250px;
+  min-width: 275px;
   max-width: 350px;
   margin-top: 1rem;
   display: flex;
@@ -505,7 +506,7 @@ th {
 #title{
 font-size:2.5rem;
 
-} */
+}
 
 
 /* Small devices (portrait tablets and large phones, 600px and up) */
@@ -561,3 +562,14 @@ font-size:2.5rem;
 }
 
 #static-logo {}
+
+
+span a:visited {
+  text-decoration: none;
+color: white;
+}
+
+/* For mobile phones: *//*
+[class*="col-"] {
+  width: 100%;
+}*/
