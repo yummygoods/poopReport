@@ -14,7 +14,8 @@
     <name>poopReport</name>
     <description>app for Brandy</description>
     <properties>
-        <java.version>19</java.version>
+        <!-- <java.version>19</java.version>-->
+        <java.version>17</java.version>
     </properties>
     <dependencies>
         <dependency>
