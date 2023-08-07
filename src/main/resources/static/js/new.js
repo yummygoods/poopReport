@@ -10,7 +10,6 @@ console.log("this is the user from form: " + userFromForm);
 			method: 'POST',
 			headers: { 'Content-Type': 'application/json' },
 			body: JSON.stringify(userFromForm),
-
 		}
 	);
 	if (!response.ok) {
@@ -19,6 +18,7 @@ console.log("this is the user from form: " + userFromForm);
 	let data = await response.json();
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
 	console.log(localStorage.getItem('loggedInUser'));
+	userForm.reset();
 }
 
 
@@ -80,13 +80,7 @@ function removeSuccessMessage() {
 
 
 
-function redirectToProfilePage() {
-	setTimeout(() => {
-		window.location.href =
-			'/profile-page';
-	}, 3000);
-	removeSuccessMessage()
-}
+
 
 
 //make modal?
@@ -100,11 +94,23 @@ function showSuccessMessage() {
 
 }
 
+
+
+function redirectToProfilePage() {
+	setTimeout(() => {
+		window.location.href =
+			'/profile-page';
+	}, 3000);
+	removeSuccessMessage()
+}
+
+
+
 let userForm = document.getElementById('createUser');
 userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
-	userForm.reset();
+
   showSuccessMessage();
 	redirectToProfilePage();
 

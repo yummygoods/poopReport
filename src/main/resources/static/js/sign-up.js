@@ -1,4 +1,29 @@
 
+
+///////junk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //function to login user after they create an account
 async function login(formData) {
 	console.log(formData.email);
@@ -52,18 +77,6 @@ function showSuccessMessage() {
 	console.log(successMessage);
 }
 
-
-let theForm = document.getElementById('createUser');
-theForm.addEventListener('submit', (e) => {
-	e.preventDefault();
-	let formData = new FormData(theForm);
-	console.log(formData);
-	sendData(formData);
-	theForm.reset();
-	console.log('just reset the form');
-	
-});
-
 // 	// redirect to profile page after 3 seconds
 function redirectToProfilePage() {
 setTimeout(() => {
@@ -71,3 +84,18 @@ setTimeout(() => {
 		'profile-page';
 	}, 3000);
 }
+
+
+
+let theForm = document.getElementById('createUser');
+theForm.addEventListener('submit', (e) => {
+	e.preventDefault();
+
+	let formData = new FormData(theForm);
+	console.log(formData);
+	sendData(formData);
+
+	theForm.reset();
+	console.log('just reset the form');
+	
+});

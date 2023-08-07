@@ -20,4 +20,4 @@
 //            };
 //
 
-             jsConfetti.addConfetti();
+             jsConfetti.addConfetti();}

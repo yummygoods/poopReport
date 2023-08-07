@@ -226,10 +226,10 @@ nav span {
   margin: .35rem;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bolder;
-
+  text-decoration: none;
 }
 
-nav a {
+nav a  {
   text-decoration: none;
 }
 

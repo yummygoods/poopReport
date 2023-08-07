@@ -21,6 +21,7 @@ async function getDogs(user) {
 };
 
 
+// @ts-ignore
 document.addEventListener('load', getDogs(user));
 
 /*  		const loggedInDogs = {};

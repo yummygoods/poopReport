@@ -48,9 +48,9 @@ public class ViewController {
         return "html/profile-page";
     }
 
-    @GetMapping("sign-up")
-    public String signup() {
-        return "html/sign-up";
+    @GetMapping("register")
+    public String register() {
+        return "html/register";
     }
 
     @GetMapping("logout")
