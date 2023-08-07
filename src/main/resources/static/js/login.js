@@ -24,6 +24,7 @@ async function login(loginData) {
 		throw new Error('BOOOOOOOO there was a problem');
 	}
 	let data = await response.json();
+	localStorage.clear();
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
 	window.location.href =
 			'/make-report';

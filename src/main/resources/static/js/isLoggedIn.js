@@ -1,3 +1,24 @@
+
+//junk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 console.log("isLoggedIn.js is connected");
 
 //workaround for this method for now
