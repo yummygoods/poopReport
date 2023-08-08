@@ -563,6 +563,9 @@ font-size:2.5rem;
 
 #static-logo {}
 
+#about {
+align-text: left;
+}
 
 span a:visited {
   text-decoration: none;
