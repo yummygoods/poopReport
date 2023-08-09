@@ -278,11 +278,14 @@ li a {
   text-decoration: none;
   font-weight: bold;
 }
+a:link {
+  color: white;
+    text-decoration: none;
+}
 
-
-span a:visited {
+ a:visited {
   text-decoration: none;
-  text-decoration-color: white;
+    color: white;
 }
 
 main {
@@ -293,9 +296,11 @@ main {
 
 }
 
-#about {
-  margin-top: 1rem;
-}
+#about p {
+ /* margin-top: 1rem;*/
+  text-align: left;
+  }
+
 
 span {
 
@@ -563,16 +568,21 @@ font-size:2.5rem;
 
 #static-logo {}
 
-#about {
-text-align: left;
-}
+
 
 span a:visited {
   text-decoration: none;
 color: white;
 }
 
+#logoutButton {
+cursor: pointer;
+}
 /* For mobile phones: *//*
 [class*="col-"] {
   width: 100%;
 }*/
+
+.bold {
+  font-weight: bold;
+}
