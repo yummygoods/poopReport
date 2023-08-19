@@ -17,7 +17,7 @@ The newly created, multi-generational household includes:
 - Their 4 cats
 
  
-With multiple people now tending to all of the critters, they need a way to keep track of when the dogs had last been walked, if they had been fed, did they actually eat their meds (or did they see right through the peanut butter ruse) and...
+With multiple people now tending to all of the critters, they need a way to keep track of when the dogs were last walked and fed, did they actually ingest their meds (or did they see right through the peanut butter ruse), did they go peeps and...
 
 ... to answer the all-important question,
 
@@ -42,3 +42,7 @@ Poop Report is a full stack app using Java with Springboot for the backend, MySQ
 - logout
 
 ## roadmap
+- add dog's photo
+- additional users on the same account
+- option to sign up for SMS notifications when a report is made by another family member
+  
