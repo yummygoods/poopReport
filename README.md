@@ -1,3 +1,4 @@
+![poop-report](https://github.com/yummygoods/poopReport/assets/105559874/97322155-efd8-40f6-a82a-6833f0505ce7)
 # poopReport
 💩 an app to hopefully avoid pet poopcidents, made with love by melissa averinos
 
