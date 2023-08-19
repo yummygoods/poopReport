@@ -1,11 +1,9 @@
 ![poop-report](https://github.com/yummygoods/poopReport/assets/105559874/97322155-efd8-40f6-a82a-6833f0505ce7)
 # poopReport
-💩 an app to hopefully avoid pet poopcidents, made with love by melissa averinos
-
-**Poop Report is a Very Much In Progress app I'm making for my dear friend Brandy who needs a way to keep track of some dogs and their... business.** 
+**A Very Much In Progress app for my dear friend Brandy who needs a way to keep track of some dogs and their... business.** 
 
 ## the problem
-Our heroine and her sister join forces so they may care for their aging parents... and subsequently their parents' pets who are in varying degrees of health.
+**Our heroine and her sister join forces so they may care for their aging parents... and subsequently their parents' pets who are in varying degrees of health.**
 
 The newly created, multi-generational household includes:
 - The aforementioned parents
@@ -18,13 +16,13 @@ The newly created, multi-generational household includes:
 - Their 4 cats
 
  
-With multiple people now tending to all of the critters, they need a way to keep track of when the dogs were last walked and fed, did they actually ingest their meds (or did they see right through the peanut butter ruse), did they go peeps and...
+**With multiple people now tending to all of the critters**, they need a way to keep track of when the dogs were last walked and fed, did they actually ingest their meds (or did they see right through the peanut butter ruse), did they go peeps and...
 
 ... to answer the all-important question,
 
 💩 **DID THEY POOP?** 💩
 
-They need a better system than texting each person or hollering up the stairs to find out. 
+Although texting each other or hollering up the stairs to find out is certainly a way to do it, PoopReport is less yell-y, more reliable and a whole lot cuter.
 
 ## the solution
 A mobile-friendly web app to report, view and track the status of the household puppers. 
