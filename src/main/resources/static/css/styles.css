@@ -178,10 +178,9 @@ header span {
 
 }
 
-#animated-logo:hover {
+#static-logo:hover {
   opacity: 0;
   /* width: 100% */
-
 }
 
 #static-logo-container {
@@ -208,11 +207,6 @@ header span {
   height: auto;
   z-index: 0;
   /* Set a lower z-index to place it below the logo */
-}
-
-#static-logo {
-  max-width: 250px;
-
 }
 
 
@@ -271,6 +265,12 @@ li {
   padding: .5rem 1rem;
   text-align: center;
   /* background-color: rgb(200, 237, 250); */
+}
+
+.regular-list li {
+color: black;
+text-align: left;
+padding: 0;/**/
 }
 
 li a {

@@ -11,16 +11,26 @@
     <script src="/js/app.js" defer></script>
 </head>
 <body>
+<!--TODO add readme content to about page
+-->
+
 <header>
+
+    <!--change ids to classes, but go slowly and double-check css-->
     <div id="welcome">
         <span> what is this all about? </span>
     </div>
+    <!--add 'home' button at top ?-->
+
+    <!--ok to use <br> here? or should that be padding/margin?-->
     <br>
 
     <a id="header-text" href="/home">
         <div class="logo_container">
-            <img class="active" id="gif" src="/images/poop.gif"/>
-            <img id="animated-logo" class="logo" src="/images/IMG_4221.PNG"/>
+            <img class="active" id="gif" src="/images/poop.gif"
+                 alt="animated gif of an illustrated version of the poop emoji"/>
+            <img id="static-logo" class="logo" src="/images/IMG_4221.PNG"
+                 alt="an illustrated version of the poop emoji"/>
         </div>
     </a>
 
@@ -30,9 +40,11 @@
 
 
 <main id="about">
-    <p>
+    <h1>
+        <!--i can't figure out what tag for this! i want it to be big, but it's not
+        necessarily important INFO --- would i just use <p> with a class to make it big? (and maybe italic)-->
         First of all: So cute, right?!
-    </p>
+    </h1>
     <br>
     <h3>✨💩✨</h3>
     <br/>
@@ -47,12 +59,56 @@
     <p> and a simple way to answer the all-important question:
     </p>
     <br>
+    <!--i want this to be bigger-->
     <p class="bold">💩 DID THEY POOP? 💩</p>
+
+    <!--i want some kind of divider here-->
     <br>
-    <p> Poop Report is a full stack app using Java with Springboot, Mysql for the database and vanilla javascript on the
-        front end. </p>
+    <hr>
     <br>
-    <p>~made with love by Melissa Averinos~</p>
+
+
+    <section class="project-writeup">
+        <h2>The Request</h2>
+        <br>
+        <h3>"an app to prevent poopcidents"</h3>
+        <br>
+
+        <!--TODO vary the font style or weight in this section-->
+
+
+        <p>For each dog, Brandy wanted to have a place to record the following:</p>
+        <ol class="regular-list">
+            <li>Did they get outside to walk?</li>
+            <li>Did they pee?</li>
+            <li>Did they poop?</li>
+            <li>Were they fed?</li>
+            <li>Did they eat the food?</li>
+            <li>Did they get their meds?</li>
+        </ol>
+        <p> Additionally, Brandy wanted:</p>
+        <ul class="regular-list">
+
+        </ul>
+        Dog profile! With cute picture
+        Adding a comment with a poop post
+        <section class="roadmap">
+            <li>Alert that it’s been 6 hours since the dogs went out</li>
+        </section>
+
+
+    </section>
+
+    <section class="stack">
+
+        <p> Poop Report is a full stack app using Java with Springboot, Mysql for the database and vanilla javascript on
+            the
+            front end.</p>
+        <br>
+        <p>(I'll fill in more stuff here about what the challenges were, what i learned, etc)</p>
+        <p>~made with love by Melissa Averinos~</p>
+    </section>
+
     <br>
 
 </main>
