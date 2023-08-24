@@ -40,6 +40,30 @@ Poop Report is a full stack app using Java with Springboot for the backend, MySQ
 - view reports for all of that user's dogs, ordered by most recent
 - logout
 
+## TODO
+
+*TIDY UP ALL*
+edit comments as needed
+delete commented out junk code
+refactor actual code eventually
+double-check for semantic html
+add alt tags to images
+change ids to classes where appropriate, go slowly and double-check css
+double-check for correct use of h1-h6
+
+*MISC LOOKS STUFF*
+try out different fonts
+change emojis to images? i don't like the emoji versions that some browsers use
+
+*HEADER + FOOTER*
+try thymeleaf for header and footer templates
+add 'stop gif play' option ?
+add footer content/nav
+
+*ABOUT PAGE*
+add project details
+add screenshots, etc
+
 ## roadmap
 - add dog's photo
 - additional users on the same account
