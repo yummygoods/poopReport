@@ -608,3 +608,6 @@ flex-direction: row;
 .col-list ul{
 margin: 0 1rem;
 }
+
+.prompt{
+font-size: 1.25rem;}
