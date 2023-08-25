@@ -37,7 +37,7 @@
 </header>
 
 
-<main id="about">
+<main class="about">
     <h1>
         <!--i can't figure out what tag for this! i want it to be big, but it's not
         necessarily important INFO --- would i just use <p> with a class to make it big? (and maybe italic)-->
@@ -65,17 +65,17 @@
     <hr>
     <br>
 
-
+    <!--TODO add margin to sections and remove brs between-->
     <section class="project-writeup">
-        <h2>The Request</h2>
-        <br>
+        <h2>MVP</h2>
+
         <h3>"an app to prevent poopcidents"</h3>
         <br>
 
         <!--TODO vary the font style or weight in this section-->
 
 
-        <p>For each dog, Brandy wanted to have a place to record the following:</p>
+        <p>To start with, Brandy wanted to have a place to record the following for each dog:</p>
         <ol>
             <li>Did they get outside to walk?</li>
             <li>Did they pee?</li>
@@ -85,44 +85,62 @@
             <li>Did they get their meds?</li>
         </ol>
         <br>
-        <p> Additionally, Brandy wanted:</p>
+        <p> Additional options:</p>
         <ul>
-            <li>the option to write a comment with each report</li>
-            <li>to add a "profile photo" for each dog</li>
-            <li>the option to upload a photo of the poop! (to help diagnose digestive troubles)</li>
+            <li>write a comment with each report</li>
+            <li>add a "profile photo" for each dog</li>
+            <li>upload a photo of the poop! (to help diagnose digestive troubles)</li>
         </ul>
-
-
-        <section class="roadmap">
-            <ul>
-                <li>Alert that it’s been a certain number of hours since the dogs went out</li>
-                <li></li>
-            </ul>
-        </section>
-
-
-    </section>
-
-    <section class="stack">
-
-        <p> Poop Report is a full stack app using Java with Springboot, Mysql for the database and vanilla javascript on
-            the
-            front end.</p>
-        <br>
-        <p>(I'll fill in more stuff here about what the challenges were, what i learned, etc)</p>
-        <p>~made with love by Melissa Averinos~</p>
     </section>
 
     <br>
 
+    <section class="roadmap">
+        <h2>Roadmap</h2>
+        <h3>the future of the poop report</h3>
+        <br>
+        <ul>
+            <li>add second user for dogs</li>
+            <li>if second user associated with dog, add 'report by user field'</li>
+            <li>alert that it’s been a certain number of hours since the dogs went out</li>
+            <li>sign up for alerts when new report filed by other user</li>
+            <li>create a schedule for walks, grooming, etc</li>
+
+        </ul>
+    </section>
+
+    <br>
+    <section class="stack">
+        <h2>Tech Stack</h2>
+        <h3>i totally made a full-stack app!</h3>
+        <br>
+        <div class="col-list">
+            <ul>
+                <li>Java</li>
+                <li>Springboot</li>
+                <li>MySQL</li>
+            </ul>
+            <ul>
+                <li>JavaScript</li>
+                <li>CSS</li>
+                <li>HTML</li>
+            </ul>
+        </div>
+    </section>
+    <br>
+
+
+    <b class="tagline">✨💩 made with love by Melissa Averinos 💩✨</b>
+    <br>
+
 </main>
-<h3>✨💩✨</h3>
 <br>
+
+<!--change to class-->
 <nav id="border">
     <span><a href="/register">register</a></span>
     <span><a href="/home">home</a></span>
     <span><a href="/login">login</a></span>
-
 </nav>
 
 </body>

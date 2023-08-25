@@ -298,7 +298,7 @@ main {
 
 }
 
-#about p {
+.about p {
  /* margin-top: 1rem;*/
   text-align: left;
   }
@@ -587,4 +587,24 @@ cursor: pointer;
 
 .bold {
   font-weight: bold;
+}
+
+p.stage-whisper {
+opacity: 20%;
+font-size: .8rem;
+text-align: center;
+}
+
+bold.tagline{
+text-align: center;
+
+}
+
+.col-list{
+display: flex;
+flex-direction: row;
+}
+
+.col-list ul{
+margin: 0 1rem;
 }
