@@ -1,6 +1,6 @@
 
 let user_id = localStorage.getItem('loggedInUser');
-console.log('logged in user is:', user_id);
+//console.log('logged in user is:', user_id);
 
 
 class DogEvent {

@@ -1,6 +1,5 @@
 
 let user = localStorage.getItem('loggedInUser');
-console.log('logged in user is:', user);
 
 const logoutButton = document.getElementById('logoutButton');
 

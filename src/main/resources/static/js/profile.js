@@ -1,15 +1,8 @@
-console.log('profile page is connected');
 
-function test(){
-console.log("is it working?");
-}
-test();
-
+let user = localStorage.getItem('loggedInUser');
 const dogForm = document.getElementById('dogForm');
 
-console.log(dogForm);
-let user = localStorage.getItem('loggedInUser');
-console.log('user is:', user);
+
 
 function sendDog(dog) {
 	fetch(`/api/users/dogs/${user}`, {

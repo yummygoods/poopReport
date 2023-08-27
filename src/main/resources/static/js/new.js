@@ -1,7 +1,9 @@
-console.log('hello');
 
+//function to login user right after they create an account ---
+//  sometimes once redirected, the user isn't logged in - maybe because of the async?
+ // - would it be better to redirect to have the user login themselves?
+//or save the register info as the login info and just save it right to local storage?
 
-//function to login user after they create an account
 async function login(userFromForm) {
 console.log("this is the user from form: " + userFromForm);
 	let response = await fetch(
@@ -17,24 +19,20 @@ console.log("this is the user from form: " + userFromForm);
 	}
 	let data = await response.json();
 	localStorage.setItem('loggedInUser', JSON.stringify(data));
-	console.log(localStorage.getItem('loggedInUser'));
+//	console.log(localStorage.getItem('loggedInUser'));
 	userForm.reset();
 }
 
 
 
 class User {
-	//constructor(user_name, first_name, last_name, email) {
 	constructor(email, password) {
 		this.email = email;
 		this.password = password;
-		/*    this.user_name = user_name;
-      this.first_name = first_name;
-      this.last_name = last_name;*/
 	}
 }
 
-////////// function to send the new user object to the db //////////
+
 function sendUserToServer(userFromForm) {
 	fetch('/api/users', {
 		method: 'POST',
@@ -52,18 +50,6 @@ function sendUserToServer(userFromForm) {
 	})
 
 }
-///////////////////// end of function /////////////////////
-
-
-
-
-
-
-/////////////////maybe add these back in later
-/* let user_name = document.getElementById('user_name').value;
-  console.log("this should print the new username : " + user_name);
-let first_name = document.getElementById('first_name').value;
-let last_name = document.getElementById('last_name').value;*/
 
 function addUserData() {
 	let email = document.getElementById('email').value;
@@ -79,10 +65,6 @@ function removeSuccessMessage() {
 }
 
 
-
-
-
-
 //make modal?
 function showSuccessMessage() {
 	const successMessage = document.createElement('h4');
@@ -94,8 +76,7 @@ function showSuccessMessage() {
 
 }
 
-
-
+//hoping this would give login enough time ?
 function redirectToProfilePage() {
 	setTimeout(() => {
 		window.location.href =
@@ -110,8 +91,6 @@ let userForm = document.getElementById('createUser');
 userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
-
-  showSuccessMessage();
+    showSuccessMessage();
 	redirectToProfilePage();
-
 });

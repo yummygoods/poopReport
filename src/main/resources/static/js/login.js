@@ -1,8 +1,4 @@
 
-
-//styling https://www.w3schools.com/howto/howto_css_login_form.asp
-// https://www.bezkoder.com/jpa-repository-query/
-
 class User {
 	constructor(email, password) {
 		this.email = email;
