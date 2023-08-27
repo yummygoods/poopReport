@@ -19,11 +19,6 @@ let date = event.timestamp;
 rows.forEach(row => tableBody.appendChild(row));
 }
 
-
-
-
-
-
 //TODO ? should i make a function that creates the row and cell, populates it with text content and appends it?
 
 function addToPoopReport(event) {

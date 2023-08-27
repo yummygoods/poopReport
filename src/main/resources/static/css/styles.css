@@ -1,51 +1,3 @@
-/*start of media queries*/
-/*EXTRA SMALL up to 300px*/
-/* @media only screen and (max-width: 500px) {
-body{
-margin: 0;
-padding: 0;
-width: 100%;
-}
-
-form{
-width: 100vw;
-}*/
-
-
-
-/*SMALL up to 500px*/
-/* @media only screen and (max-width: 500px) {
-
-
-ul{
-display: flex;
-flex-direction: column;
-background-color: white;
-}
-
-li{
-    display: block;
-    padding: 0.25rem;
-    margin: 0.5rem;
-}
-
-.top-nav, .bottom-nav{
-
-margin: 0;
-
-
-}
-
-#title{
-font-size: 1.75rem;
-inline-size: min-content;
-}
-} */
-
-/*end of media queries*/
-
-
-
 
 *,
 *::before,
@@ -164,7 +116,6 @@ header span {
   margin: .35rem;
   font-size: 80%;
 }
-
 
 .logo {
   /* position:absolute; */
@@ -389,7 +340,7 @@ textarea {
   border-color: gray;
   border-width: 2px;
   margin: .5rem;
-  max-width: 80%;
+  max-width: 16rem;
 }
 
 label {
@@ -399,14 +350,20 @@ label {
 }
 
 textarea {
-  min-width: 18rem;
-  max-width: 20rem;
+width 90%
+  display: flex;
+      flex-direction: column;
+      margin: 0.5rem 0rem;
+      border-color: gray;
+      border-width: 4px;
+      border-style: solid;
+
+
 }
 
-/*   label{
-margin-top: 1rem;
-
-   }*/
+.notes label {
+font-weight: bold;
+}
 
 button {
   color: white;
@@ -416,8 +373,6 @@ button {
   margin: 1rem;
   font-weight: bold;
   padding: 0rem 2rem;
-  /* max-width: fit-content;*/
-
 
 }
 
@@ -466,14 +421,6 @@ legend {
   color: black;
 }
 
-/*
-div{
-display: inline;
-}
-
-*/
-
-
 th,
 td,
 caption {
@@ -499,39 +446,6 @@ th {
 
 
 
-
-/* ==========================================
-                 =======================================
-                  =======================================
-                   =======================================
-                   */
-
-
-
-/*
-@media only screen and (min-width: 351px) {
-#title{
-font-size:2.5rem;
-
-}
-
-
-/* Small devices (portrait tablets and large phones, 600px and up) */
-/* @media only screen and (min-width: 600px) {
-
-} */
-
-/* Medium devices (landscape tablets, 768px and up) */
-/* @media only screen and (min-width: 768px) {
-} */
-
-/* Large devices (laptops/desktops, 992px and up) */
-/* @media only screen and (min-width: 992px) {
-} */
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-/* @media only screen and (min-width: 1200px) {
-} */
 
 
 .modal {
@@ -568,10 +482,6 @@ font-size:2.5rem;
   margin: .5rem;
 }
 
-#static-logo {}
-
-
-
 span a:visited {
   text-decoration: none;
 color: white;
@@ -580,10 +490,6 @@ color: white;
 #logoutButton {
 cursor: pointer;
 }
-/* For mobile phones: *//*
-[class*="col-"] {
-  width: 100%;
-}*/
 
 .bold {
   font-weight: bold;
@@ -611,3 +517,92 @@ margin: 0 1rem;
 
 .prompt{
 font-size: 1.25rem;}
+
+
+
+
+
+/*start of media queries*/
+/**************************** may come back to these ***************************/
+/*EXTRA SMALL up to 300px*/
+/* @media only screen and (max-width: 500px) {
+body{
+margin: 0;
+padding: 0;
+width: 100%;
+}
+
+form{
+width: 100vw;
+}*/
+
+
+
+/*SMALL up to 500px*/
+/* @media only screen and (max-width: 500px) {
+
+
+ul{
+display: flex;
+flex-direction: column;
+background-color: white;
+}
+
+li{
+    display: block;
+    padding: 0.25rem;
+    margin: 0.5rem;
+}
+
+.top-nav, .bottom-nav{
+
+margin: 0;
+
+
+}
+
+#title{
+font-size: 1.75rem;
+inline-size: min-content;
+}
+} */
+
+/* ==========================================
+                 =======================================
+                  =======================================
+                   =======================================
+                   */
+
+
+
+/*
+@media only screen and (min-width: 351px) {
+#title{
+font-size:2.5rem;
+
+}
+
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+/* @media only screen and (min-width: 600px) {
+
+} */
+
+/* Medium devices (landscape tablets, 768px and up) */
+/* @media only screen and (min-width: 768px) {
+} */
+
+/* Large devices (laptops/desktops, 992px and up) */
+/* @media only screen and (min-width: 992px) {
+} */
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+/* @media only screen and (min-width: 1200px) {
+} */
+
+
+
+
+
+
+/*end of media queries*/
