@@ -1,11 +1,11 @@
 
-let user = localStorage.getItem('loggedInUser');
+let user = JSON.parse(localStorage.getItem('loggedInUser'));
 const dogForm = document.getElementById('dogForm');
 
 
 
 function sendDog(dog) {
-	fetch(`/api/users/dogs/${user}`, {
+	fetch(`/api/users/${user.id}/dogs`, {
 		method: 'POST',
 		headers: { 'Content-Type': 'application/json' },
 		// takes the javascript object and turns it into a json string

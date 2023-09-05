@@ -21,6 +21,7 @@ public class UserService {
 
     public User save(User user) {
         return userRepository.save(user);
+
     }
 
     public void delete(Integer id) {
@@ -43,8 +44,19 @@ public class UserService {
 
     }
 
+    public User login(User loginUser) {
+        String password = loginUser.getPassword();
+        String email = loginUser.getEmail();
+        User user = userRepository.findByEmail(email);
+        if (user.getPassword().equals(password)) {
+            return user;
+        } else {
+            return null;
+        }
+    }
 
-    public Integer login(User loginUser) {
+
+  /*  public Integer login(User loginUser) {
         String password = loginUser.getPassword();
         String email = loginUser.getEmail();
         User user = userRepository.findByEmail(email);
@@ -54,7 +66,7 @@ public class UserService {
             return null;
         }
     }
-
+*/
 
     public List<Dog> getDogsByUserId(Integer userId) {
         return dogRepository.findByUserId(userId);

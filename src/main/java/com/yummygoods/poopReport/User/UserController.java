@@ -31,16 +31,19 @@ public class UserController {
     @PostMapping
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
-
         User newUser = new User(userDTO);
-        userService.save(new User(userDTO));
-// Log them in
-        userService.login(userDTO.getEmail(), userDTO.getPassword());
+        return userService.save(newUser);
+
 
     }
+    /*       userService.save(new User(userDTO));*/
+// Log them in
+    /* userService.login(userDTO.getEmail(), userDTO.getPassword());*/
 
+    //changed datatype to User since i now get the whole user object,
+    // not just the id
     @PostMapping(value = "/login")
-    public Integer login(@RequestBody User user) {
+    public User login(@RequestBody User user) {
         return userService.login(user);
     }
 
@@ -67,12 +70,12 @@ public class UserController {
         userService.delete(id);
     }
 
-    @GetMapping("/dogs/{id}")
+    @GetMapping("/{id}/dogs")
     public List<Dog> getDogsByUserId(@PathVariable Integer id) {
         return userService.getDogsByUserId(id);
     }
 
-    @PostMapping("/dogs/{id}")
+    @PostMapping("/{id}/dogs")
     public Dog addDog(@RequestBody Dog dog, @PathVariable Integer id) {
         return userService.addDog(dog, id);
     }

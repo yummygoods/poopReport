@@ -4,6 +4,7 @@
  // - would it be better to redirect to have the user login themselves?
 //or save the register info as the login info and just save it right to local storage?
 
+/*
 async function login(userFromForm) {
 console.log("this is the user from form: " + userFromForm);
 	let response = await fetch(
@@ -22,6 +23,7 @@ console.log("this is the user from form: " + userFromForm);
 //	console.log(localStorage.getItem('loggedInUser'));
 	userForm.reset();
 }
+*/
 
 
 
@@ -45,9 +47,15 @@ function sendUserToServer(userFromForm) {
 				response
 			);
 			return response.json();
-			console.log()
+
 		}
 		throw new Error('ugh, the request failed');
+		//automagically logs the newly-registered user
+	}).then(data => {
+
+    	localStorage.clear();
+    	localStorage.setItem('loggedInUser', JSON.stringify(data));
+
 	})
 
 }
@@ -74,7 +82,7 @@ const modal = document.getElementById('success-modal');
 function showSuccessModal() {
 	//since i wrote this i learned that there is a built in method to show and close a modal :(
 	modal.style.display = 'block';
-login(userFromForm);
+
 	//aso i need to add a close/dismiss option
 }
 
@@ -95,5 +103,7 @@ userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
     showSuccessModal();
-redirectToProfilePage();
+    redirectToProfilePage();
+  	userForm.reset();
+
 });
