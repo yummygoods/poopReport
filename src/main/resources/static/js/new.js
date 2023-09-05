@@ -45,6 +45,7 @@ function sendUserToServer(userFromForm) {
 				response
 			);
 			return response.json();
+			console.log()
 		}
 		throw new Error('ugh, the request failed');
 	})
@@ -56,25 +57,27 @@ function addUserData() {
 	let password = document.getElementById('password').value;
 	const userFromForm = new User(email, password);
 	sendUserToServer(userFromForm);
-	login(userFromForm);
-}
-
-function removeSuccessMessage() {
-	const successMessage = document.querySelector('.successMessage');
-    successMessage.remove();
 }
 
 
-//make modal?
-function showSuccessMessage() {
-	const successMessage = document.createElement('h4');
-	successMessage.textContent =
-		"yay! in a couple seconds you'll be redirected to the profile page where you can add your dog!";
-		successMessage.setAttribute('class', 'successMessage');
-	const form = document.getElementById('createUser');
-	form.insertAdjacentElement('beforebegin', successMessage);
+//
+//function removeSuccessMessage() {
+//	const successMessage = document.querySelector('.successMessage');
+//    successMessage.remove();
+//}
 
+
+
+
+const modal = document.getElementById('success-modal');
+
+function showSuccessModal() {
+	//since i wrote this i learned that there is a built in method to show and close a modal :(
+	modal.style.display = 'block';
+login(userFromForm);
+	//aso i need to add a close/dismiss option
 }
+
 
 //hoping this would give login enough time ?
 function redirectToProfilePage() {
@@ -82,7 +85,7 @@ function redirectToProfilePage() {
 		window.location.href =
 			'/profile-page';
 	}, 3000);
-	removeSuccessMessage()
+//	removeSuccessMessage();
 }
 
 
@@ -91,6 +94,6 @@ let userForm = document.getElementById('createUser');
 userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
-    showSuccessMessage();
-	redirectToProfilePage();
+    showSuccessModal();
+redirectToProfilePage();
 });
