@@ -36,7 +36,7 @@ public class UserController {
         userService.save(new User(userDTO));
 // Log them in
         userService.login(userDTO.getEmail(), userDTO.getPassword());
-
+        return newUser;
     }
 
     @PostMapping(value = "/login")
