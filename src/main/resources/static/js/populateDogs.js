@@ -8,12 +8,12 @@
 
 
 
-let user = JSON.parse(localStorage.getItem('loggedInUser'));
+let user = JSON.parse(localStorage.getItem('loggedInUser')).id;
 let dropdown = document.getElementById('dog_id');
 
 
 
-async function getDogs(user.id) {
+async function getDogs(user) {
 	let response = await fetch(`/api/users/{id}/dogs`);
 	let dogs = await response.json();
 	localStorage.setItem('loggedInDogs', JSON.stringify(dogs));
