@@ -1,6 +1,6 @@
 const loginForm = document.getElementById('loginForm');
 
-loginForm.addEventListener('load', (event)=> loginForm.reset());
+loginForm.addEventListener('load', ()=> loginForm.reset());
 
 
 class User {
