@@ -1,6 +1,10 @@
-const loginForm = document.getElementById('loginForm');
 
-loginForm.addEventListener('load', ()=> loginForm.reset());
+/*
+window.addEventListener('load', () => {
+  document.getElementById('email').value = '';
+  document.getElementById('password').value = '';
+});
+*/
 
 
 class User {
@@ -31,6 +35,7 @@ async function login(loginData) {
 }
 
 
+const loginForm = document.getElementById('loginForm');
 
 loginForm.addEventListener('submit', (event) => {
 event.preventDefault();
