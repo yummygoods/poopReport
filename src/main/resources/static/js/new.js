@@ -2,6 +2,7 @@ console.log('hello');
 
 
 //function to login user after they create an account
+/*
 async function login(userFromForm) {
 console.log("this is the user from form: " + userFromForm);
 	let response = await fetch(
@@ -20,6 +21,7 @@ console.log("this is the user from form: " + userFromForm);
 	console.log(localStorage.getItem('loggedInUser'));
 	userForm.reset();
 }
+*/
 
 
 
@@ -52,7 +54,7 @@ function sendUserToServer(userFromForm) {
 	})
 
 }
-///////////////////// end of function /////////////////////
+///////////////////// /////////////////////
 
 
 
@@ -70,17 +72,19 @@ function addUserData() {
 	let password = document.getElementById('password').value;
 	const userFromForm = new User(email, password);
 	sendUserToServer(userFromForm);
-	login(userFromForm);
+//	login(userFromForm);
 }
 
+
+
+
+
+
+/*
 function removeSuccessMessage() {
 	const successMessage = document.querySelector('.successMessage');
     successMessage.remove();
 }
-
-
-
-
 
 
 //make modal?
@@ -93,8 +97,10 @@ function showSuccessMessage() {
 	form.insertAdjacentElement('beforebegin', successMessage);
 
 }
+*/
 
 
+/*
 
 function redirectToProfilePage() {
 	setTimeout(() => {
@@ -103,6 +109,16 @@ function redirectToProfilePage() {
 	}, 3000);
 	removeSuccessMessage()
 }
+*/
+
+
+function redirectToLogin() {
+	setTimeout(() => {
+		window.location.href =
+			'/login';
+	}, 3000);
+	/*removeSuccessMessage()*/
+}
 
 
 
@@ -110,8 +126,8 @@ let userForm = document.getElementById('createUser');
 userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
-
-  showSuccessMessage();
-	redirectToProfilePage();
+redirectToLogin();
+//  showSuccessMessage();
+//	redirectToProfilePage();
 
 });

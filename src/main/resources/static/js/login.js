@@ -1,7 +1,7 @@
+const loginForm = document.getElementById('loginForm');
 
+loginForm.addEventListener('load', (event)=> loginForm.reset());
 
-//styling https://www.w3schools.com/howto/howto_css_login_form.asp
-// https://www.bezkoder.com/jpa-repository-query/
 
 class User {
 	constructor(email, password) {
@@ -30,7 +30,7 @@ async function login(loginData) {
 			'/make-report';
 }
 
-const loginForm = document.getElementById('loginForm');
+
 
 loginForm.addEventListener('submit', (event) => {
 event.preventDefault();
