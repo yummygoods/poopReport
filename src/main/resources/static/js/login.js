@@ -1,11 +1,4 @@
 
-/*
-window.addEventListener('load', () => {
-  document.getElementById('email').value = '';
-  document.getElementById('password').value = '';
-});
-*/
-
 
 class User {
 	constructor(email, password) {

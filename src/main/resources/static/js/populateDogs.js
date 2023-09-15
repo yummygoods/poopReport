@@ -1,22 +1,22 @@
-console.log("connected");
 
 let user = localStorage.getItem('loggedInUser');
-console.log('logged in user is:', user);
-
 
 let dropdown = document.getElementById('dog_id');
 
 async function getDogs(user) {
 	let response = await fetch(`/api/users/dogs/${user}`);
 	let dogs = await response.json();
+	if (dogs.length === 0) {
+    window.location.href = '/profile-page';
+    };
 	localStorage.setItem('loggedInDogs', JSON.stringify(dogs));
-
   dogs.forEach(dog => {
 		let option = document.createElement('option');
 		option.value = dog.id;
         option.textContent = dog.name;
 		dropdown.appendChild(option);
 		    });
+
 
 };
 
