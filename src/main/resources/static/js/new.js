@@ -4,6 +4,7 @@
  // - would it be better to redirect to have the user login themselves?
 //or save the register info as the login info and just save it right to local storage?
 
+
 async function login(userFromForm) {
 console.log("this is the user from form: " + userFromForm);
 	let response = await fetch(
@@ -22,6 +23,7 @@ console.log("this is the user from form: " + userFromForm);
 //	console.log(localStorage.getItem('loggedInUser'));
 	userForm.reset();
 }
+*/
 
 
 
@@ -52,12 +54,25 @@ function sendUserToServer(userFromForm) {
 
 }
 
+/////////////////maybe add these back in later
+/* let user_name = document.getElementById('user_name').value;
+  console.log("this should print the new username : " + user_name);
+let first_name = document.getElementById('first_name').value;
+let last_name = document.getElementById('last_name').value;*/
+
+
 function addUserData() {
 	let email = document.getElementById('email').value;
 	let password = document.getElementById('password').value;
 	const userFromForm = new User(email, password);
 	sendUserToServer(userFromForm);
+
+//	login(userFromForm);
 }
+
+
+}
+
 
 
 //
@@ -68,6 +83,12 @@ function addUserData() {
 
 
 
+/*
+function removeSuccessMessage() {
+	const successMessage = document.querySelector('.successMessage');
+    successMessage.remove();
+}
+
 
 const modal = document.getElementById('success-modal');
 
@@ -77,15 +98,29 @@ function showSuccessModal() {
 login(userFromForm);
 	//aso i need to add a close/dismiss option
 }
+*/
 
 
-//hoping this would give login enough time ?
+
+/*
+
+
 function redirectToProfilePage() {
 	setTimeout(() => {
 		window.location.href =
 			'/profile-page';
 	}, 3000);
 //	removeSuccessMessage();
+}
+*/
+
+
+function redirectToLogin() {
+	setTimeout(() => {
+		window.location.href =
+			'/login';
+	}, 3000);
+	/*removeSuccessMessage()*/
 }
 
 
@@ -94,6 +129,11 @@ let userForm = document.getElementById('createUser');
 userForm.addEventListener('submit', (event) => {
 	event.preventDefault();
 	addUserData();
-    showSuccessModal();
-redirectToProfilePage();
+    //showSuccessModal();
+redirectToLogin();
+
+
+
+//redirectToProfilePage();
+
 });
