@@ -1,6 +1,11 @@
 
 let user = localStorage.getItem('loggedInUser');
 
+//TODO if no dogs are found for logged-in user, prompt to add them
+//TODO ?if only one dog is found, change select?
+
+
+let user = localStorage.getItem('loggedInUser');
 let dropdown = document.getElementById('dog_id');
 
 async function getDogs(user) {
@@ -20,26 +25,4 @@ async function getDogs(user) {
 
 };
 
-
-// @ts-ignore
 document.addEventListener('load', getDogs(user));
-
-/*  		const loggedInDogs = {};
-return 	loggedInDogs[`${dog.id}`] = `${dog.name}`;
-	});
-	localStorage.setItem('loggedInDogs', loggedInDogs.toString());
-
-	console.log("logged in dogs are:", localStorage.getItem('loggedInDogs'));*/
-
-
-
-
-
-/*
-
-function populateDogs(){
-  console.log("running function on page load");
-	getDogs(user);
-
-
-}*/

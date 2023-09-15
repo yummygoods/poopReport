@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>💩profile </title>
-    <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
-    <link href="/css/styles.css"
-
-          rel="stylesheet" type="text/css"/>
+    <title>profile</title>
+    <link rel="icon" type="image/x-icon" href="/images/poopFavicon.ico">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css"/>
     <script src="/js/profile.js" defer></script>
     <script src="js/logout.js" type="module" defer></script>
-    <!-- <script src="js/register.js" defer></script>-->
 
 </head>
+
 <body>
+
+<!--TODO add ability to update + delete dogs-->
+<!--TODO add photo upload + figure out where to display it-->
+<!--TODO add home button?-->
 
 <nav id="border">
     <span><a href="/dashboard">dashboard</a></span>
+
+    <!--TODO make stacked text align center-->
     <span><a href="/make-report">make a report</a></span>
     <span><a href="/home" id="logoutButton">logout</a></span>
 
@@ -26,12 +31,9 @@
 
 <main>
 
-    <!--  todo make a request to your api that will use the session id to dynamically return only the dogs that belong to the user of the specified id  -->
     <form id="dogForm">
-        <h2>✨add your dog(s)!✨</h2>
-        <p>
+        <h1 class="prompt">✨add your dog(s)!✨</h1>
 
-        </p>
         <fieldset>
             <!--  <legend>Add your dog(s)</legend>-->
             <div class="label-input-div">
@@ -43,40 +45,30 @@
                 <input type="file" name="dog_pic" id="dogPic">
             </div> -->
         </fieldset>
+
         <button type="submit" id="submit-btn">ADD DOG</button>
         <button type="reset" class="resetBtn">reset form</button>
 
-
     </form>
+
+    <!--TODO fix modal css-->
     <div id="success-modal" class="modal">
+        <!--double-check to see if i need this to be two divs-->
         <div class="modal-content">
             <span>Success!</span>
-            <p>Add another dog or file a Poop Report? ?</p>
+            <p>Add another dog or file a Poop Report?</p>
             <button id="no-other-dog-btn">file a report</button>
             <button id="add-another-dog-btn">add dog</button>
-
         </div>
     </div>
 
-
     <br/>
-
 </main>
 
 
 <footer>
-    <!--  <nav class="bottom-nav">
-          <ul>
-              <li><a href="/poopReport/templates/poopReportFrontEnd/index.html">home</a></li>
-              <li><a href="/poopReport/templates/poopReportFrontEnd/register.html">register</a></li>
-              <li><a href="/poopReport/templates/poopReportFrontEnd/profile-page.html">profile</a></li>
-              <li><a href="/poopReport/templates/poopReportFrontEnd/make-report.html">make a report</a></li>
-              <li><a href="/poopReport/templates/poopReportFrontEnd/about.html">about</a></li>
-          </ul>
-      </nav>-->
+    <!--TODO add footer?-->
 </footer>
 
-<script>
-</script>
 </body>
 </html>

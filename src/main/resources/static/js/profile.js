@@ -1,15 +1,8 @@
-console.log('profile page is connected');
 
-function test(){
-console.log("is it working?");
-}
-test();
-
+let user = localStorage.getItem('loggedInUser');
 const dogForm = document.getElementById('dogForm');
 
-console.log(dogForm);
-let user = localStorage.getItem('loggedInUser');
-console.log('user is:', user);
+
 
 function sendDog(dog) {
 	fetch(`/api/users/dogs/${user}`, {
@@ -31,48 +24,37 @@ function sendDog(dog) {
 		throw new Error('ugh, the request failed');
 	});
 }
-////////// class to capture dog info //////////
+
 class Dog {
 	constructor(name) {
 		this.name = name;
 	}
 }
-/*console.log(Dog);*/
 
-///////////////////// end of class ////////////////////
 
 function getDogData() {
 	let name = document.getElementById('dog_name').value;
-	console.log("new doggo's name is: " + name);
-	const dog = new Dog(name);
-	console.log('now we have a new Dog object: ' + dog.name);
+    const dog = new Dog(name);
 	sendDog(dog);
 }
 
 const button = document.getElementById('submit-btn');
-console.log(button);
 button.addEventListener('click', (e) => {
-	console.log('event listener is working');
 	e.preventDefault();
-	console.log('prevented form default, noice');
 	getDogData();
 	dogForm.reset();
 });
-
-/*console.log('now listening for submit button');*/
-
-
 
 // ************************************ MODAL SHIZ ************************************
 //is this better in the global scope so two functions can use it? or is there another way besides repeating it?
 const modal = document.getElementById('success-modal');
 
 function showSuccessModal() {
-	//since i wrote this i learned that there is a built in method to show and close a modal :(
+	//since i wrote this i learned that there is a built in method to show and close a modal, try that?
 	modal.style.display = 'block';
 	noMoreDogs();
 	addAnotherDog();
-	//aso i need to add a close/dismiss option
+	//TODO add a close/dismiss option
 }
 
 function noMoreDogs() {

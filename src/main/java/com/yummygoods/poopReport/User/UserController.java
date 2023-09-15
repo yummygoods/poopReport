@@ -31,7 +31,7 @@ public class UserController {
     @PostMapping
     @ResponseBody
     public User save(@RequestBody UserDTO userDTO) {
-        // Create new user from DTO
+
         User newUser = new User(userDTO);
         userService.save(new User(userDTO));
 // Log them in
